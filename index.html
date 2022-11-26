@@ -50,33 +50,7 @@ We demonstrate the utility of our methods on more than 10 distinct fixed and liv
     <center><h1 style="color:white;">III. Application and Results </h1></center>
  We list here some applications of ZS Deconv. 
 
-  <center><h2 style="color:white;">1. Remodeling dynamics of F-actin and Myosin IIA during adhesion process
- after dropping a U2OS cell onto the coverslip </h2></center><br>
-
-<center><video src="https://github.com/TristaZeng/ZS-Deconv/blob/main/video/SuppVideo2_Lifeact_Myosin2_case1_addtitle_x264.mp4?raw=true" controls="controls" width="100%" height="auto"/></center>
-
-*ZS-DeconvNet enables time-lapse records of the adhesion and spreading dynamics of a U2OS cell co-expressing mEmerald-lifeact (cyan) and mCherry-myosin IIA (yellow) for 110 time points at ~150 nm resolution and 5 sec intervals.* 
-
-<hr>
-
-<center>
-    <h2 style="color:white;">2. Remodeling dynamics of F-actin and Myosin II in a second U2OS cell after dropped onto the coverslip</h2></center><br>
-
-<center><video src="https://github.com/TristaZeng/ZS-Deconv/blob/main/video/SuppVideo3_Lifeact_Myosin2_case2_addtitle_x264.mp4?raw=true" controls="controls" width="100%" height="auto"/></center>
-
-*ZS-DeconvNet enhanced TIRF imaging of 825 time points at 5 sec intervals in another U2OS cell co-expressing mEmerald-lifeact (cyan) and mCherry-myosin-IIA (yellow), recording the crawling behavior of the adhesion cell around the contact site to explore the neighborhood before spreading.*
-
-<hr>
-
-<center>
-    <h2 style="color:white;">3. Dynamics of recycling-endosomes (REs) and lysosomes or late endosomes (Lyso/LEs) revealed by ZS-DeconvNet</h2></center><br>
-
-<center><video src="https://github.com/TristaZeng/ZS-Deconv/blob/main/video/SuppVideo4_Rab11_Lamp1_addtitle_x264_CRF18.mp4?raw=true" controls="controls" width="100%" height="auto"/></center>
-*The rapid dynamics of REs and Lyso/LEs are captured at the spatiotemporal resolution of 150 nm and 3 Hz for ~1,500 time points in a gene-edited SUM159 cell endogenously expressing EGFP-Rab11 (Green) and mCherry-Lamp1 (magenta). Right panels present the magnified images of the boxed region in the left, showing the dynamic behaviors of Lyso/LEs (top) and REs (bottom) of interests and their motion trajectories.*
-
-<hr>
-
-<center><h2 style="color:white;">4. Subcellular dynamics and interactions of mitochondria and ER during mitosis visualized via 3D ZS-DeconvNet</h2></center>
+ <center><h2 style="color:white;">1. Subcellular dynamics and interactions of mitochondria and ER during mitosis visualized via 3D ZS-DeconvNet</h2></center>
 
 <center><video src="https://github.com/TristaZeng/ZS-Deconv/blob/main/video/SuppVideo5_Mitosis_Mito_HeLa.mp4?raw=true" controls="controls" width="100%" height="auto"/></center>
 *SNR and resolution enhanced three-color volumetric imaging via 3D ZS-DeconvNet for 937 time points at 10 sec intervals in a HeLa cell stably expressing calnexin-mEmerald (ER in grey), H2B-mCherry (chromosome in orange) and Mito-Halo (mitochondria in cyan).*
@@ -99,15 +73,58 @@ We demonstrate the utility of our methods on more than 10 distinct fixed and liv
   
 <hr>
 
-<center><h2 style="color:white;">5. Visualizing disassemble and reassemble process of nuclear speckles during mitosis as seen by 3D ZS-DeconvNet enhanced LLSM</h2></center><br>
-
-<center><video src="https://github.com/TristaZeng/ZS-Deconv/blob/main/video/SuppVideo6_Mitosis_SC35.mp4?raw=true" controls="controls" width="100%" height="auto"/></center>
-*Two-color volumetric super-resolution imaging of nuclear speckles (green) and chromosomes (magenta) labelled with HeLa-SC35 and H2B-mCherry, respectively, at the speed of 10 sec per volume over 318 time points within a FOV of a group of HeLa cells, recording the entire multi-phase separation dynamics of nuclear speckles during mitosis with a high spatiotemporal resolution.*
-
-<center><h2 style="color:white;">6. Comparison of different deconvolution methods on a four-color confocal stack of an early mouse embryo</h2></center><br>
+<center><h2 style="color:white;">2. Comparison of different deconvolution methods on a four-color confocal stack of an early mouse embryo</h2></center><br>
 
 <center><video src="https://github.com/TristaZeng/ZS-Deconv/blob/main/video/SuppVideo7_Confocal_Mouse_Embryo.mp4?raw=true" controls="controls" width="100%" height="auto"/></center>
 *3D rendering of an early mouse embryo immunostained for microtubule bridges (cyan, left panel), chromosomes (orange, left panel), actin rings (magenta, right panel), and apical domain (green, panel), showing the contrast and resolution comparison across the mouse embryo, from raw confocal microscopy, RL deconvolution, sparse deconvolution, and 3D ZS-DeconvNet.*
+
+<br>
+  <div id="slider" class="beer-slider" data-beer-label="Wide-field" data-start="50">
+      <img src="https://github.com/TristaZeng/ZS-Deconv/blob/main/images/MAX_Composite_raw-1(RGB).png?raw=true" width="300">
+      <div class="beer-reveal" data-beer-label="ZS-DeconvNet">
+          <img src="https://github.com/TristaZeng/ZS-Deconv/blob/main/images/MAX_Composite_deconv-1(RGB).png?raw=true" width="300">
+      </div>
+  </div>
+  <div id="slider" class="beer-slider" data-beer-label="Wide-field" data-start="50">
+      <img src="https://github.com/TristaZeng/ZS-Deconv/blob/main/images/MAX_Composite_raw-2(RGB).png?raw=true" width="300">
+      <div class="beer-reveal" data-beer-label="ZS-DeconvNet">
+          <img src="https://github.com/TristaZeng/ZS-Deconv/blob/main/images/MAX_Composite_deconv-2(RGB).png?raw=true" width="300">
+      </div>
+  </div>
+  <p style="font-style:italic;">Time-lapse three-color 3D rendering images reconstructed via 3D ZS-DeconvNet of ER, H2B, and Mito.</p>
+  <br>
+
+
+  <center><h2 style="color:white;">3. Remodeling dynamics of F-actin and Myosin IIA during adhesion process
+ after dropping a U2OS cell onto the coverslip </h2></center><br>
+
+<center><video src="https://github.com/TristaZeng/ZS-Deconv/blob/main/video/SuppVideo2_Lifeact_Myosin2_case1_addtitle_x264.mp4?raw=true" controls="controls" width="100%" height="auto"/></center>
+
+*ZS-DeconvNet enables time-lapse records of the adhesion and spreading dynamics of a U2OS cell co-expressing mEmerald-lifeact (cyan) and mCherry-myosin IIA (yellow) for 110 time points at ~150 nm resolution and 5 sec intervals.* 
+
+<hr>
+
+<center>
+    <h2 style="color:white;">4. Remodeling dynamics of F-actin and Myosin II in a second U2OS cell after dropped onto the coverslip</h2></center><br>
+
+<center><video src="https://github.com/TristaZeng/ZS-Deconv/blob/main/video/SuppVideo3_Lifeact_Myosin2_case2_addtitle_x264.mp4?raw=true" controls="controls" width="100%" height="auto"/></center>
+
+*ZS-DeconvNet enhanced TIRF imaging of 825 time points at 5 sec intervals in another U2OS cell co-expressing mEmerald-lifeact (cyan) and mCherry-myosin-IIA (yellow), recording the crawling behavior of the adhesion cell around the contact site to explore the neighborhood before spreading.*
+
+<hr>
+
+<center>
+    <h2 style="color:white;">5. Dynamics of recycling-endosomes (REs) and lysosomes or late endosomes (Lyso/LEs) revealed by ZS-DeconvNet</h2></center><br>
+
+<center><video src="https://github.com/TristaZeng/ZS-Deconv/blob/main/video/SuppVideo4_Rab11_Lamp1_addtitle_x264_CRF18.mp4?raw=true" controls="controls" width="100%" height="auto"/></center>
+*The rapid dynamics of REs and Lyso/LEs are captured at the spatiotemporal resolution of 150 nm and 3 Hz for ~1,500 time points in a gene-edited SUM159 cell endogenously expressing EGFP-Rab11 (Green) and mCherry-Lamp1 (magenta). Right panels present the magnified images of the boxed region in the left, showing the dynamic behaviors of Lyso/LEs (top) and REs (bottom) of interests and their motion trajectories.*
+
+<hr>
+
+<center><h2 style="color:white;">6. Visualizing disassemble and reassemble process of nuclear speckles during mitosis as seen by 3D ZS-DeconvNet enhanced LLSM</h2></center><br>
+
+<center><video src="https://github.com/TristaZeng/ZS-Deconv/blob/main/video/SuppVideo6_Mitosis_SC35.mp4?raw=true" controls="controls" width="100%" height="auto"/></center>
+*Two-color volumetric super-resolution imaging of nuclear speckles (green) and chromosomes (magenta) labelled with HeLa-SC35 and H2B-mCherry, respectively, at the speed of 10 sec per volume over 318 time points within a FOV of a group of HeLa cells, recording the entire multi-phase separation dynamics of nuclear speckles during mitosis with a high spatiotemporal resolution.*
 
 <center><h2 style="color:white;">7. Volumetric dynamics of lysosomes and hypodermal cell fusion during the development of a C. elegans embryo revealed by 3D ZS-DeconvNet</h2></center><br>
 
