@@ -57,11 +57,12 @@
   position: fixed;
 
   @media (max-width: 38em) {
-    margin-bottom: 2rem;
+    margin-bottom: 0rem;
   }
 
   ul {
     padding: 0;
+    margin-bottom: 0rem;
     border-bottom-color: $nav-bottom-border-color;
 /**border-bottom-width: $nav-bottom-border-width; */
     border-bottom-width: 0px;
