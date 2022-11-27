@@ -55,6 +55,7 @@
   top: 0rem;
   width: 100%;
   position: fixed;
+  z-index: 999;
 
   @media (max-width: 38em) {
     margin-bottom: 0rem;
