@@ -46,7 +46,7 @@
 */
 
 .nav-main {
-  font-size: $font-size; // override mobile media query
+  font-size: 20; // override mobile media query
   text-align: right;
   margin-bottom: 4rem;
   border-bottom-style: solid;
@@ -78,17 +78,13 @@
       padding: $nav-link-padding-y $nav-link-padding-x;
     }
   }
-
-  li.logo a {
-    color: $nav-icon-color;
-    background: $nav-icon-background-color;
+  li.main-page a {
     font-weight: bold;
-    width: 1.6em;
-    height: 1.6em;
-    border-radius: 50px;
-    line-height: 1.6em;
-    margin: 0 1rem;
-    padding: 0;
+    color: $nav-link-color;
+      display: block;
+      text-decoration: none;
+      padding: $nav-link-padding-y $nav-link-padding-x;
   }
+
 }
 
