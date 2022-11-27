@@ -32,13 +32,11 @@ We demonstrate the utility of our methods on more than 10 distinct fixed and liv
   As is mentioned in the introduction, ZS-DeconvNet enables a resolution enhancement of more than 1.5 folds even under low-light or low-SNR conditions. The representative SR images of Lyso and MTs reconstructed by RL deconvolution (second column), sparse deconvolution (third column) and ZS-DeconvNet (fourth column) with clear WF images displayed for reference are listed below. A statistical comparisons of RL deconvolution, sparse deconvolution and ZS-DeconvNet in terms of PSNR, FRC resolution (n=100) and full width at half maximum (FWHM) demonstrate ZS-DeconvNet's ability.
   <br><br>
     <center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/Reso_enhance_under_low_SNR.png?raw=true" width="1050" align="middle" /></center>
-  <br>
 
   <h2 style="color:white;">2. Accessible to multiple modalities</h2>
   ZS-DeconvNet has been applied on microscopy modalities including total internal reflection fluorescence microscopy, three-dimensional (3D) wide-field (WF) microscopy, confocal microscopy and lattice light-sheet (LLS) microscopy. Examples of WF microscopy (C. elegans embryo with apical junction, cell membrane (cyan) and lysosomes (red) labelled), LLS-SIM (F-actin in a HeLa cell, and mitochondrial outer membrane labelled with TOMM20 in a 293T cell) and confocal microscopy (early mouse embryo immunostained for microtubule bridges (cyan), chromosomes (orange), actin rings (magenta), and apical domain (green)) are shown below.
     <br><br>
     <center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/MultiModality-v2.png?raw=true" width="1050" align="middle" /></center>
-    <br>
   
   <h2 style="color:white;">3. Can be sufficiently trained on just one slice or stack of raw images</h2>
   ZS-DeconvNet models trained with a single image re-corrupted with a sufficient time show even better performance compared to RL deconvolution or Sparse deconvolution on 2D simulated and experimental data (row 1,2). 3D ZS-DeconvNet exhibits a similar characristics.
@@ -48,7 +46,6 @@ We demonstrate the utility of our methods on more than 10 distinct fixed and liv
   <h2 style="color:white;">4. Tuning-free for hyper-parameters</h2>
   ZS-DeconvNet does not need tuning for hyper-paramters, giving it a huge advantage over Sparse deconvolution, which has multiple hyper-paramters such as sparsity, fidelity, z-continuity and so on. The optimal recorruption parameters for generating training data for 2D ZS-DeconvNet are already set, to be more specific, $\alpha=1,\beta_1=1,\beta_2=\sigma ^2$, where $\sigma$ is the standard deviation of additive white Gaussian noise, typically obtainable through camera calibration.
 
-  
   <hr>
     <center><h1 style="color:white;">III. Application and Results </h1></center>
  We list here some applications of ZS Deconv. 
@@ -58,7 +55,7 @@ We demonstrate the utility of our methods on more than 10 distinct fixed and liv
 <center><video src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/video/SuppVideo5_Mitosis_Mito_HeLa.mp4?raw=true" controls="controls" width="100%" height="auto"/></center>
 <i>SNR and resolution enhanced three-color volumetric imaging via 3D ZS-DeconvNet for 937 time points at 10 sec intervals in a HeLa cell stably expressing calnexin-mEmerald (ER in grey), H2B-mCherry (chromosome in orange) and Mito-Halo (mitochondria in cyan).</i>
 
-<br>
+<br><br>
   <div id="slider" class="beer-slider" data-beer-label="Wide-field" data-start="50">
       <img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/raw_time695_slice55-65_rgb_xyView2-1.png?raw=true" width="400">
       <div class="beer-reveal" data-beer-label="ZS-DeconvNet">
@@ -72,16 +69,14 @@ We demonstrate the utility of our methods on more than 10 distinct fixed and liv
       </div>
   </div>
   <p style="font-style:italic;">Time-lapse three-color 3D rendering images reconstructed via 3D ZS-DeconvNet of ER, H2B, and Mito.</p>
-  <br>
   
-<hr>
 
 <center><h2 style="color:white;">2. Comparison of different deconvolution methods on a four-color confocal stack of an early mouse embryo</h2></center><br>
 
 <center><video src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/video/SuppVideo7_Confocal_Mouse_Embryo.mp4?raw=true" controls="controls" width="100%" height="auto"/></center>
 *3D rendering of an early mouse embryo immunostained for microtubule bridges (cyan, left panel), chromosomes (orange, left panel), actin rings (magenta, right panel), and apical domain (green, panel), showing the contrast and resolution comparison across the mouse embryo, from raw confocal microscopy, RL deconvolution, sparse deconvolution, and 3D ZS-DeconvNet.*
 
-<br>
+<br><br>
   <div id="slider3" class="beer-slider" data-beer-label="Wide-field" data-start="50">
       <img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/MAX_Composite_raw-1(RGB).png?raw=true" width="500">
       <div class="beer-reveal" data-beer-label="ZS-DeconvNet">
@@ -95,7 +90,6 @@ We demonstrate the utility of our methods on more than 10 distinct fixed and liv
       </div>
   </div>
   <p style="font-style:italic;">Time-lapse three-color 3D rendering images reconstructed via 3D ZS-DeconvNet of ER, H2B, and Mito.</p>
-  <br>
 
 
   <center><h2 style="color:white;">3. Remodeling dynamics of F-actin and Myosin IIA during adhesion process
@@ -105,7 +99,6 @@ We demonstrate the utility of our methods on more than 10 distinct fixed and liv
 
 *ZS-DeconvNet enables time-lapse records of the adhesion and spreading dynamics of a U2OS cell co-expressing mEmerald-lifeact (cyan) and mCherry-myosin IIA (yellow) for 110 time points at ~150 nm resolution and 5 sec intervals.* 
 
-<hr>
 
 <center>
     <h2 style="color:white;">4. Remodeling dynamics of F-actin and Myosin II in a second U2OS cell after dropped onto the coverslip</h2></center><br>
@@ -114,15 +107,12 @@ We demonstrate the utility of our methods on more than 10 distinct fixed and liv
 
 *ZS-DeconvNet enhanced TIRF imaging of 825 time points at 5 sec intervals in another U2OS cell co-expressing mEmerald-lifeact (cyan) and mCherry-myosin-IIA (yellow), recording the crawling behavior of the adhesion cell around the contact site to explore the neighborhood before spreading.*
 
-<hr>
 
 <center>
     <h2 style="color:white;">5. Dynamics of recycling-endosomes (REs) and lysosomes or late endosomes (Lyso/LEs) revealed by ZS-DeconvNet</h2></center><br>
 
 <center><video src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/video/SuppVideo4_Rab11_Lamp1_addtitle_x264_CRF18.mp4?raw=true" controls="controls" width="100%" height="auto"/></center>
 *The rapid dynamics of REs and Lyso/LEs are captured at the spatiotemporal resolution of 150 nm and 3 Hz for ~1,500 time points in a gene-edited SUM159 cell endogenously expressing EGFP-Rab11 (Green) and mCherry-Lamp1 (magenta). Right panels present the magnified images of the boxed region in the left, showing the dynamic behaviors of Lyso/LEs (top) and REs (bottom) of interests and their motion trajectories.*
-
-<hr>
 
 <center><h2 style="color:white;">6. Visualizing disassemble and reassemble process of nuclear speckles during mitosis as seen by 3D ZS-DeconvNet enhanced LLSM</h2></center><br>
 
