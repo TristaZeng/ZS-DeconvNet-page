@@ -39,7 +39,7 @@ ZS-DeconvNet has been applied on microscopy modalities including total internal 
   <h2 style="color:white;">3. Can be sufficiently trained on just one slice or stack of raw images</h2>
 ZS-DeconvNet models trained with a single image re-corrupted with a sufficient time show even better performance compared to RL deconvolution or Sparse deconvolution on 2D simulated and experimental data (row 1,2). 3D ZS-DeconvNet exhibits a similar characristics.
 <br><br>
-    <center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/ZeroShot.png?raw=true" width="1050" align="middle" /></center>
+    <center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/ZeroShot-v2.png?raw=true" width="1050" align="middle" /></center>
 </p>
 
 <p>
@@ -50,7 +50,7 @@ ZS-DeconvNet does not need tuning for hyper-paramters, giving it a huge advantag
   <hr>
     <center><h1 style="color:white;">III. Application and Results </h1></center>
 
- <center><h2 style="color:white;">1. Subcellular dynamics and interactions of mitochondria and ER during mitosis visualized via 3D ZS-DeconvNet</h2></center>
+<h2 style="color:white;">1. Subcellular dynamics and interactions of mitochondria and ER during mitosis visualized via 3D ZS-DeconvNet</h2>
 
 <center><video src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/video/SuppVideo5_Mitosis_Mito_HeLa.mp4?raw=true" controls="controls" width="100%" height="auto"/></center>
 <i>SNR and resolution enhanced three-color volumetric imaging via 3D ZS-DeconvNet for 937 time points at 10 sec intervals in a HeLa cell stably expressing calnexin-mEmerald (ER in grey), H2B-mCherry (chromosome in orange) and Mito-Halo (mitochondria in cyan).</i>
@@ -71,7 +71,7 @@ ZS-DeconvNet does not need tuning for hyper-paramters, giving it a huge advantag
   <p style="font-style:italic;">Time-lapse three-color 3D rendering images reconstructed via 3D ZS-DeconvNet of ER, H2B, and Mito.</p>
   
 
-<center><h2 style="color:white;">2. Comparison of different deconvolution methods on a four-color confocal stack of an early mouse embryo</h2></center><br>
+<h2 style="color:white;">2. Comparison of different deconvolution methods on a four-color confocal stack of an early mouse embryo</h2>
 
 <center><video src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/video/SuppVideo7_Confocal_Mouse_Embryo.mp4?raw=true" controls="controls" width="100%" height="auto"/></center>
 <i>3D rendering of an early mouse embryo immunostained for microtubule bridges (cyan, left panel), chromosomes (orange, left panel), actin rings (magenta, right panel), and apical domain (green, panel), showing the contrast and resolution comparison across the mouse embryo, from raw confocal microscopy, RL deconvolution, sparse deconvolution, and 3D ZS-DeconvNet.</i>
@@ -92,26 +92,25 @@ ZS-DeconvNet does not need tuning for hyper-paramters, giving it a huge advantag
   <p style="font-style:italic;">Time-lapse three-color 3D rendering images reconstructed via 3D ZS-DeconvNet of ER, H2B, and Mito.</p>
 
 
-  <center><h2 style="color:white;">3. Remodeling dynamics of F-actin and Myosin IIA during adhesion process
- after dropping a U2OS cell onto the coverslip </h2></center><br>
+<h2 style="color:white;">3. Remodeling dynamics of F-actin and Myosin IIA during adhesion process
+ after dropping a U2OS cell onto the coverslip </h2>
 
 <center><video src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/video/SuppVideo2_Lifeact_Myosin2_case1_addtitle_x264.mp4?raw=true" controls="controls" width="100%" height="auto"/></center>
 
 <i>ZS-DeconvNet enables time-lapse records of the adhesion and spreading dynamics of a U2OS cell co-expressing mEmerald-lifeact (cyan) and mCherry-myosin IIA (yellow) for 110 time points at ~150 nm resolution and 5 sec intervals.</i>
 
 
-<center>
-    <h2 style="color:white;">4. Dynamics of recycling-endosomes (REs) and lysosomes or late endosomes (Lyso/LEs) revealed by ZS-DeconvNet</h2></center><br>
+<h2 style="color:white;">4. Dynamics of recycling-endosomes (REs) and lysosomes or late endosomes (Lyso/LEs) revealed by ZS-DeconvNet</h2>
 
 <center><video src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/video/SuppVideo4_Rab11_Lamp1_addtitle_x264_CRF18.mp4?raw=true" controls="controls" width="100%" height="auto"/></center>
 <i>The rapid dynamics of REs and Lyso/LEs are captured at the spatiotemporal resolution of 150 nm and 3 Hz for ~1,500 time points in a gene-edited SUM159 cell endogenously expressing EGFP-Rab11 (Green) and mCherry-Lamp1 (magenta). Right panels present the magnified images of the boxed region in the left, showing the dynamic behaviors of Lyso/LEs (top) and REs (bottom) of interests and their motion trajectories.</i>
 
-<center><h2 style="color:white;">5. Visualizing disassemble and reassemble process of nuclear speckles during mitosis as seen by 3D ZS-DeconvNet enhanced LLSM</h2></center><br>
+<h2 style="color:white;">5. Visualizing disassemble and reassemble process of nuclear speckles during mitosis as seen by 3D ZS-DeconvNet enhanced LLSM</h2>
 
 <center><video src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/video/SuppVideo6_Mitosis_SC35.mp4?raw=true" controls="controls" width="100%" height="auto"/></center>
 <i>Two-color volumetric super-resolution imaging of nuclear speckles (green) and chromosomes (magenta) labelled with HeLa-SC35 and H2B-mCherry, respectively, at the speed of 10 sec per volume over 318 time points within a FOV of a group of HeLa cells, recording the entire multi-phase separation dynamics of nuclear speckles during mitosis with a high spatiotemporal resolution.</i>
 
-<center><h2 style="color:white;">6. Volumetric dynamics of lysosomes and hypodermal cell fusion during the development of a C. elegans embryo revealed by 3D ZS-DeconvNet</h2></center><br>
+<h2 style="color:white;">6. Volumetric dynamics of lysosomes and hypodermal cell fusion during the development of a C. elegans embryo revealed by 3D ZS-DeconvNet</h2>
 
 <center><video src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/video/SuppVideo8_WF_Celegans_Embryo.mp4?raw=true" controls="controls" width="100%" height="auto"/></center>
 <i>Long-term volumetric SR imaging of a C. elegans embryo via 3D ZS-DeconvNet enhanced wide-filed microscopy for over 213 time points at 30 sec intervals with negligible photobleaching and phototoxicity. </i>
