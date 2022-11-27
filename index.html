@@ -12,7 +12,7 @@ title: Home
 
   <p>
     <center><h1 style="color:white;">I. Introduction to ZS-DeconvNet </h1></center>
-Computational super-resolution (SR) methods have been an effective way of achieving super-resolution in microscopy imaging. However, traditional SR methods require large amount of time, and is susceptible to noise. Recent interest in combining deep learning (DL) with microscopy brings us some DL-based SR methods, but all of which require high-quality supervised data, which are laborious to be acquired and sometimes even impracticable owing to the high dynamics of living cells. <br>
+&nbsp;Computational super-resolution (SR) methods have been an effective way of achieving super-resolution in microscopy imaging. However, traditional SR methods require large amount of time, and is susceptible to noise. Recent interest in combining deep learning (DL) with microscopy brings us some DL-based SR methods, but all of which require high-quality supervised data, which are laborious to be acquired and sometimes even impracticable owing to the high dynamics of living cells. <br>
 To solve this problem, we propose the zero-shot deconvolution networks (ZS-DeconvNet). ZS-DeconvNet can <b>instantly</b> increase the resolution of microscope images by more than <b>1.5</b> folds even at <b>low signal-to-noise ratios</b>. 
 <br><br>
     <center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/NetStruc.png?raw=true" width="1050" align="middle" /></center>
@@ -21,17 +21,17 @@ We demonstrate the utility of our methods on more than 10 distinct fixed and liv
     <br><br>
     <center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/SIM_deconv.png?raw=true" width="1050" align="middle" /></center>
   </p>
- For more specific illustration on the principle and theory of ZS-DeconvNet, see <a href='https://github.com/cabooster/DeepCAD'>Principle</a>.
+ For more specific illustration on the principle and theory of ZS-DeconvNet, see <a href='https://tristazeng.github.io/ZS-DeconvNet/Principle/'>Principle</a>. For open-source code and tutorials on how to implement ZS-DeconvNet, see <a href='https://tristazeng.github.io/ZS-DeconvNet/Tutorial/'>Tutorial</a>.
   
   <hr>
   <p>
     <center><h1 style="color:white;">II. Characrization of ZS-DeconvNet </h1></center>
-  <h2 style="color:white;">1. More than 1.5 folds resolution enhancement with high fidelity even under low-light or low-SNR conditions</h2>
+  <h2 style="color:white;">1. More than 1.5 folds resolution enhancement with high fidelity under low-light or low-SNR conditions</h2>
   As is mentioned in the introduction, ZS-DeconvNet enables a resolution enhancement of more than 1.5 folds even under low-light or low-SNR conditions. The representative SR images of Lyso and MTs reconstructed by RL deconvolution (second column), sparse deconvolution (third column) and ZS-DeconvNet (fourth column) with clear WF images displayed for reference are listed below. A statistical comparisons of RL deconvolution, sparse deconvolution and ZS-DeconvNet in terms of PSNR, FRC resolution (n=100) and full width at half maximum (FWHM) demonstrate ZS-DeconvNet's ability.
   <br><br>
     <center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/Reso_enhance_under_low_SNR.png?raw=true" width="1050" align="middle" /></center>
 
-  <h2 style="color:white;">2. Accessible to multiple modalities</h2>
+  <h2 style="color:white;">2. Compatible with diverse imaging modalities</h2>
   ZS-DeconvNet has been applied on microscopy modalities including total internal reflection fluorescence microscopy, three-dimensional (3D) wide-field (WF) microscopy, confocal microscopy and lattice light-sheet (LLS) microscopy. Examples of WF microscopy (C. elegans embryo with apical junction, cell membrane (cyan) and lysosomes (red) labelled), LLS-SIM (F-actin in a HeLa cell, and mitochondrial outer membrane labelled with TOMM20 in a 293T cell) and confocal microscopy (early mouse embryo immunostained for microtubule bridges (cyan), chromosomes (orange), actin rings (magenta), and apical domain (green)) are shown below.
     <br><br>
     <center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/MultiModality-v2.png?raw=true" width="1050" align="middle" /></center>
@@ -46,7 +46,6 @@ We demonstrate the utility of our methods on more than 10 distinct fixed and liv
 
   <hr>
     <center><h1 style="color:white;">III. Application and Results </h1></center>
- We list here some applications of ZS Deconv. 
 
  <center><h2 style="color:white;">1. Subcellular dynamics and interactions of mitochondria and ER during mitosis visualized via 3D ZS-DeconvNet</h2></center>
 
@@ -99,25 +98,17 @@ We demonstrate the utility of our methods on more than 10 distinct fixed and liv
 
 
 <center>
-    <h2 style="color:white;">4. Remodeling dynamics of F-actin and Myosin II in a second U2OS cell after dropped onto the coverslip</h2></center><br>
-
-<center><video src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/video/SuppVideo3_Lifeact_Myosin2_case2_addtitle_x264.mp4?raw=true" controls="controls" width="100%" height="auto"/></center>
-
-<i>ZS-DeconvNet enhanced TIRF imaging of 825 time points at 5 sec intervals in another U2OS cell co-expressing mEmerald-lifeact (cyan) and mCherry-myosin-IIA (yellow), recording the crawling behavior of the adhesion cell around the contact site to explore the neighborhood before spreading.</i>
-
-
-<center>
-    <h2 style="color:white;">5. Dynamics of recycling-endosomes (REs) and lysosomes or late endosomes (Lyso/LEs) revealed by ZS-DeconvNet</h2></center><br>
+    <h2 style="color:white;">4. Dynamics of recycling-endosomes (REs) and lysosomes or late endosomes (Lyso/LEs) revealed by ZS-DeconvNet</h2></center><br>
 
 <center><video src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/video/SuppVideo4_Rab11_Lamp1_addtitle_x264_CRF18.mp4?raw=true" controls="controls" width="100%" height="auto"/></center>
 <i>The rapid dynamics of REs and Lyso/LEs are captured at the spatiotemporal resolution of 150 nm and 3 Hz for ~1,500 time points in a gene-edited SUM159 cell endogenously expressing EGFP-Rab11 (Green) and mCherry-Lamp1 (magenta). Right panels present the magnified images of the boxed region in the left, showing the dynamic behaviors of Lyso/LEs (top) and REs (bottom) of interests and their motion trajectories.</i>
 
-<center><h2 style="color:white;">6. Visualizing disassemble and reassemble process of nuclear speckles during mitosis as seen by 3D ZS-DeconvNet enhanced LLSM</h2></center><br>
+<center><h2 style="color:white;">5. Visualizing disassemble and reassemble process of nuclear speckles during mitosis as seen by 3D ZS-DeconvNet enhanced LLSM</h2></center><br>
 
 <center><video src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/video/SuppVideo6_Mitosis_SC35.mp4?raw=true" controls="controls" width="100%" height="auto"/></center>
 <i>Two-color volumetric super-resolution imaging of nuclear speckles (green) and chromosomes (magenta) labelled with HeLa-SC35 and H2B-mCherry, respectively, at the speed of 10 sec per volume over 318 time points within a FOV of a group of HeLa cells, recording the entire multi-phase separation dynamics of nuclear speckles during mitosis with a high spatiotemporal resolution.</i>
 
-<center><h2 style="color:white;">7. Volumetric dynamics of lysosomes and hypodermal cell fusion during the development of a C. elegans embryo revealed by 3D ZS-DeconvNet</h2></center><br>
+<center><h2 style="color:white;">6. Volumetric dynamics of lysosomes and hypodermal cell fusion during the development of a C. elegans embryo revealed by 3D ZS-DeconvNet</h2></center><br>
 
 <center><video src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/video/SuppVideo8_WF_Celegans_Embryo.mp4?raw=true" controls="controls" width="100%" height="auto"/></center>
 <i>Long-term volumetric SR imaging of a C. elegans embryo via 3D ZS-DeconvNet enhanced wide-filed microscopy for over 213 time points at 30 sec intervals with negligible photobleaching and phototoxicity. </i>
