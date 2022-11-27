@@ -10,25 +10,25 @@ title: Home
 
     <center><h1 style="color:white;">I. Introduction to ZS-DeconvNet </h1></center>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Computational super-resolution (SR) methods have been an effective way of achieving super-resolution in microscopy imaging. However, traditional SR methods require large amount of time, and is susceptible to noise. Recent interest in combining deep learning (DL) with microscopy brings us some DL-based SR methods, but all of which require high-quality supervised data, which are laborious to be acquired and sometimes even impracticable owing to the high dynamics of living cells. <br>
-<p style="text-indent: 3rem;">To solve this problem, we propose the zero-shot deconvolution networks (ZS-DeconvNet). ZS-DeconvNet can <b>instantly</b> increase the resolution of microscope images by more than <b>1.5</b> folds even at <b>low signal-to-noise ratios</b>. </p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To solve this problem, we propose the zero-shot deconvolution networks (ZS-DeconvNet). ZS-DeconvNet can <b>instantly</b> increase the resolution of microscope images by more than <b>1.5</b> folds even at <b>low signal-to-noise ratios</b>. 
 <br><br>
     <center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/NetStruc.png?raw=true" width="1050" align="middle" /></center>
-
-&nbsp;&nbsp;&nbsp;We demonstrate the utility of our methods on more than 10 distinct fixed and live samples from subcellular structures to embryos acquired by multiple imaging modalities, including total internal reflection fluorescence microscopy, three-dimensional (3D) wide-field microscopy, confocal microscopy, and lattice light-sheet microscopy. Here is an example of ZS-DeconvNet across the microtubules in a COS-7 cell, from raw SIM images (left), conventional SIM image (right), and ZS-DeconvNet enhanced SIM image (middle). 
+  </p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We demonstrate the utility of our methods on more than 10 distinct fixed and live samples from subcellular structures to embryos acquired by multiple imaging modalities, including total internal reflection fluorescence microscopy, three-dimensional (3D) wide-field microscopy, confocal microscopy, and lattice light-sheet microscopy. Here is an example of ZS-DeconvNet across the microtubules in a COS-7 cell, from raw SIM images (left), conventional SIM image (right), and ZS-DeconvNet enhanced SIM image (middle). 
     <br><br>
     <center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/SIM_deconv.png?raw=true" width="1050" align="middle" /></center>
- &nbsp;&nbsp;&nbsp;For more specific illustration on the principle and theory of ZS-DeconvNet, see <a href='https://tristazeng.github.io/ZS-DeconvNet/Principle/'>Principle</a>. For open-source code and tutorials on how to implement ZS-DeconvNet, see <a href='https://tristazeng.github.io/ZS-DeconvNet/Tutorial/'>Tutorial</a>.
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For more specific illustration on the principle and theory of ZS-DeconvNet, see <a href='https://tristazeng.github.io/ZS-DeconvNet/Principle/'>Principle</a>. For open-source code and tutorials on how to implement ZS-DeconvNet, see <a href='https://tristazeng.github.io/ZS-DeconvNet/Tutorial/'>Tutorial</a>.
   
   <hr>
   <p>
     <center><h1 style="color:white;">II. Characrization of ZS-DeconvNet </h1></center>
   <h2 style="color:white;">1. More than 1.5 folds resolution enhancement with high fidelity under low-light or low-SNR conditions</h2>
-  &nbsp;&nbsp;&nbsp;As is mentioned in the introduction, ZS-DeconvNet enables a resolution enhancement of more than 1.5 folds even under low-light or low-SNR conditions. The representative SR images of Lyso and MTs reconstructed by RL deconvolution (second column), sparse deconvolution (third column) and ZS-DeconvNet (fourth column) with clear WF images displayed for reference are listed below. A statistical comparisons of RL deconvolution, sparse deconvolution and ZS-DeconvNet in terms of PSNR, FRC resolution (n=100) and full width at half maximum (FWHM) demonstrate ZS-DeconvNet's ability.
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As is mentioned in the introduction, ZS-DeconvNet enables a resolution enhancement of more than 1.5 folds even under low-light or low-SNR conditions. The representative SR images of Lyso and MTs reconstructed by RL deconvolution (second column), sparse deconvolution (third column) and ZS-DeconvNet (fourth column) with clear WF images displayed for reference are listed below. A statistical comparisons of RL deconvolution, sparse deconvolution and ZS-DeconvNet in terms of PSNR, FRC resolution (n=100) and full width at half maximum (FWHM) demonstrate ZS-DeconvNet's ability.
   <br><br>
     <center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/Reso_enhance_under_low_SNR.png?raw=true" width="1050" align="middle" /></center>
 
   <h2 style="color:white;">2. Compatible with diverse imaging modalities</h2>
-  &nbsp;&nbsp;&nbsp;ZS-DeconvNet has been applied on microscopy modalities including total internal reflection fluorescence microscopy, three-dimensional (3D) wide-field (WF) microscopy, confocal microscopy and lattice light-sheet (LLS) microscopy. Examples of WF microscopy (C. elegans embryo with apical junction, cell membrane (cyan) and lysosomes (red) labelled), LLS-SIM (F-actin in a HeLa cell, and mitochondrial outer membrane labelled with TOMM20 in a 293T cell) and confocal microscopy (early mouse embryo immunostained for microtubule bridges (cyan), chromosomes (orange), actin rings (magenta), and apical domain (green)) are shown below.
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ZS-DeconvNet has been applied on microscopy modalities including total internal reflection fluorescence microscopy, three-dimensional (3D) wide-field (WF) microscopy, confocal microscopy and lattice light-sheet (LLS) microscopy. Examples of WF microscopy (C. elegans embryo with apical junction, cell membrane (cyan) and lysosomes (red) labelled), LLS-SIM (F-actin in a HeLa cell, and mitochondrial outer membrane labelled with TOMM20 in a 293T cell) and confocal microscopy (early mouse embryo immunostained for microtubule bridges (cyan), chromosomes (orange), actin rings (magenta), and apical domain (green)) are shown below.
     <br><br>
     <center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/MultiModality-v2.png?raw=true" width="1050" align="middle" /></center>
   </p>
@@ -36,14 +36,14 @@ title: Home
 
   <p>
   <h2 style="color:white;">3. Can be sufficiently trained on just one slice or stack of raw images</h2>
-  &nbsp;&nbsp;&nbsp;ZS-DeconvNet models trained with a single image re-corrupted with a sufficient time show even better performance compared to RL deconvolution or Sparse deconvolution on 2D simulated and experimental data (row 1,2). 3D ZS-DeconvNet exhibits a similar characristics.
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ZS-DeconvNet models trained with a single image re-corrupted with a sufficient time show even better performance compared to RL deconvolution or Sparse deconvolution on 2D simulated and experimental data (row 1,2). 3D ZS-DeconvNet exhibits a similar characristics.
 <br><br>
     <center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/ZeroShot.png?raw=true" width="1050" align="middle" /></center>
 </p>
 
 <p>
   <h2 style="color:white;">4. Tuning-free for hyper-parameters</h2>
-  &nbsp;&nbsp;&nbsp;ZS-DeconvNet does not need tuning for hyper-paramters, giving it a huge advantage over Sparse deconvolution, which has multiple hyper-paramters such as sparsity, fidelity, z-continuity and so on. The optimal recorruption parameters for generating training data for 2D ZS-DeconvNet are already set, to be more specific, $\alpha=1,\beta_1=1,\beta_2=\sigma ^2$, where $\sigma$ is the standard deviation of additive white Gaussian noise, typically obtainable through camera calibration.
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ZS-DeconvNet does not need tuning for hyper-paramters, giving it a huge advantage over Sparse deconvolution, which has multiple hyper-paramters such as sparsity, fidelity, z-continuity and so on. The optimal recorruption parameters for generating training data for 2D ZS-DeconvNet are already set, to be more specific, $\alpha=1,\beta_1=1,\beta_2=\sigma ^2$, where $\sigma$ is the standard deviation of additive white Gaussian noise, typically obtainable through camera calibration.
 </p>
 
   <hr>
