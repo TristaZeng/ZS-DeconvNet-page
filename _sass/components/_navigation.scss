@@ -48,7 +48,7 @@
 .nav-main {
   font-size: 20; // override mobile media query
   text-align: right;
-  margin-bottom: 2rem;
+  margin-bottom: 0rem;
   border-bottom-style: solid;
   border-color: $nav-bottom-border-color;
   border-bottom-width: 2px;
@@ -70,6 +70,7 @@
 
   li {
     display: inline-block;
+    vertical-align: middle
 
     a {
       color: $nav-link-color;
