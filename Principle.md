@@ -4,7 +4,7 @@ title: Principle
 
 ---
 
-<center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/Logo_v2_White_transparent.png?raw=true" width="600" align="center" /></center>
+<center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/Logo_v2_White_transparent.png?raw=true" width="500" align="center" /></center>
 
 <h2 style="color:white;">Content</h2>
 <ul>
