@@ -3,7 +3,7 @@ url:                 https://tristazeng.github.io/ZS-DeconvNet/
 baseurl:             
 markdown:            kramdown
 highlighter:         rouge
-
+theme: minima
 exclude:             ['*.sublime-*', 'README.md', 'LICENSE', 'Gemfile', 'Gemfile.lock', 'vendor/bundle']
 
 permalink:           pretty
