@@ -20,7 +20,7 @@ Our source code can be downloaded from <a href='https://github.com/'>https://git
 
 <h2 style="color:white;" id="File structure">1. File structure</h2>
 
-- `./dataset` is the default path for training data generation and test data
+- <code style="background-color:#393939;">./dataset</code> is the default path for training data generation and test data
   - `./dataset/WF_2D` includes raw 2D WF data
   - `./dataset/LLS_2D` includes raw 3D LLS data
   - `./dataset/test_WF_2D`includes demo image of Lamp1 to test ZS-DeconvNet 2D
@@ -29,7 +29,7 @@ Our source code can be downloaded from <a href='https://github.com/'>https://git
   - `./dataset/PSF` includes the 2D simulated and experimantal PSF, and the 3D simulated PSF used for training
 - `./augmented_datasets` is the default augmented training dataset path
 - `./data_augment_recorrupt_matlab` includes the MATLAB code for generating training datasets
-- `./train_inference_python` includes the Python code of training and inference, and the requied dependencies.
+- `./train_inference_python` includes the Python code of training and inference, and the required dependencies.
   - `./train_inference_python/models` includes the optional models
   - `./train_inference_python/utils` is the tool package
   - `./train_inference_python/saved_models` includes pre-trained models for testing, and is the default path to save your trained models
