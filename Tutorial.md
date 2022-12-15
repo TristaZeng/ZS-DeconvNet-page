@@ -21,42 +21,42 @@ Our source code can be downloaded from <a href='https://github.com/'>https://git
 <h2 style="color:white;" id="File structure">1. File structure</h2>
 
 - <code style="background-color:#393939;">./dataset</code> is the default path for training data generation and test data
-  - <code style="background-color:#393939;">./dataset/WF_2D` includes raw 2D WF data
-  - <code style="background-color:#393939;">./dataset/LLS_2D` includes raw 3D LLS data
-  - <code style="background-color:#393939;">./dataset/test_WF_2D`includes demo image of Lamp1 to test ZS-DeconvNet 2D
-  - <code style="background-color:#393939;">./dataset/test_LLS_3D`includes demo stack of Lamp1 to test ZS-DeconvNet 3D
-  - <code style="background-color:#393939;">./dataset/test_confocal_3D`includes demo stack of Microtubules to test ZS-DeconvNet 3D
-  - <code style="background-color:#393939;">./dataset/PSF` includes the 2D simulated and experimantal PSF, and the 3D simulated PSF used for training
-- <code style="background-color:#393939;">./augmented_datasets` is the default augmented training dataset path
-- <code style="background-color:#393939;">./data_augment_recorrupt_matlab` includes the MATLAB code for generating training datasets
-- <code style="background-color:#393939;">./train_inference_python` includes the Python code of training and inference, and the required dependencies.
-  - <code style="background-color:#393939;">./train_inference_python/models` includes the optional models
-  - <code style="background-color:#393939;">./train_inference_python/utils` is the tool package
-  - <code style="background-color:#393939;">./train_inference_python/saved_models` includes pre-trained models for testing, and is the default path to save your trained models
+  - <code style="background-color:#393939;">./dataset/WF_2D</code> includes raw 2D WF data
+  - <code style="background-color:#393939;">./dataset/LLS_2D</code> includes raw 3D LLS data
+  - <code style="background-color:#393939;">./dataset/test_WF_2D</code>includes demo image of Lamp1 to test ZS-DeconvNet 2D
+  - <code style="background-color:#393939;">./dataset/test_LLS_3D</code>includes demo stack of Lamp1 to test ZS-DeconvNet 3D
+  - <code style="background-color:#393939;">./dataset/test_confocal_3D</code>includes demo stack of Microtubules to test ZS-DeconvNet 3D
+  - <code style="background-color:#393939;">./dataset/PSF</code> includes the 2D simulated and experimantal PSF, and the 3D simulated PSF used for training
+- <code style="background-color:#393939;">./augmented_datasets</code> is the default augmented training dataset path
+- <code style="background-color:#393939;">./data_augment_recorrupt_matlab</code> includes the MATLAB code for generating training datasets
+- <code style="background-color:#393939;">./train_inference_python</code> includes the Python code of training and inference, and the required dependencies.
+  - <code style="background-color:#393939;">./train_inference_python/models</code> includes the optional models
+  - <code style="background-color:#393939;">./train_inference_python/utils</code> is the tool package
+  - <code style="background-color:#393939;">./train_inference_python/saved_models</code> includes pre-trained models for testing, and is the default path to save your trained models
 
 <h2 style="color:white;" id="Data pre-processing">2. How to generate training dataset</h2>
 
-If you would like to use our provided augmented training datasets in the folder <code style="background-color:#393939;">ZS-DeconvNet/augmented_datasets/`, you can skip this part.
+If you would like to use our provided augmented training datasets in the folder <code style="background-color:#393939;">ZS-DeconvNet/augmented_datasets/</code>, you can skip this part.
 
 <h3 style="color:white;">2.1 Data Augmentation and Re-corruption for 2D Data</h3>
 
 We use MATLAB R2021b but previous versions might be compatible. After cloning our source code, you can:
 
-+ Run <code style="background-color:#393939;">ZS-DeconvNet/data_augment_recorrupt_matlab/DataAugmFor2D.m` in MATLAB to generate 2D training data. Re-corruption is embedded in the process of augmentation. 
++ Run <code style="background-color:#393939;">ZS-DeconvNet/data_augment_recorrupt_matlab/DataAugmFor2D.m</code> in MATLAB to generate 2D training data. Re-corruption is embedded in the process of augmentation. 
 
-+ The augmented training datasets will be saved to the folder <code style="background-color:#393939;">ZS-DeconvNet/your_augmented_datasets/WF_2D`.
++ The augmented training datasets will be saved to the folder <code style="background-color:#393939;">ZS-DeconvNet/your_augmented_datasets/WF_2D</code>.
 
-+ The default option is to use the  provided datasets in the folder <code style="background-color:#393939;">ZS-DeconvNet/datasets/WF_2D`to generate training data. But you can use your own data or download more data from our [shared datasets](...). If you want to use your own data or download other data, organize the data in the same way we do, or change the data loading part in the MATLAB code.
++ The default option is to use the  provided datasets in the folder <code style="background-color:#393939;">ZS-DeconvNet/datasets/WF_2D</code>to generate training data. But you can use your own data or download more data from our [shared datasets](...). If you want to use your own data or download other data, organize the data in the same way we do, or change the data loading part in the MATLAB code.
 
 <h3 style="color:white;">2.2 Data Augmentation and Re-sampling for 3D Data</h3>
 
 Similar to training datasets generation with 2D data, you can:
 
-+ Run <code style="background-color:#393939;">ZS-DeconvNet/data_augment_recorrupt_matlab/DataAugmFor3D.m` to generate 3D training data. Re-sampling is embedded in the process of augmentation. 
++ Run <code style="background-color:#393939;">ZS-DeconvNet/data_augment_recorrupt_matlab/DataAugmFor3D.m</code> to generate 3D training data. Re-sampling is embedded in the process of augmentation. 
 
-+ The augmented training datasets will be saved automatically to the folder <code style="background-color:#393939;">ZS-DeconvNet/your_augmented_datasets/LLS_3D`.
++ The augmented training datasets will be saved automatically to the folder <code style="background-color:#393939;">ZS-DeconvNet/your_augmented_datasets/LLS_3D</code>.
 
-+ The default option is to use the provided datasets in the folder <code style="background-color:#393939;">ZS-DeconvNet/datasets/LLS_3D` to perform augmentation and re-sampling, but you can use other data. 
++ The default option is to use the provided datasets in the folder <code style="background-color:#393939;">ZS-DeconvNet/datasets/LLS_3D</code> to perform augmentation and re-sampling, but you can use other data. 
 
 <h2 style="color:white;" id="Implementation of Python code">3. How to perform training and inference</h2>
 
@@ -87,62 +87,68 @@ $ pip install -r requirements.txt
 
 After that, remember to install the right version of CUDA and cuDNN, if you want to use GPU. You can get the compatible version by searching
 
-```
+<code style="background-color:#393939;">
 conda search cudatoolkit --info
+</code>
+
+<code style="background-color:#393939;">
 conda search cudnn --info
-```
+</code>
 
 then installing
 
-```
+<code style="background-color:#393939;">
 conda install cudatoolkit==xx.x.x
+</code>
+
+<code style="background-color:#393939;">
 conda install ducnn==x.x.x
-```
+</code>
 
 <h3 style="color:white;">3.2 Training Demo</h3>
 
 If you have generated your own data following the instructions in the previous part:
 
-+ Change the data paths in <code style="background-color:#393939;">ZS-DeconvNet/train_inference_python/train_demo_2D.sh`or <code style="background-color:#393939;">train_inference_python/train_demo_3D.sh`. 
++ Change the data paths in <code style="background-color:#393939;">ZS-DeconvNet/train_inference_python/train_demo_2D.sh</code>or <code style="background-color:#393939;">train_inference_python/train_demo_3D.sh</code>. 
 
 + Run it in your terminal.
 
-+ The result wills be saved to <code style="background-color:#393939;">ZS-DeconvNet/train_inference_python/saved_models/`.
++ The result wills be saved to <code style="background-color:#393939;">ZS-DeconvNet/train_inference_python/saved_models/</code>.
 
-+ Run <code style="background-color:#393939;">tensorboard --logdir [save_weights_dir]/[save_weights_name]/graph` to monitor the training process via tensorboard if you want.
++ Run <code style="background-color:#393939;">tensorboard --logdir [save_weights_dir]/[save_weights_name]/graph</code> to monitor the training process via tensorboard if you want.
 
-If you would rather just try out the training code and not generate any data, you could run <code style="background-color:#393939;">train_demo_2D.sh` or <code style="background-color:#393939;">train_demo_3D.sh`directly, for the default data paths points to the augmented training datasets we have prepared for you.
+If you would rather just try out the training code and not generate any data, you could run <code style="background-color:#393939;">train_demo_2D.sh</code> or <code style="background-color:#393939;">train_demo_3D.sh</code>directly, for the default data paths points to the augmented training datasets we have prepared for you.
 
-+ Notice: the padded size of training data should be the multiple of $2^{conv\_block\_num}$, to be compatible with the 2D U-net structure. Be careful if you are changing the parameters <code style="background-color:#393939;">input_x`, <code style="background-color:#393939;">input_y` or <code style="background-color:#393939;">insert_xy`.
++ Notice: the padded size of training data should be the multiple of $2^{conv\_block\_num}$, to be compatible with the 2D U-net structure. Be careful if you are changing the parameters <code style="background-color:#393939;">input_x</code>, <code style="background-color:#393939;">input_y</code> or <code style="background-color:#393939;">insert_xy</code>.
 
 <h3 style="color:white;">3.3 Inference Demo</h3>
 
 If you have trained a network yourself and want to test it:
 
-+ Change the model weight paths in <code style="background-color:#393939;">ZS-DeconvNet/train_inference_python/infer_demo_2D.sh` or <code style="background-color:#393939;">ZS-DeconvNet/train_inference_python/infer_demo_3D.sh` accordingly. 
++ Change the model weight paths in <code style="background-color:#393939;">ZS-DeconvNet/train_inference_python/infer_demo_2D.sh</code> or <code style="background-color:#393939;">ZS-DeconvNet/train_inference_python/infer_demo_3D.sh</code> accordingly. 
 
 + Run it in your terminal.
 
-+ The output will be automatically saved to the folder where you load weights. For example, if you load weights from <code style="background-color:#393939;">ZS-DeconvNet/train_inference_python/saved_models/.../weights_40000.h5`, then the output will be saved to <code style="background-color:#393939;">ZS-DeconvNet/train_inference_python/saved_models/.../Inference/`.
++ The output will be automatically saved to the folder where you load weights. For example, if you load weights from <code style="background-color:#393939;">ZS-DeconvNet/train_inference_python/saved_models/.../weights_40000.h5</code>, then the output will be saved to <code style="background-color:#393939;">ZS-DeconvNet/train_inference_python/saved_models/.../Inference/</code>.
 
-+ The default option is to use demo test datasets in the folder <code style="background-color:#393939;">ZS-DeconvNet/datasets/test_WF_2D`, <code style="background-color:#393939;">ZS-DeconvNet/datasets/test_confocal_3D` and <code style="background-color:#393939;">ZS-DeconvNet/datasets/test_LLS_3D`, but you can use other data.
++ The default option is to use demo test datasets in the folder <code style="background-color:#393939;">ZS-DeconvNet/datasets/test_WF_2D</code>, <code style="background-color:#393939;">ZS-DeconvNet/datasets/test_confocal_3D</code> and <code style="background-color:#393939;">ZS-DeconvNet/datasets/test_LLS_3D</code>, but you can use other data.
 
 Otherwise:
 
-+ We have provided saved models in the folder<code style="background-color:#393939;"> ZS-DeconvNet/train_inference_python/saved_models/`, and they are the default loading weights paths.
++ We have provided saved models in the folder<code style="background-color:#393939;"> ZS-DeconvNet/train_inference_python/saved_models/</code>, and they are the default loading weights paths.
 
-+ Run <code style="background-color:#393939;">ZS-DeconvNet/train_inference_python/infer_demo_2D.sh` or <code style="background-color:#393939;">ZS-DeconvNet/train_inference_python/infer_demo_3D.sh` in your terminal.
++ Run <code style="background-color:#393939;">ZS-DeconvNet/train_inference_python/infer_demo_2D.sh</code> or <code style="background-color:#393939;">ZS-DeconvNet/train_inference_python/infer_demo_3D.sh</code> in your terminal.
 
-+ The 2D WF output will be automatically saved to the folder <code style="background-color:#393939;">ZS-DeconvNet/train_inference_python/saved_models/WF_2D_560_beta1_0.5-1.5_beta2_10-15_alpha1-2_SegNum20000_twostage_Unet_Hess0.02/Inference`, 3D confocal output to <code style="background-color:#393939;">ZS-DeconvNet/train_inference_python/saved_models/Confocal_3D_488_twostage_RCAN3D_upsample/Inference/`, and 3D LLS output to <code style="background-color:#393939;">ZS-DeconvNet/train_inference_python/saved_models/LLS_3D_488_Zsize5_Xsize48_fromMRC_twostage_RCAN3D_Hess0.1_MAE_up/Inference`.
++ The 2D WF output will be automatically saved to the folder <code style="background-color:#393939;">ZS-DeconvNet/train_inference_python/saved_models/WF_2D_560_beta1_0.5-1.5_beta2_10-15_alpha1-2_SegNum20000_twostage_Unet_Hess0.02/Inference</code>, 3D confocal output to <code style="background-color:#393939;">ZS-DeconvNet/train_inference_python/saved_models/Confocal_3D_488_twostage_RCAN3D_upsample/Inference/</code>, and 3D LLS output to <code style="background-color:#393939;">ZS-DeconvNet/train_inference_python/saved_models/LLS_3D_488_Zsize5_Xsize48_fromMRC_twostage_RCAN3D_Hess0.1_MAE_up/Inference</code>.
 
-+ Notice: If you are using image segmentation and fusion, which may be needed when the test image is too large and the memory runs out, please make sure <code style="background-color:#393939;">input_x-overlap_x` is the multiple of <code style="background-color:#393939;">seg_window_x-overlap_x`, or the image fusion will go wrong. The same caution is needed when dealing with y or z directions.
++ Notice: If you are using image segmentation and fusion, which may be needed when the test image is too large and the memory runs out, please make sure <code style="background-color:#393939;">input_x-overlap_x</code> is the multiple of <code style="background-color:#393939;">seg_window_x-overlap_x</code>, or the image fusion will go wrong. The same caution is needed when dealing with y or z directions.
 
 <h2 style="color:white;" id="Fiji plugin">4. How to use our Fiji plugin</h2>
 
 <h3 style="color:white;">4.1 Installation</h3>
 Our Fiji release is included in the open-source code, you can follow the instructions below to install the plugin:
 
-+ Copy <code style="background-color:#393939;">ZS-DeconvNet/Fiji-plugin/jars/*` <code style="background-color:#393939;">ZS-DeconvNet/Fiji-plugin/plugins/*` to your root path of Fiji <code style="background-color:#393939;">/*/Fiji.app/`.
++ Copy <code style="background-color:#393939;">ZS-DeconvNet/Fiji-plugin/jars/*</code> <code style="background-color:#393939;">ZS-DeconvNet/Fiji-plugin/plugins/*</code> to your root path of Fiji <code style="background-color:#393939;">/*/Fiji.app/</code>.
 
 + Restart Fiji.
 
