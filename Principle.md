@@ -46,7 +46,7 @@ z \sim N(0,\sigma ^2I),
 \sigma ^2 = \beta_1H(y-b)+\beta_2, \tag{3}
 $$
 
-where $\beta_1$ is the Poissonian factor affecting the variance of the signal-dependent shot noise, and $\beta_2$ is the Gaussian factor representing the variance of additive Gaussian noises. $b$ is the background, approximately regarded as a fixed value related to the camera, by subtracting which we extracted fluorescence signals from the sample. $H(∙)$ is a linear low-pass filter used to preliminarily smooth the image and reduce the noise, and we adopted an averaging filter with a size of 5 pixels in our experiments.
+where $\beta_1$ is the Poissonian factor affecting the variance of the signal-dependent shot noise, and $\beta_2$ is the Gaussian factor representing the variance of additive Gaussian noises. $b$ is the background, approximately regarded as a fixed value related to the camera, by subtracting which we extracted fluorescence signals from the sample. $H$ is a linear low-pass filter used to preliminarily smooth the image and reduce the noise, and we adopted an averaging filter with a size of 5 pixels in our experiments.
 
 In practice, we use rotation, flipping and cropping to get patches of specified size from the raw data, and implement the above re-corruption process to each patch to generate re-corrupted pairs.
 
@@ -159,5 +159,6 @@ where $Z$, $\hat{Z}$, and $\tilde{Z}$ are the entire stack, odd slices, and even
 <hr>
 
 [1] Pang, T., Zheng, H., Quan, Y. & Ji, H. in Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition 2043-2052 (2021).
+
 
 [2] Qiao, C. et al. Rationalized deep learning super-resolution microscopy for sustained live imaging of rapid subcellular processes. Nature Biotechnology (2022).
