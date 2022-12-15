@@ -9,11 +9,11 @@ title: Principle
 
 <h2 style="color:white;">Content</h2>
 <ul>
-  <li><a href="#Theory">Theory</a></li>
-  <li><a href="#Schematic">Schematic</a></li>
+  <li><a href="#2D">2D ZS-DeconvNet</a></li>
+  <li><a href="#3D">3D ZS-DeconvNet</a></li>
+  <li><a href="#2D-SIM">2D ZS-DeconvNet-SIM</a></li>
+  <li><a href="#3D-SIM">3D ZS-DeconvNet-SIM</a></li>
 </ul>
-
-<h2 style="color:white;" id="Theory">Theory</h2>
 
 The concept of ZS-DeconvNet is based on the optical imaging forward model informed unsupervised inverse problem solver:
 
@@ -29,7 +29,7 @@ However, DNNs trained directly via the above objective function enhance both use
 noises while maintaining its unsupervised characteristic, we adopted image
 de-noising schemes and classify ZS-DeconvNet cases as follows:
 
-<h3 style="color:white;">2D ZS-DeconvNet</h3>
+<h2 style="color:white;" id="2D">2D ZS-DeconvNet</h2>
 
 The image pairs $(\hat{y},\tilde{y})$ used for training 2D ZS-DeconvNet models were generated following a modified scheme from the original re-corrupted to re-corrupted strategy[1] under the assumption of mixed Poisson-Gaussian noise distributions, where three hyper parameters $\beta_1,\beta_2, \alpha$ needed to be pre-characterized. The re-corruption procedure from a single noisy image y can be represented in matrix form as:
 
@@ -70,7 +70,11 @@ $$
 where $f_{\theta '}(\hat{y}),f_\theta (\hat{y})$  are the output images of the denoising stage and the deconvolution stage, $R_{Hessian}$ is the Hessian regularization term used to
 regulating the solution space, and $\lambda$ is the weighting scalar to balance the impact of the regularization.
 
-<h3 style="color:white;">3D ZS-DeconvNet</h3>
+<center><h3 style="color:white;">Schematic of 2D ZS-DeconvNet</h3></center>
+
+<center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/R2R.png?raw=true" width="850" align="middle"></center>
+
+<h2 style="color:white;" id="3D">3D ZS-DeconvNet</h2>
 
 Similar to the 2D case, we designed a combined loss function consisting of a denoising term and a deconvolution term:
 
@@ -92,12 +96,15 @@ $$
 +\lambda R_{Hessian}(f_\theta (S_{odd}(z))) \tag{9}
 $$
 
-
-
 where $S_{odd}$ and $S_{even}$ represent the axial sampling operators which takes an image stack and returns its odd slices or even slices, respectively, stacked
 in the same order as the original stack, $\gamma$  and $\lambda$ are weighting scalars of the GAR term and the Hessian regularization term.
 
-<h3 style="color:white;">2D ZS-DeconvNet-SIM</h3>
+<center><h3 style="color:white;">Schematic of 3D ZS-DeconvNet</h3></center>
+
+<center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/NBR2NBR.png?raw=true" width="850" align="middle"></center>
+
+
+<h2 style="color:white;" id="2D-SIM">2D ZS-DeconvNet-SIM</h2>
 
 We have proven in our Supplementary Note 1c that the SIM reconstruction noise is of zero mean. This zero-mean characteristics of reconstruction artifacts make it possible to perform denoising and deconvolution for SIM images in an unsupervised manner. In practical implementation of 2D ZS-DeconvNet-SIM, we first added additional noises for each raw SIM images of different orientations and phases, i.e., 3-orientation × 3-phase, via Eq. (2) to generate two sets of recorrupted raw SIM images, and then the generated images were reconstructed into two noisy SR-SIM images, denoted as $\hat{Y}$ and $\tilde{Y}$, which were used as the input and GT in the training procedure.
 
@@ -117,7 +124,11 @@ $$
 
 where $f_\theta $ is the entire dual-stage network with all trainable parameters $\theta $.
 
-<h3 style="color:white;">3D ZS-DeconvNet-SIM</h3>
+<center><h3 style="color:white;">Schematic of 2D ZS-DeconvNet-SIM</h3></center>
+
+<center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/R2R_SIM.png?raw=true" width="850" align="middle"></center>
+
+<h2 style="color:white;" id="3D-SIM">3D ZS-DeconvNet-SIM</h2>
 
 The applications of 3D ZS-DeconvNet-SIM for volumetric SIM modalities such as lattice light-sheet structured illumination microscopy (LLS-SIM) and three-dimensional structured illumination microscopy (3D-SIM) are similar to those of 3D ZS-DeconvNet described in Supplementary Note 1b with the primary difference being that 3D ZS-DeconvNet-SIM adopts spatially interleaved post-reconstructed SIM images rather than noisy raw images as inputs and GT in both training and inference phases. The objective function of 3D ZS-DeconvNet-SIM is devised as the combination of the denoising loss and the deconvolution loss, which is formulated as follows
 
@@ -134,20 +145,6 @@ L_{dec} (Z)=‖H_{SIM} f_{\theta} (\hat{Z})-\tilde{Z}‖_2^2+\gamma ‖H_{SIM} f
 $$
 
 where $Z$, $\hat{Z}$, and $\tilde{Z}$ are the entire stack, odd slices, and even slices of the noisy SIM image stack generated via the analytical SIM reconstruction algorithm, $H_{SIM}$ is the volumetric PSF of corresponding SIM systems. 
-
-<h2 style="color:white;" id="Schematic">Schematic</h2>
-
-<center><h3 style="color:white;">Schematic of 2D ZS-DeconvNet</h3></center>
-
-<center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/R2R.png?raw=true" width="850" align="middle"></center>
-
-<center><h3 style="color:white;">Schematic of 3D ZS-DeconvNet</h3></center>
-
-<center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/NBR2NBR.png?raw=true" width="850" align="middle"></center>
-
-<center><h3 style="color:white;">Schematic of 2D ZS-DeconvNet-SIM</h3></center>
-
-<center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/R2R_SIM.png?raw=true" width="850" align="middle"></center>
 
 <center><h3 style="color:white;">Schematic of 3D ZS-DeconvNet-SIM</h3></center>
 
