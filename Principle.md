@@ -85,8 +85,14 @@ L_{den}(z)=||f_{\theta '}(S_{odd}(z))-S_{even}(z)||_2+\gamma ||f_{\theta '}(S_{o
 $$
 
 $$
-L_{dec}(z)=||f_\theta (S_{odd}(z))*PSF-S_{even}(z)||_2+\gamma ||(f_\theta (S_{odd}(z))*PSF)_\downarrow -S_{even}(z)-(S_{odd}(f_{\theta '}(z))-S_{even}(f_{\theta '}(z)))||_2 <br> +\lambda R_{Hessian}(f_\theta (S_{odd}(z))) \tag{9}
+L_{dec}(z)=||f_\theta (S_{odd}(z))*PSF-S_{even}(z)||_2+\gamma ||(f_\theta (S_{odd}(z))*PSF)_\downarrow -S_{even}(z)-(S_{odd}(f_{\theta '}(z))-S_{even}(f_{\theta '}(z)))||_2  
 $$
+
+$$
++\lambda R_{Hessian}(f_\theta (S_{odd}(z))) \tag{9}
+$$
+
+
 
 where $S_{odd}$ and $S_{even}$ represent the axial sampling operators which takes an image stack and returns its odd slices or even slices, respectively, stacked
 in the same order as the original stack, $\gamma$  and $\lambda$ are weighting scalars of the GAR term and the Hessian regularization term.
