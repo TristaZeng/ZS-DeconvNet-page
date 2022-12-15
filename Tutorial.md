@@ -72,7 +72,7 @@ Our environment is:
 To use our code, you should create a virtual environment and install the required packages first.
 
 <code style="background-color:#393939;">
-$ conda create -n zs-deconvnet python=3.9.7
+$ conda create -n zs-deconvnet python=3.9.7 \\
 $ conda activate zs-deconvnet
 $ pip install -r requirements.txt
 </code>

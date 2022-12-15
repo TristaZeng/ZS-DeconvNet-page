@@ -85,7 +85,7 @@ L_{den}(z)=||f_{\theta '}(S_{odd}(z))-S_{even}(z)||_2+\gamma ||f_{\theta '}(S_{o
 $$
 
 $$
-L_{dec}(z)=||f_\theta (S_{odd}(z))*PSF-S_{even}(z)||_2+\gamma ||(f_\theta (S_{odd}(z))*PSF)_\downarrow -S_{even}(z)-(S_{odd}(f_{\theta '}(z))-S_{even}(f_{\theta '}(z)))||_2 \ +\lambda R_{Hessian}(f_\theta (S_{odd}(z))) \tag{9}
+L_{dec}(z)=||f_\theta (S_{odd}(z))*PSF-S_{even}(z)||_2+\gamma ||(f_\theta (S_{odd}(z))*PSF)_\downarrow -S_{even}(z)-(S_{odd}(f_{\theta '}(z))-S_{even}(f_{\theta '}(z)))||_2 \\ +\lambda R_{Hessian}(f_\theta (S_{odd}(z))) \tag{9}
 $$
 
 where $S_{odd}$ and $S_{even}$ represent the axial sampling operators which takes an image stack and returns its odd slices or even slices, respectively, stacked
@@ -94,15 +94,19 @@ in the same order as the original stack, $\gamma$  and $\lambda$ are weightin
 <h3 style="color:white;">2D ZS-DeconvNet-SIM</h3>
 
 We have proven in our Supplementary Note 1c that the SIM reconstruction noise is of zero mean. This zero-mean characteristics of reconstruction artifacts make it possible to perform denoising and deconvolution for SIM images in an unsupervised manner. In practical implementation of 2D ZS-DeconvNet-SIM, we first added additional noises for each raw SIM images of different orientations and phases, i.e., 3-orientation × 3-phase, via Eq. (2) to generate two sets of recorrupted raw SIM images, and then the generated images were reconstructed into two noisy SR-SIM images, denoted as $\hat{Y}$ and $\tilde{Y}$, which were used as the input and GT in the training procedure.
+
 For the dual-stage architecture of ZS-DeconvNet-SIM, we set its overall loss function of the same form with Eq. (4), and the denoising loss is calculated with the two recorrupted SIM images:
 $$
 L_den (\hat{Y},\tilde{Y})=‖f_{\theta ^'} (\hat{Y})-\tilde{Y}‖_2^2,\tag{10}
 $$
-where $f_{\theta ^'}$ is the denoising stage of ZS-DeconvNet-SIM with corresponding trainable parameters $\theta ^'$. 
-Similar to ZS-DeconvNet for acquired raw image processing, we next defined tha deconvolution loss for ZS-DeconvNet-SIM based on recorrupted SIM image pairs and the super-resolution PSF matrix $H_SIM$ as
+
+where $f_{\theta '}$ is the denoising stage of ZS-DeconvNet-SIM with corresponding trainable parameters $\theta '$. 
+
+Similar to ZS-DeconvNet for acquired raw image processing, we next defined tha deconvolution loss for ZS-DeconvNet-SIM based on recorrupted SIM image pairs and the super-resolution PSF matrix $H_{SIM}$ as
 $$
 L_dec (\hat{Y},\tilde{Y})=‖H_SIM f_\theta (\hat{Y})-\tilde{Y}‖_2^2+\lambda R_{Hessian} (f_\theta  (\hat{Y})) ),\tag{11}
 $$
+
 where $f_\theta $ is the entire dual-stage network with all trainable parameters $\theta $.
 
 <h3 style="color:white;">3D ZS-DeconvNet-SIM</h3>
@@ -118,7 +122,6 @@ $$
 L_{dec} (Z)=‖H_{SIM} f_{\theta}  (\hat{Z})-\tilde{Z}‖_2^2+\gamma ‖H_{SIM} f_{\theta } (\hat{Z})-\tilde{Z}-S_{odd} (f_{\theta ^' } (Z))+S_{even} (f_{\theta ^' } (Z))‖_2^2+\lambda R_{Hessian} (f_{\theta }(\hat{Z})),\tag{14}
 $$
 where $Z$, $\hat{Z}$, and $\tilde{Z}$ are the entire stack, odd slices, and even slices of the noisy SIM image stack generated via the analytical SIM reconstruction algorithm, $H_{SIM}$ is the volumetric PSF of corresponding SIM systems. 
-
 
 <h2 style="color:white;" id="Schematic">Schematic</h2>
 
