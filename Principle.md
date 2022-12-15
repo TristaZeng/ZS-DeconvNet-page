@@ -160,5 +160,4 @@ where $Z$, $\hat{Z}$, and $\tilde{Z}$ are the entire stack, odd slices, and even
 
 [1] Pang, T., Zheng, H., Quan, Y. & Ji, H. in Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition 2043-2052 (2021).
 
-
 [2] Qiao, C. et al. Rationalized deep learning super-resolution microscopy for sustained live imaging of rapid subcellular processes. Nature Biotechnology (2022).

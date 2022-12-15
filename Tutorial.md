@@ -117,7 +117,7 @@ If you have generated your own data following the instructions in the previous p
 
 If you would rather just try out the training code and not generate any data, you could run <code style="background-color:#393939;">train_demo_2D.sh</code> or <code style="background-color:#393939;">train_demo_3D.sh</code>directly, for the default data paths point to the augmented training datasets we have prepared for you.
 
-+ Notice: the padded size of training data should be the multiple of $2^{\text{conv_block_num}$, to be compatible with the 2D U-net structure. Be careful if you are changing the parameters <code style="background-color:#393939;">input_x</code>, <code style="background-color:#393939;">input_y</code> or <code style="background-color:#393939;">insert_xy</code>.
++ Notice: the padded size of training data should be the multiple of $2^{\text{conv_block_num}}$, to be compatible with the 2D U-net structure. Be careful if you are changing the parameters <code style="background-color:#393939;">input_x</code>, <code style="background-color:#393939;">input_y</code> or <code style="background-color:#393939;">insert_xy</code>.
 
 <h3 style="color:white;">3.3 Inference Demo</h3>
 
