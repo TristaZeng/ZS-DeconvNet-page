@@ -112,7 +112,7 @@ where $f_{\theta '}$ is the denoising stage of ZS-DeconvNet-SIM with correspondi
 Similar to ZS-DeconvNet for acquired raw image processing, we next defined tha deconvolution loss for ZS-DeconvNet-SIM based on recorrupted SIM image pairs and the super-resolution PSF matrix $H_{SIM}$ as
 
 $$
-L_{dec} (\hat{Y},\tilde{Y})=‖H_{SIM} f_\theta (\hat{Y})-\tilde{Y}‖_2^2+\lambda R_{Hessian} (f_\theta (\hat{Y})) ),\tag{11}
+L_{dec} (\hat{Y},\tilde{Y})=‖H_{SIM} f_\theta (\hat{Y})-\tilde{Y}‖_2^2+\lambda R_{Hessian} (f_\theta (\hat{Y})),\tag{11}
 $$
 
 where $f_\theta $ is the entire dual-stage network with all trainable parameters $\theta $.
