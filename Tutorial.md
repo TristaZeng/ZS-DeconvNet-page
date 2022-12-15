@@ -72,8 +72,12 @@ Our environment is:
 To use our code, you should create a virtual environment and install the required packages first.
 
 <code style="background-color:#393939;">
-$ conda create -n zs-deconvnet python=3.9.7 \\
+$ conda create -n zs-deconvnet python=3.9.7 
+</code>
+<code style="background-color:#393939;">
 $ conda activate zs-deconvnet
+</code>
+<code style="background-color:#393939;">
 $ pip install -r requirements.txt
 </code>
 
@@ -180,20 +184,23 @@ The overall workflow of ZS-DeconvNet training with Fiji plugin includes followin
 + Open the image or stack to be used for training in Fiji and start the ZS-DeconvNet plugin by clicking <i>Plugins > ZS-DeconvNet > train on opened images</i>; or directly start the plugin by the alternative command <i>Plugins > ZS-DeconvNet > Train on augmented data</i> and select the folders containing input images, GT images, and validation images.
 
 + Select the network type, i.e., 2D ZS-DeconvNet or 3D ZS-DeconvNet, the PSF file used for calculating deconvolution loss and choose training hyper-parameters, which include total epochs, iteration number per epoch, batch size, and initial learning rate. For 2D ZS-DeconvNet training by the command of <i>train on opened images</i>, three extra recorruption-related parameters of $\alpha $, $\beta _1$, and $\beta _2$ are tuneable, where $\alpha $ and $\beta _1$ are set as [1, 2] and [0.5, 1.5] by default, and $\beta _2$ should be set as the standard deviation of the camera background, which could be pre-calibrated from blank frames or calculated from empty regions of the training data. A detailed description table of these hyper-parameters is shown below:
-  | Hyper-parameter | Default value | Description |
-  |:---------------:|:---------:|:----------------:|
-  | Input image folder for training (if select train on folder)|    | Root path of the input image or stack folder.  |
-  | GT image folder for training (if select train on folder)|   | Root path of the GT image or stack folder. |
-  | Background of images | ? | Pixel value of the mean background noise. |
-  | Alpha, beta?| | |
-  | PSF file |   | Root path of the PSF file used for calculating deconvolution loss. The PSF size has to be an odd number.  |
-  | Model to train | 2D ZS-DeconvNet | The network type for training.  |
-  | Weights of Hessian Reg. | 1?   | The weight of Hessian regularization term.  |
-  | Total epochs |  200  | The number of training epochs.  |
-  | iteration number per epoch |  200  | The number of training iterations per epoch.  |
-  | Batch size |  4  | Batch size in training.  |
-  | Patch shape |  128  | The shape of the training data. Select from given number.  |
-  | Initial learning rate |  $0.5\times 10^{-4}$  | The initial learning rate.  |
+  
+  
+  
+  | Hyper-parameter                                             | Default value       | Description                                                                                              |
+  |:-----------------------------------------------------------:|:-------------------:|:--------------------------------------------------------------------------------------------------------:|
+  | Input image folder for training (if select train on folder) |                     | Root path of the input image or stack folder.                                                            |
+  | GT image folder for training (if select train on folder)    |                     | Root path of the GT image or stack folder.                                                               |
+  | Background of images                                        | ?                   | Pixel value of the mean background noise.                                                                |
+  | Alpha, beta?                                                |                     |                                                                                                          |
+  | PSF file                                                    |                     | Root path of the PSF file used for calculating deconvolution loss. The PSF size has to be an odd number. |
+  | Model to train                                              | 2D ZS-DeconvNet     | The network type for training.                                                                           |
+  | Weights of Hessian Reg.                                     | 1?                  | The weight of Hessian regularization term.                                                               |
+  | Total epochs                                                | 200                 | The number of training epochs.                                                                           |
+  | iteration number per epoch                                  | 200                 | The number of training iterations per epoch.                                                             |
+  | Batch size                                                  | 4                   | Batch size in training.                                                                                  |
+  | Patch shape                                                 | 128                 | The shape of the training data. Select from given number.                                                |
+  | Initial learning rate                                       | $0.5\times 10^{-4}$ | The initial learning rate.                                                                               |
 
 + Click OK to start training. During the training procedure, the training progress and current learning rate will be displayed in a message box, and the model will be validated after each training epoch with the validation input and output shown in another image window for reference. 
 

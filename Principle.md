@@ -96,15 +96,17 @@ in the same order as the original stack, $\gamma$  and $\lambda$ are weightin
 We have proven in our Supplementary Note 1c that the SIM reconstruction noise is of zero mean. This zero-mean characteristics of reconstruction artifacts make it possible to perform denoising and deconvolution for SIM images in an unsupervised manner. In practical implementation of 2D ZS-DeconvNet-SIM, we first added additional noises for each raw SIM images of different orientations and phases, i.e., 3-orientation × 3-phase, via Eq. (2) to generate two sets of recorrupted raw SIM images, and then the generated images were reconstructed into two noisy SR-SIM images, denoted as $\hat{Y}$ and $\tilde{Y}$, which were used as the input and GT in the training procedure.
 
 For the dual-stage architecture of ZS-DeconvNet-SIM, we set its overall loss function of the same form with Eq. (4), and the denoising loss is calculated with the two recorrupted SIM images:
+
 $$
-L_den (\hat{Y},\tilde{Y})=‖f_{\theta ^'} (\hat{Y})-\tilde{Y}‖_2^2,\tag{10}
+L_{den} (\hat{Y},\tilde{Y})=‖f_{\theta '} (\hat{Y})-\tilde{Y}‖_2^2,\tag{10}
 $$
 
 where $f_{\theta '}$ is the denoising stage of ZS-DeconvNet-SIM with corresponding trainable parameters $\theta '$. 
 
 Similar to ZS-DeconvNet for acquired raw image processing, we next defined tha deconvolution loss for ZS-DeconvNet-SIM based on recorrupted SIM image pairs and the super-resolution PSF matrix $H_{SIM}$ as
+
 $$
-L_dec (\hat{Y},\tilde{Y})=‖H_SIM f_\theta (\hat{Y})-\tilde{Y}‖_2^2+\lambda R_{Hessian} (f_\theta  (\hat{Y})) ),\tag{11}
+L_{dec} (\hat{Y},\tilde{Y})=‖H_{SIM} f_\theta (\hat{Y})-\tilde{Y}‖_2^2+\lambda R_{Hessian} (f_\theta (\hat{Y})) ),\tag{11}
 $$
 
 where $f_\theta $ is the entire dual-stage network with all trainable parameters $\theta $.
@@ -112,15 +114,19 @@ where $f_\theta $ is the entire dual-stage network with all trainable parameters
 <h3 style="color:white;">3D ZS-DeconvNet-SIM</h3>
 
 The applications of 3D ZS-DeconvNet-SIM for volumetric SIM modalities such as lattice light-sheet structured illumination microscopy (LLS-SIM) and three-dimensional structured illumination microscopy (3D-SIM) are similar to those of 3D ZS-DeconvNet described in Supplementary Note 1b with the primary difference being that 3D ZS-DeconvNet-SIM adopts spatially interleaved post-reconstructed SIM images rather than noisy raw images as inputs and GT in both training and inference phases. The objective function of 3D ZS-DeconvNet-SIM is devised as the combination of the denoising loss and the deconvolution loss, which is formulated as follows
+
 $$
 L(Z)= \mu L_{den} (Z)+(1-\mu ) L_{dec} (Z),\tag{12}
 $$
+
 $$
-L_{den} (Z)  =⁡‖f_{\theta ^' } (\hat{Z})-\tilde{Z}‖_2^2+\gamma ‖f_{\theta ^' } (\hat{Z})-\tilde{Z}-(S_{odd} (f_{\theta ^' } (Z))-S_{even} (f_{\theta ^' } (Z)))‖_2^2,\tag{13}
+L_{den} (Z) =⁡‖f_{\theta ' } (\hat{Z})-\tilde{Z}‖_2^2+\gamma ‖f_{\theta ' } (\hat{Z})-\tilde{Z}-(S_{odd} (f_{\theta ' } (Z))-S_{even} (f_{\theta ' } (Z)))‖_2^2,\tag{13}
 $$
+
 $$
-L_{dec} (Z)=‖H_{SIM} f_{\theta}  (\hat{Z})-\tilde{Z}‖_2^2+\gamma ‖H_{SIM} f_{\theta } (\hat{Z})-\tilde{Z}-S_{odd} (f_{\theta ^' } (Z))+S_{even} (f_{\theta ^' } (Z))‖_2^2+\lambda R_{Hessian} (f_{\theta }(\hat{Z})),\tag{14}
+L_{dec} (Z)=‖H_{SIM} f_{\theta} (\hat{Z})-\tilde{Z}‖_2^2+\gamma ‖H_{SIM} f_{\theta } (\hat{Z})-\tilde{Z}-S_{odd} (f_{\theta ' } (Z))+S_{even} (f_{\theta ' } (Z))‖_2^2+\lambda R_{Hessian} (f_{\theta }(\hat{Z})),\tag{14}
 $$
+
 where $Z$, $\hat{Z}$, and $\tilde{Z}$ are the entire stack, odd slices, and even slices of the noisy SIM image stack generated via the analytical SIM reconstruction algorithm, $H_{SIM}$ is the volumetric PSF of corresponding SIM systems. 
 
 <h2 style="color:white;" id="Schematic">Schematic</h2>
