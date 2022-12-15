@@ -157,5 +157,7 @@ where $Z$, $\hat{Z}$, and $\tilde{Z}$ are the entire stack, odd slices, and even
 <center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/NBR2NBR_SIM.png?raw=true" width="850" align="middle"></center>
 
 <hr>
+
 [1] Pang, T., Zheng, H., Quan, Y. & Ji, H. in Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition 2043-2052 (2021).
+
 [2] Qiao, C. et al. Rationalized deep learning super-resolution microscopy for sustained live imaging of rapid subcellular processes. Nature Biotechnology (2022).
