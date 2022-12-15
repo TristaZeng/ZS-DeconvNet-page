@@ -75,11 +75,9 @@ To use our code, you should create a virtual environment and install the require
 $ conda create -n zs-deconvnet python=3.9.7 
 </code>
 
-
 <code style="background-color:#393939;">
 $ conda activate zs-deconvnet
 </code>
-
 
 <code style="background-color:#393939;">
 $ pip install -r requirements.txt
@@ -88,21 +86,21 @@ $ pip install -r requirements.txt
 After that, remember to install the right version of CUDA and cuDNN, if you want to use GPU. You can get the compatible version by searching
 
 <code style="background-color:#393939;">
-conda search cudatoolkit --info
+$ conda search cudatoolkit --info
 </code>
 
 <code style="background-color:#393939;">
-conda search cudnn --info
+$ conda search cudnn --info
 </code>
 
 then installing
 
 <code style="background-color:#393939;">
-conda install cudatoolkit==xx.x.x
+$ conda install cudatoolkit==xx.x.x
 </code>
 
 <code style="background-color:#393939;">
-conda install ducnn==x.x.x
+$ conda install ducnn==x.x.x
 </code>
 
 <h3 style="color:white;">3.2 Training Demo</h3>
