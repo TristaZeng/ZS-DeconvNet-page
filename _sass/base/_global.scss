@@ -71,8 +71,17 @@ th {
 }
 
 tbody tr:nth-child(odd) td {
-  background-color: #393939;
-}
+  background-color: #000000;
+},
 tbody tr:nth-child(odd) th {
-  background-color: #393939;
+  background-color: #000000;
 }
+
+p {
+  text-align: justify;
+}
+
+
+
+
+
