@@ -1,6 +1,6 @@
 ---
 layout: page
-title: ZS-DeconvNet tutorial
+title: Tutorial
 
 ---
 
