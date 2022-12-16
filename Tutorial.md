@@ -75,8 +75,7 @@ To use our code, you should create a virtual environment and install the require
 
 <code style="background-color:#393939;">
 $ conda create -n zs-deconvnet python=3.9.7 
-</code>
-
+</code><br>
 <code style="background-color:#393939;">
 $ conda activate zs-deconvnet
 </code>
