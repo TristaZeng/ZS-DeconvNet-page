@@ -131,8 +131,8 @@ Otherwise:
 
 + We have provided saved models in the folder<code style="background-color:#393939;"> ./train_inference_python/saved_models/</code>, and they are the default loading weights paths.
 + Run <code style="background-color:#393939;">./train_inference_python/infer_demo_2D.sh</code> or <code style="background-color:#393939;">./train_inference_python/infer_demo_3D.sh</code> in your terminal.
-+ The 2D WF output will be automatically saved to the folder <code style="background-color:#393939;">./train_inference_python/saved_models/WF_2D_560_beta1_0.5-1.5_beta2_10-15_alpha1-2_SegNum20000_twostage_Unet_Hess0.02/Inference</code>; 
-3D confocal output will be automatically saved to the folder <code style="background-color:#393939;">./train_inference_python/saved_models/Confocal_3D_488_twostage_RCAN3D_upsample/Inference/</code>; 
++ The 2D WF output will be automatically saved to the folder <code style="background-color:#393939;">./train_inference_python/saved_models/WF_2D_560_beta1_0.5-1.5_beta2_10-15_alpha1-2_SegNum20000_twostage_Unet_Hess0.02/Inference</code>; <br>
+3D confocal output will be automatically saved to the folder <code style="background-color:#393939;">./train_inference_python/saved_models/Confocal_3D_488_twostage_RCAN3D_upsample/Inference/</code>; <br>
 3D LLS output will be automatically saved to the folder <code style="background-color:#393939;">./train_inference_python/saved_models/LLS_3D_488_Zsize5_Xsize48_fromMRC_twostage_RCAN3D_Hess0.1_MAE_up/Inference</code>.
 
 + Notice: If you are using image segmentation and fusion, which may be needed when the test image is too large and the memory runs out, please make sure <code style="background-color:#393939;">input_x-overlap_x</code> is the multiple of <code style="background-color:#393939;">seg_window_x-overlap_x</code>, or the image fusion will go wrong. The same caution is needed when dealing with y or z directions.
@@ -203,7 +203,7 @@ The overall workflow of ZS-DeconvNet training with Fiji plugin includes followin
 | Initial learning rate                                       | $0.5\times 10^{-4}$ | The initial learning rate.                                                                               |
 
 + Click OK to start training. During the training procedure, the training progress and current learning rate will be displayed in a message box, and the model will be validated after each training epoch with the validation input and output shown in another image window for reference. 
-+ Three types of exit:
++ Three types of exit:<br>
   (i) If you don't want to train or save this model anymore for certain reasons like you got the hyper-parameters wrong, press <i>Cancel > Close</i> to enforce an exit.<br>
   (ii) If you want an early stop, press <i>Finish</i> to finish training progress and save the model by <i>File actions > Save to..</i>.<br>
   (iii) If you have finished training, in <i>Overview > Metadata > inputs & outputs > Training</i>, you will see the parameters of the trained model. Press <i>Export Model</i> and save the model by <i>File actions > Save to..</i>.
