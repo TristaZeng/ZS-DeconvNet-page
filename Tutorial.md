@@ -131,9 +131,9 @@ Otherwise:
 
 + We have provided saved models in the folder<code style="background-color:#393939;"> ./train_inference_python/saved_models/</code>, and they are the default loading weights paths.
 + Run <code style="background-color:#393939;">./train_inference_python/infer_demo_2D.sh</code> or <code style="background-color:#393939;">./train_inference_python/infer_demo_3D.sh</code> in your terminal.
-+ The 2D WF output will be automatically saved to the folder <code style="background-color:#393939;">./train_inference_python/saved_models/WF_2D_560_beta1_0.5-1.5_beta2_10-15_alpha1-2_SegNum20000_twostage_Unet_Hess0.02/Inference</code>; <br>
-3D confocal output to the folder <code style="background-color:#393939;">./train_inference_python/saved_models/Confocal_3D_488_twostage_RCAN3D_upsample/Inference/</code>; <br>
-3D LLS output to the folder <code style="background-color:#393939;">./train_inference_python/saved_models/LLS_3D_488_Zsize5_Xsize48_fromMRC_twostage_RCAN3D_Hess0.1_MAE_up/Inference</code>.
++ The 2D WF output will be automatically saved to the folder <code style="background-color:#393939;">./train_inference_python/saved_models/WF_2D_560_beta1_0.5-1.5_beta2_10-15_alpha1-2_SegNum20000_twostage_Unet_Hess0.02/Inference/</code>; <br>
+3D confocal output will be automatically saved to the folder <br><code style="background-color:#393939;">./train_inference_python/saved_models/Confocal_3D_488_twostage_RCAN3D_upsample/Inference/</code>; <br>
+3D LLS output will be automatically saved to the folder <br> <code style="background-color:#393939;">./train_inference_python/saved_models/LLS_3D_488_Zsize5_Xsize48_fromMRC_twostage_RCAN3D_Hess0.1_MAE_up/Inference/</code>.
 
 + Notice: If you are using image segmentation and fusion, which may be needed when the test image is too large and the memory runs out, please make sure <code style="background-color:#393939;">input_x-overlap_x</code> is the multiple of <code style="background-color:#393939;">seg_window_x-overlap_x</code>, or the image fusion will go wrong. The same caution is needed when dealing with y or z directions.
 
