@@ -21,13 +21,11 @@ This homepage includes a general introduction and some typical applications of Z
     <center><h1 style="color:white;">II. Characrization of ZS-DeconvNet </h1></center>
   <h2 style="color:white;">1. More than 10-fold SNR improvement and 1.5-fold resolution enhancement</h2>
  <p>The proposed ZS-DeconvNet consists of a dual-stage architecture and conduct image denoising and deconvolution using an integrated physical model-consistency unsupervised training strategy. We characterized that ZS-DeconvNet is able to improve the resolution by more than 1.5-fold even when trained the low SNR input images only and without involving user defined parameters, and yields higher SR fidelity can other existing unsupervised computations SR methods.</p>
-  <br><br>
     <center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/Reso_enhance_under_low_SNR.png?raw=true" width="1050" align="middle" /></center>
  <p style="font-style:italic;font-size: smaller;margin:0 20px">(Left) The representative SR images of Lyso and MTs reconstructed by RL deconvolution (second column), sparse deconvolution (third column) and ZS-DeconvNet (fourth column) with clear WF images displayed for reference are listed below. (Right) statistical comparisons of RL deconvolution, sparse deconvolution and ZS-DeconvNet in terms of PSNR, FRC resolution (n=100) and full width at half maximum (FWHM).</p> 
 <br>
   <h2 style="color:white;">2. Compatible with diverse imaging modalities</h2>
 <p>The implementation of ZS-DeconvNet is not dependent on certain microscopy (see <a href='https://tristazeng.github.io/ZS-DeconvNet/Principle/'>basic principles</a> of ZS-DeconvNet) and can be widely compatible with multiple imaging modalities including total internal reflection fluorescence microscopy, 2D/3D wide-field microscopy, confocal microscopy, lattice light-sheet (LLS) microscopy, and multimodal structured illumination microscopy (SIM). Representative ZS-DeconvNet enhanced images acquired by WF microscopy (C. elegans embryo), confocal microscopy (early mouse embryo) , and LLS-SIM (F-actin in a HeLa cell and mitochondrial outer membrane in a 293T cell) are shown below.</p>
-    <br><br>
     <center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/MultiModality-v2.png?raw=true" width="1050" align="middle" /></center>
   </p>
 
@@ -35,7 +33,6 @@ This homepage includes a general introduction and some typical applications of Z
 
   <h2 style="color:white;">3. Effectively trained on a single input image or stack</h2>
 <p>ZS-DeconvNet can be effectively trained with noisy 2D/3D data, e.g., noisy time-lapse images or even a single noisy image/stack, while yielding better SR performance than existing deconvolution approaches. Some representative SR images processed with ZS-DeconvNet models trained with the single input image/stack itself and images generated via Richardson-Lucy (RL) deconvolution and sparse deconvolution are shown below.</p>
-<br><br>
     <center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/ZeroShot-v2.png?raw=true" width="1050" align="middle" /></center>
 </p>
 
@@ -52,7 +49,7 @@ This homepage includes a general introduction and some typical applications of Z
 <center><video src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/video/SuppVideo5_Mitosis_Mito_HeLa.mp4?raw=true" controls="controls" width="100%" height="auto"/></center>
 <p><i>SNR and resolution enhanced three-color volumetric imaging via 3D ZS-DeconvNet for 937 time points at 10 sec intervals in a HeLa cell stably expressing calnexin-mEmerald (ER in grey), H2B-mCherry (chromosome in orange) and Mito-Halo (mitochondria in cyan).</i></p>
 
-<br><br>
+<br>
   <div id="slider" class="beer-slider" data-beer-label="Wide-field" data-start="50">
       <img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/raw_time695_slice55-65_rgb_xyView2-1.png?raw=true" width="500">
       <div class="beer-reveal" data-beer-label="ZS-DeconvNet">
