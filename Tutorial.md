@@ -114,7 +114,7 @@ If you have generated your own data following the instructions in the previous p
 + The result wills be saved to <code style="background-color:#393939;">./train_inference_python/saved_models/</code>.
 + Run <code style="background-color:#393939;">tensorboard --logdir [save_weights_dir]/[save_weights_name]/graph</code> to monitor the training process via tensorboard if you want.
 
-If you would rather just try out the training code and not generate any data, you could run <code style="background-color:#393939;">train_demo_2D.sh</code> or <code style="background-color:#393939;">train_demo_3D.sh</code>directly, for the default data paths point to the augmented training datasets we have prepared for you.
+If you would rather just try out the training code, you could run <code style="background-color:#393939;">train_demo_2D.sh</code> or <code style="background-color:#393939;">train_demo_3D.sh</code>directly, for the default data paths point to the augmented training datasets we have prepared for you.
 
 + Notice: the padded size of training data should be the multiple of $2^{\text{conv_block_num}}$, to be compatible with the 2D U-net structure. Be careful if you are changing the parameters <code style="background-color:#393939;">input_x</code>, <code style="background-color:#393939;">input_y</code> or <code style="background-color:#393939;">insert_xy</code>.
 
@@ -131,7 +131,7 @@ Otherwise:
 
 + We have provided saved models in the folder<code style="background-color:#393939;"> ./train_inference_python/saved_models/</code>, and they are the default loading weights paths.
 + Run <code style="background-color:#393939;">./train_inference_python/infer_demo_2D.sh</code> or <code style="background-color:#393939;">./train_inference_python/infer_demo_3D.sh</code> in your terminal.
-+ The 2D WF output will be automatically saved to the folder <code style="background-color:#393939;">./train_inference_python/saved_models/WF_2D_560_beta1_0.5-1.5_beta2_10-15_alpha1-2_SegNum20000_twostage_Unet_Hess0.02/Inference</code>, 3D confocal output to the folder <code style="background-color:#393939;">./train_inference_python/saved_models/Confocal_3D_488_twostage_RCAN3D_upsample/Inference/</code>, and 3D LLS output to <code style="background-color:#393939;">./train_inference_python/saved_models/LLS_3D_488_Zsize5_Xsize48_fromMRC_twostage_RCAN3D_Hess0.1_MAE_up/Inference</code>.
++ The 2D WF output will be automatically saved to the folder <code style="background-color:#393939;">./train_inference_python/saved_models/WF_2D_560_beta1_0.5-1.5_beta2_10-15_alpha1-2_SegNum20000_twostage_Unet_Hess0.02/Inference</code>, 3D confocal output automatically saved to the folder <code style="background-color:#393939;">./train_inference_python/saved_models/Confocal_3D_488_twostage_RCAN3D_upsample/Inference/</code>, and 3D LLS output to <code style="background-color:#393939;">./train_inference_python/saved_models/LLS_3D_488_Zsize5_Xsize48_fromMRC_twostage_RCAN3D_Hess0.1_MAE_up/Inference</code>.
 
 + Notice: If you are using image segmentation and fusion, which may be needed when the test image is too large and the memory runs out, please make sure <code style="background-color:#393939;">input_x-overlap_x</code> is the multiple of <code style="background-color:#393939;">seg_window_x-overlap_x</code>, or the image fusion will go wrong. The same caution is needed when dealing with y or z directions.
 
@@ -143,16 +143,13 @@ Otherwise:
 Our Fiji release is included in the open-source code, you can follow the instructions below to install the plugin:
 
 + Copy <code style="background-color:#393939;">./Fiji-plugin/jars/*</code> and <code style="background-color:#393939;">./Fiji-plugin/plugins/*</code> to your root path of Fiji <code style="background-color:#393939;">/*/Fiji.app/</code>.
-
 + Restart Fiji.
 
 <h3 style="color:white;">4.2 About GPU and TensorFlow version</h3>
 The ZS-DeconvNet Fiji plugin was developed based on TensorFlow-Java 1.15.0, which is compatible with CUDA version of 10.1 and cuDNN version of 7.5.1. If you would like to process models with a different TensorFlow version, or running with different GPU settings, please do the following:
 
 + Open <i>Edit > Options > Tensorflow</i>, and choose the version matching your model or setting.
-
 + Wait until a message pops up telling you that the library was installed.
-
 + Restart Fiji.
 
 <h3 style="color:white;">4.3 Inference with ZS-DeconvNet Fiji plugin</h3>
@@ -160,9 +157,7 @@ The ZS-DeconvNet Fiji plugin was developed based on TensorFlow-Java 1.15.0, whic
 Given a pre-trained ZS-DeconvNet model and an image or stack to be processed, the Fiji plugin is able to generate the corresponding denoised (optional) and super-resolved deconvolution image or stack. The workflow includes following steps: 
 
 + Open the image or stack in Fiji and start ZS-DeconvNet plugin by Clicking <i>Plugins > ZS-DeconvNet > predict ZS-DeconvNet 2D / predict ZS-DeconvNet 3D</i>.
-
 + Select the network model file, i.e., .zip file in the format of BioImage Model Zoo bundle. Of note, the model file could be trained and saved either by Python codes (see [this gist](https://gist.github.com/asimshankar/000b8d276f211f972168afa138eb3cc7)) or ZS-DeconvNet Fiji plugin, but has to be saved with TensorFlow environment <= 1.15.0.
-
 + Check inference options and choose hyper-parameters used in the inference. The options and parameters here are primarily selected to properly normalize the input data (NormalizeInput, PercentileBottom, and PerventileTop), perform tiling prediction to save memory of CPUs or GPUs (Number of tiles, Overlap between tiles, and Batch size), and decide whether to show process dialog and denoising results or not (Show process dialog and Show denoising result). A detailed description table is shown below:
   
   | Hyper-parameter                    | Default value | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
@@ -179,7 +174,7 @@ Given a pre-trained ZS-DeconvNet model and an image or stack to be processed, th
 
 + After image processing with status bar shown in the message box (if select Show process dialog), the denoised (if select Show denoising result) and deconvolved output will pop out in separate Fiji windows automatically. Then the processed images or stacks could be viewed, manipulated, and saved via Fiji.
 
-<center><img src="https://github.com/TristaZeng/./blob/master/images/SuppFig15_Fiji_Plugin_v1.jpg?raw=true" width="1050" align="middle" /></center>
+<center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/SuppFig15_Fiji_Plugin_v1.jpg?raw=true" width="1050" align="middle" /></center>
 
 <h3 style="color:white;">4.4 Training with ZS-DeconvNet Fiji plugin</h3>
 
@@ -188,7 +183,6 @@ For ZS-DeconvNet model training, we generally provide two commands: <i>Train on 
 The overall workflow of ZS-DeconvNet training with Fiji plugin includes following steps:
 
 + Open the image or stack to be used for training in Fiji and start the ZS-DeconvNet plugin by clicking <i>Plugins > ZS-DeconvNet > train on opened images</i>; or directly start the plugin by the alternative command <i>Plugins > ZS-DeconvNet > Train on augmented data</i> and select the folders containing input images, GT images, and validation images.
-
 + Select the network type, i.e., 2D ZS-DeconvNet or 3D ZS-DeconvNet, the PSF file used for calculating deconvolution loss and choose training hyper-parameters, which include total epochs, iteration number per epoch, batch size, and initial learning rate. For 2D ZS-DeconvNet training by the command of <i>train on opened images</i>, three extra recorruption-related parameters of $\alpha $, $\beta _1$, and $\beta _2$ are tuneable, where $\alpha $ and $\beta _1$ are set as [1, 2] and [0.5, 1.5] by default, and $\beta _2$ should be set as the standard deviation of the camera background, which could be pre-calibrated from blank frames or calculated from empty regions of the training data. A detailed description table of these hyper-parameters is shown below:
 
 | Hyper-parameter                                             | Default value       | Description                                                                                              |
@@ -207,13 +201,9 @@ The overall workflow of ZS-DeconvNet training with Fiji plugin includes followin
 | Initial learning rate                                       | $0.5\times 10^{-4}$ | The initial learning rate.                                                                               |
 
 + Click OK to start training. During the training procedure, the training progress and current learning rate will be displayed in a message box, and the model will be validated after each training epoch with the validation input and output shown in another image window for reference. 
-
 + Three types of exit:
-  
   (i) If you don't want to train or save this model anymore for certain reasons like you got the hyper-parameters wrong, press <i>Cancel > Close</i> to enforce an exit.
-  
   (ii) If you want an early stop, press <i>Finish</i> to finish training progress and save the model by <i>File actions > Save to..</i>.
-  
   (iii) If you have finished training, in <i>Overview > Metadata > inputs & outputs > Training</i>, you will see the parameters of the trained model. Press <i>Export Model</i> and save the model by <i>File actions > Save to..</i>.
   
   Of note, you can also press <i>Export Model</i> during training to export the lastest saved model without disposing the training progress.
