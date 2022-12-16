@@ -48,6 +48,8 @@ $$
 
 where $\beta_1$ is the Poissonian factor affecting the variance of the signal-dependent shot noise, and $\beta_2$ is the Gaussian factor representing the variance of additive Gaussian noises. $b$ is the background, approximately regarded as a fixed value related to the camera, by subtracting which we extracted fluorescence signals from the sample. $H$ is a linear low-pass filter used to preliminarily smooth the image and reduce the noise, and we adopted an averaging filter with a size of 5 pixels in our experiments.
 
+We have proven in our Supplementary Note 1a and Supplementary Figure 3,4 that the theorectical optimal value for $alpha$, $\beta_1$ and $beta_2$ is 1, 1 and variance of the additive Gaussian noises, respectively. The variance of the additive Gaussian noises is dependent to the camera and can be estimated from the sample-free region of the image itself or pre-calibrated following standard protocols.
+
 In practice, we use rotation, flipping and cropping to get patches of specified size from the raw data, and implement the above re-corruption process to each patch to generate re-corrupted pairs.
 
 We designed a combined loss function consisting of a denoising term and a deconvolution term, which respectively corresponds to the denoising stage and the deconvolution stage:
@@ -118,7 +120,7 @@ $$
 L_{den} (\hat{Y},\tilde{Y})=‖f_{\theta '} (\hat{Y})-\tilde{Y}‖_2^2,\tag{10}
 $$
 
-where $f_{\theta '}$ is the denoising stage of ZS-DeconvNet-SIM with corresponding trainable parameters $\theta '$. 
+where $f_{\theta'}$ is the denoising stage of ZS-DeconvNet-SIM with corresponding trainable parameters $\theta'$. 
 
 Similar to ZS-DeconvNet for acquired raw image processing, we next defined tha deconvolution loss for ZS-DeconvNet-SIM based on recorrupted SIM image pairs and the super-resolution PSF matrix $H_{SIM}$ as
 
