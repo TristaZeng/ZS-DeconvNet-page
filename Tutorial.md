@@ -55,9 +55,7 @@ We use MATLAB R2021b but previous versions might be compatible. After cloning ou
 Similar to training datasets generation with 2D data, you can:
 
 + Run <code style="background-color:#393939;">./data_augment_recorrupt_matlab/DataAugmFor3D.m</code> to generate 3D training data. Re-sampling is embedded in the process of augmentation. 
-
 + The augmented training datasets will be saved automatically to the folder <code style="background-color:#393939;">./your_augmented_datasets/LLS_3D</code>.
-
 + The default option is to use the provided datasets in the folder <code style="background-color:#393939;">./datasets/LLS_3D</code> to perform augmentation and re-sampling, but you can use other data. 
 
 <hr>
@@ -112,11 +110,8 @@ $ conda install cudnn==x.x.x
 If you have generated your own data following the instructions in the previous part:
 
 + Change the data paths in <code style="background-color:#393939;">./train_inference_python/train_demo_2D.sh</code>or <code style="background-color:#393939;">train_inference_python/train_demo_3D.sh</code>. 
-
 + Run it in your terminal.
-
 + The result wills be saved to <code style="background-color:#393939;">./train_inference_python/saved_models/</code>.
-
 + Run <code style="background-color:#393939;">tensorboard --logdir [save_weights_dir]/[save_weights_name]/graph</code> to monitor the training process via tensorboard if you want.
 
 If you would rather just try out the training code and not generate any data, you could run <code style="background-color:#393939;">train_demo_2D.sh</code> or <code style="background-color:#393939;">train_demo_3D.sh</code>directly, for the default data paths point to the augmented training datasets we have prepared for you.
@@ -127,21 +122,16 @@ If you would rather just try out the training code and not generate any data, yo
 
 If you have trained a network yourself and want to test it:
 
-+ Change the model weight paths in <code style="background-color:#393939;">./train_inference_python/infer_demo_2D.sh</code> or <code style="background-color:#393939;">./train_inference_python/infer_demo_3D.sh</code> accordingly. 
-
++ Change the paths in <code style="background-color:#393939;">./train_inference_python/infer_demo_2D.sh</code> or <code style="background-color:#393939;">./train_inference_python/infer_demo_3D.sh</code> accordingly. 
 + Run it in your terminal.
-
-+ The output will be automatically saved to the folder where you load weights. For example, if you load weights from <code style="background-color:#393939;">./train_inference_python/saved_models/.../weights_40000.h5</code>, then the output will be saved to <code style="background-color:#393939;">./train_inference_python/saved_models/.../Inference/</code>.
-
++ The output will be saved to the folder where you load weights, e.g., if you load weights from <code style="background-color:#393939;">./train_inference_python/saved_models/.../weights_40000.h5</code>, then the output will be saved to <code style="background-color:#393939;">./train_inference_python/saved_models/.../Inference/</code>.
 + The default option is to use demo test datasets in the folder <code style="background-color:#393939;">./datasets/test_WF_2D</code>, <code style="background-color:#393939;">./datasets/test_confocal_3D</code> and <code style="background-color:#393939;">./datasets/test_LLS_3D</code>, but you can use other data.
 
 Otherwise:
 
 + We have provided saved models in the folder<code style="background-color:#393939;"> ./train_inference_python/saved_models/</code>, and they are the default loading weights paths.
-
 + Run <code style="background-color:#393939;">./train_inference_python/infer_demo_2D.sh</code> or <code style="background-color:#393939;">./train_inference_python/infer_demo_3D.sh</code> in your terminal.
-
-+ The 2D WF output will be automatically saved to the folder <code style="background-color:#393939;">./train_inference_python/saved_models/WF_2D_560_beta1_0.5-1.5_beta2_10-15_alpha1-2_SegNum20000_twostage_Unet_Hess0.02/Inference</code>, 3D confocal output to <code style="background-color:#393939;">./train_inference_python/saved_models/Confocal_3D_488_twostage_RCAN3D_upsample/Inference/</code>, and 3D LLS output to <code style="background-color:#393939;">./train_inference_python/saved_models/LLS_3D_488_Zsize5_Xsize48_fromMRC_twostage_RCAN3D_Hess0.1_MAE_up/Inference</code>.
++ The 2D WF output will be automatically saved to the folder <code style="background-color:#393939;">./train_inference_python/saved_models/WF_2D_560_beta1_0.5-1.5_beta2_10-15_alpha1-2_SegNum20000_twostage_Unet_Hess0.02/Inference</code>, 3D confocal output to the folder <code style="background-color:#393939;">./train_inference_python/saved_models/Confocal_3D_488_twostage_RCAN3D_upsample/Inference/</code>, and 3D LLS output to <code style="background-color:#393939;">./train_inference_python/saved_models/LLS_3D_488_Zsize5_Xsize48_fromMRC_twostage_RCAN3D_Hess0.1_MAE_up/Inference</code>.
 
 + Notice: If you are using image segmentation and fusion, which may be needed when the test image is too large and the memory runs out, please make sure <code style="background-color:#393939;">input_x-overlap_x</code> is the multiple of <code style="background-color:#393939;">seg_window_x-overlap_x</code>, or the image fusion will go wrong. The same caution is needed when dealing with y or z directions.
 

@@ -3,6 +3,283 @@
 
   {% include head.html %}
 
+
+
+
+<style tpe="text/css">
+        /* ---------------------公共样式 -------------------*/
+
+        .none{
+            display: none;
+        }
+
+        button {
+            border: none;
+            padding: 0.7em 1.5em;
+            background: #393939;
+            color: #fff;
+            outline: none;
+            font-weight: bold;
+            cursor: pointer;
+            display: block;
+            text-decoration: none;
+        }
+
+        button:hover, button:active, button:focus{
+            border: none;
+        }
+
+        /* ---------------------弹窗样式 -------------------*/
+        .dialog-face{
+            position: fixed;
+            background: #393939;
+            height: 100%;
+            width: 100%;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+
+            -webkit-animation-duration: 300ms;
+            -moz-animation-duration:300ms;
+            -o-animation-duration:300ms;
+            animation-duration: 300ms;
+        }
+
+        .dialog-face.slipBottom[opacity="0"]{
+            display: none;
+        }
+
+        .dialog-face.slipUp{
+            opacity: 0.5;
+            -webkit-animation-name: dialogFaceSlipToUp;
+            -moz-animation-name: dialogFaceSlipToUp;
+            -o-animation-name: dialogFaceSlipToUp;
+            animation-name: dialogFaceSlipToUp;
+        }
+
+        .dialog-face.slipBottom{
+            opacity: 0;
+            visibility: hidden;
+            -webkit-animation-name: dialogFaceSlipToBottom;
+            -moz-animation-name: dialogFaceSlipToBottom;
+            -o-animation-name: dialogFaceSlipToBottom;
+            animation-name: dialogFaceSlipToBottom;
+        }
+
+        .dialog-root{
+            position: fixed;
+            z-index: 2000;
+            left: 50%;
+
+            -webkit-animation-duration: 300ms;
+            -moz-animation-duration: 300ms;
+            -o-animation-duration: 300ms;
+            animation-duration: 300ms;
+            -webkit-perspective: 1300px;
+            -moz-perspective: 1300px;
+            perspective: 1300px;
+        }
+
+        .dialog-root.slipUp{
+            top: 50%;
+            opacity: 1;
+
+            -webkit-animation-name: dialogSlipToUp;
+            -moz-animation-name: dialogSlipToUp;
+            -o-animation-name: dialogSlipToUp;
+            animation-name: dialogSlipToUp;
+            -webkit-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        .dialog-root.slipBottom{
+            top: 100%;
+            opacity: 0.5;
+            -webkit-animation-duration: 500ms;
+            -moz-animation-duration: 500ms;
+            -o-animation-duration: 500ms;
+            animation-duration: 500ms;
+            -webkit-animation-name: dialogSlipToBottom;
+            -moz-animation-name: dialogSlipToBottom;
+            -o-animation-name: dialogSlipToBottom;
+            animation-name: dialogSlipToBottom;
+            -webkit-transform: translate(-50%, 0%);
+            -o-transform: translate(-50%, 0%);
+            -moz-transform: translate(-50%, 0%);
+            -ms-transform: translate(-50%, 0%);
+            transform: translate(-50%, 0%);
+        }
+
+        .dialog-wrapper{
+            background: #393939;
+            width: 1200px;
+            height: 800px;
+            overflow: hidden;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+
+            -webkit-animation-duration: 300ms;
+            -moz-animation-duration: 300ms;
+            -o-animation-duration: 300ms;
+            animation-duration: 300ms;
+            -webkit-transform-origin: 50% 100%;
+            -moz-transform-origin: 50% 100%;
+            -ms-transform-origin: 50% 100%;
+            -o-transform-origin:50% 100%;
+            transform-origin: 50% 100%;
+        }
+
+        .dialog-wrapper.slipUp{
+            -webkit-transform: rotateX(0deg);
+            -moz-transform: rotateX(0deg);
+            -ms-transform: rotateX(0deg);
+            -o-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+            -webkit-animation-name: contentSlipToUp;
+            -moz-animation-name: contentSlipToUp;
+            -o-animation-name: contentSlipToUp;
+            animation-name: contentSlipToUp;
+        }
+
+        .dialog-wrapper.slipBottom{
+            -webkit-transform: rotateX(0deg);
+            -moz-transform: rotateX(0deg);
+            -ms-transform: rotateX(0deg);
+            -o-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+            -webkit-animation-name: contentSlipToBottom;
+            -moz-animation-name: contentSlipToBottom;
+            -o-animation-name: contentSlipToBottom;
+            animation-name: contentSlipToBottom;
+        }
+
+        .dialog-header{
+            height: 75px;
+            background: #393939;
+            text-align: center;
+        }
+
+        .dialog-header span{
+            font-size: 28px;
+            line-height: 75px;
+            color:white;
+        }
+
+        .dialog-content{
+            font-weight: 300;
+            font-size: 1.15em;
+            color: #fff;
+            padding: 15px 40px 20px 40px;
+            margin: 0;
+        }
+
+
+        .dialog-content p{
+            margin: 0;
+            padding: 10px 0;
+        }
+
+        .dialog-footer{
+        }
+        /* ---------------------动画关键帧 -------------------*/
+
+        @keyframes dialogFaceSlipToUp  {
+            0%{
+               opacity: 0;
+            }
+            100%{
+                opacity: 0.5;
+            }
+        }
+        
+        @keyframes dialogFaceSlipToBottom {
+            0%{
+                opacity: 0.5;
+                visibility:visible;
+            }
+            100%{
+                visibility: hidden;
+                opacity: 0;
+            }
+        }
+
+        @keyframes dialogSlipToUp  {
+            0%{
+                top: 50%;
+                opacity: 0;
+            }
+            100%{
+                top: 50%;
+                opacity: 1;
+            }
+        }
+
+        @keyframes dialogSlipToBottom  {
+            0%{
+                top: 50%;
+                opacity: 1;
+                -webkit-transform: translate(-50%, -50%);
+                -moz-transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                -o-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+            }
+            100%{
+                top: 50%;
+                opacity: 0;
+                -webkit-transform: translate(-50%, -50%);
+                -moz-transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                -o-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        @keyframes contentSlipToUp  {
+            0%{
+                -webkit-transform: rotateX(0deg);
+                -moz-transform: rotateX(0deg);
+                -ms-transform: rotateX(0deg);
+                -o-transform: rotateX(0deg);
+                transform: rotateX(0deg);
+            }
+            100%{
+                -webkit-transform: rotateX(0deg);
+                -moz-transform: rotateX(0deg);
+                -ms-transform: rotateX(0deg);
+                -o-transform: rotateX(0deg);
+                transform: rotateX(0deg);
+            }
+        }
+
+
+        @keyframes contentSlipToBottom  {
+            0%{
+                -webkit-transform: rotateX(0deg);
+                -moz-transform: rotateX(0deg);
+                -ms-transform: rotateX(0deg);
+                -o-transform: rotateX(0deg);
+                transform: rotateX(0deg);
+            }
+            
+            100%{
+                -webkit-transform: rotateX(0deg);
+                -moz-transform: rotateX(0deg);
+                -ms-transform: rotateX(0deg);
+                -o-transform: rotateX(0deg);
+                transform: rotateX(0deg);
+            }
+        }
+
+    </style>
+
+
+
+
   <body>
 
     <nav class="nav-main" style="z-index: 999;">
@@ -10,8 +287,10 @@
         <li class="main-page"><a class="hvr-underline-reveal" href="{{ site.baseurl }}/">Main Page</a></li>
         <li class="hvr-underline-reveal"><a href="{{ site.baseurl }}/Principle/">Principle</a></li>
         <li class="hvr-underline-reveal"><a href="{{ site.baseurl }}/Tutorial/">Tutorial</a></li>
-        <li class="hvr-underline-reveal"><a href="{{ site.baseurl }}/About Us/">About Us</a></li>
+       
+        <li><button onclick="toggleDialog(true)">About Us</button></li>
       </ul>
+ 
     </nav>
 
     <div class="container content">
@@ -20,6 +299,53 @@
       </main>
 
     </div>
+
+    <div id="dialog-face" class="none">
+    </div>
+    <div   id="dialog" class="none">
+        <div style="float:right; " class="dialog-footer">
+                <button style="float:right;border-radius: 50%; color: white;font-size:30px ;background-color:transparent;border: none;padding: 0.3em 0.3em; "onclick="toggleDialog(false)">&#10005</button>
+        </div>
+        <div style="overflow-y: scroll; height: 600px;"id="dialog-wrapper">
+            <div class="dialog-header">
+                <span>About us</span>
+                
+            </div>
+            <div " class="dialog-content" >
+                
+  
+  <p>We are a team of dedicated professionals with a passion for ZS-DeconvNet. Our goal is to make ZS-DeconvNet better.</p>
+  <h4>Our History</h4>
+  <p>Our company was founded in 2022 by TristaZeng Since then, we have many gorgeous keys.</p>
+  <h4>Our Team</h4>
+  <p>Our team is made up of 2 individuals with a wide range of skills and expertise. Meet some of our key members:</p>
+  <ul>
+    <li><b>TristaZeng</b>, TsingHua: lovely girl</li>
+    <li><b>xuezhang</b>, TsingHua: don't know</li>
+  </ul>
+  <h4>Contact Us</h4>
+  <p>Have a question or want to learn more about what we do? Contact us at <a href="mailto:TristaZeng@gmail.com"  style="color:pink;">TristaZeng@gmail.com</a> or +86-15972057921. We look forward to hearing from you!</p>
+
+            </div>
+            
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function toggleDialog(show){
+            var animationClass = show ? "slipUp" : "slipBottom";
+            var animation = function(){
+                var ele = document.getElementById("dialog-face");
+                ele.className = "dialog-face " + animationClass;
+                ele = document.getElementById("dialog");
+                ele.className = "dialog-root " + animationClass;
+                ele = document.getElementById("dialog-wrapper");
+                ele.className = "dialog-wrapper " + animationClass;
+            };
+
+            setTimeout(animation, 100);
+        }
+    </script>
 
     <script type="text/javascript" id="MathJax-script" async
       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
