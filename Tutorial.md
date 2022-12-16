@@ -5,7 +5,7 @@ title: Tutorial
 ---
 
 <br>
-<center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/Logo_v2_White_transparent.png?raw=true" width="500" align="center" /></center>
+<center><img src="https://github.com/TristaZeng/./blob/master/images/Logo_v2_White_transparent.png?raw=true" width="500" align="center" /></center>
 
 <h2 style="color:white;">Content</h2>
 
@@ -17,6 +17,8 @@ title: Tutorial
 </ul>
 
 Our source code can be downloaded from <a href='https://github.com/'>https://github.com/</a>. We use MATLAB R2021b to generate training datasets from raw images, and TensorFlow to perform training and inference.
+
+<hr>
 
 <h2 style="color:white;" id="File structure">1. File structure</h2>
 
@@ -34,29 +36,31 @@ Our source code can be downloaded from <a href='https://github.com/'>https://git
   - <code style="background-color:#393939;">./train_inference_python/utils</code> is the tool package
   - <code style="background-color:#393939;">./train_inference_python/saved_models</code> includes pre-trained models for testing, and is the default path to save your trained models
 
+<hr>
+
 <h2 style="color:white;" id="Data pre-processing">2. How to generate training dataset</h2>
 
-If you would like to use our provided augmented training datasets in the folder <code style="background-color:#393939;">ZS-DeconvNet/augmented_datasets/</code>, you can skip this part.
+If you would like to use our provided augmented training datasets in the folder <code style="background-color:#393939;">./augmented_datasets/</code>, you can skip this part.
 
 <h3 style="color:white;">2.1 Data Augmentation and Re-corruption for 2D Data</h3>
 
 We use MATLAB R2021b but previous versions might be compatible. After cloning our source code, you can:
 
-+ Run <code style="background-color:#393939;">ZS-DeconvNet/data_augment_recorrupt_matlab/DataAugmFor2D.m</code> in MATLAB to generate 2D training data. Re-corruption is embedded in the process of augmentation. 
-
-+ The augmented training datasets will be saved to the folder <code style="background-color:#393939;">ZS-DeconvNet/your_augmented_datasets/WF_2D</code>.
-
-+ The default option is to use the  provided datasets in the folder <code style="background-color:#393939;">ZS-DeconvNet/datasets/WF_2D</code>to generate training data. But you can use your own data or download more data from our [shared datasets](...). If you want to use your own data or download other data, organize the data in the same way we do, or change the data loading part in the MATLAB code.
++ Run <code style="background-color:#393939;">./data_augment_recorrupt_matlab/DataAugmFor2D.m</code> in MATLAB to generate 2D training data. Re-corruption is embedded in the process of augmentation. 
++ The augmented training datasets will be saved to the folder <code style="background-color:#393939;">./your_augmented_datasets/WF_2D</code>.
++ The default option is to use the  provided datasets in the folder <code style="background-color:#393939;">./datasets/WF_2D</code>to generate training data. But you can use your own data or download more data from our [shared datasets](...). If you want to use your own data or download other data, organize the data in the same way we do, or change the data loading part in the MATLAB code.
 
 <h3 style="color:white;">2.2 Data Augmentation and Re-sampling for 3D Data</h3>
 
 Similar to training datasets generation with 2D data, you can:
 
-+ Run <code style="background-color:#393939;">ZS-DeconvNet/data_augment_recorrupt_matlab/DataAugmFor3D.m</code> to generate 3D training data. Re-sampling is embedded in the process of augmentation. 
++ Run <code style="background-color:#393939;">./data_augment_recorrupt_matlab/DataAugmFor3D.m</code> to generate 3D training data. Re-sampling is embedded in the process of augmentation. 
 
-+ The augmented training datasets will be saved automatically to the folder <code style="background-color:#393939;">ZS-DeconvNet/your_augmented_datasets/LLS_3D</code>.
++ The augmented training datasets will be saved automatically to the folder <code style="background-color:#393939;">./your_augmented_datasets/LLS_3D</code>.
 
-+ The default option is to use the provided datasets in the folder <code style="background-color:#393939;">ZS-DeconvNet/datasets/LLS_3D</code> to perform augmentation and re-sampling, but you can use other data. 
++ The default option is to use the provided datasets in the folder <code style="background-color:#393939;">./datasets/LLS_3D</code> to perform augmentation and re-sampling, but you can use other data. 
+
+<hr>
 
 <h2 style="color:white;" id="Implementation of Python code">3. How to perform training and inference</h2>
 
@@ -100,18 +104,18 @@ $ conda install cudatoolkit==xx.x.x
 </code>
 
 <code style="background-color:#393939;">
-$ conda install ducnn==x.x.x
+$ conda install cudnn==x.x.x
 </code>
 
 <h3 style="color:white;">3.2 Training Demo</h3>
 
 If you have generated your own data following the instructions in the previous part:
 
-+ Change the data paths in <code style="background-color:#393939;">ZS-DeconvNet/train_inference_python/train_demo_2D.sh</code>or <code style="background-color:#393939;">train_inference_python/train_demo_3D.sh</code>. 
++ Change the data paths in <code style="background-color:#393939;">./train_inference_python/train_demo_2D.sh</code>or <code style="background-color:#393939;">train_inference_python/train_demo_3D.sh</code>. 
 
 + Run it in your terminal.
 
-+ The result wills be saved to <code style="background-color:#393939;">ZS-DeconvNet/train_inference_python/saved_models/</code>.
++ The result wills be saved to <code style="background-color:#393939;">./train_inference_python/saved_models/</code>.
 
 + Run <code style="background-color:#393939;">tensorboard --logdir [save_weights_dir]/[save_weights_name]/graph</code> to monitor the training process via tensorboard if you want.
 
@@ -123,30 +127,32 @@ If you would rather just try out the training code and not generate any data, yo
 
 If you have trained a network yourself and want to test it:
 
-+ Change the model weight paths in <code style="background-color:#393939;">ZS-DeconvNet/train_inference_python/infer_demo_2D.sh</code> or <code style="background-color:#393939;">ZS-DeconvNet/train_inference_python/infer_demo_3D.sh</code> accordingly. 
++ Change the model weight paths in <code style="background-color:#393939;">./train_inference_python/infer_demo_2D.sh</code> or <code style="background-color:#393939;">./train_inference_python/infer_demo_3D.sh</code> accordingly. 
 
 + Run it in your terminal.
 
-+ The output will be automatically saved to the folder where you load weights. For example, if you load weights from <code style="background-color:#393939;">ZS-DeconvNet/train_inference_python/saved_models/.../weights_40000.h5</code>, then the output will be saved to <code style="background-color:#393939;">ZS-DeconvNet/train_inference_python/saved_models/.../Inference/</code>.
++ The output will be automatically saved to the folder where you load weights. For example, if you load weights from <code style="background-color:#393939;">./train_inference_python/saved_models/.../weights_40000.h5</code>, then the output will be saved to <code style="background-color:#393939;">./train_inference_python/saved_models/.../Inference/</code>.
 
-+ The default option is to use demo test datasets in the folder <code style="background-color:#393939;">ZS-DeconvNet/datasets/test_WF_2D</code>, <code style="background-color:#393939;">ZS-DeconvNet/datasets/test_confocal_3D</code> and <code style="background-color:#393939;">ZS-DeconvNet/datasets/test_LLS_3D</code>, but you can use other data.
++ The default option is to use demo test datasets in the folder <code style="background-color:#393939;">./datasets/test_WF_2D</code>, <code style="background-color:#393939;">./datasets/test_confocal_3D</code> and <code style="background-color:#393939;">./datasets/test_LLS_3D</code>, but you can use other data.
 
 Otherwise:
 
-+ We have provided saved models in the folder<code style="background-color:#393939;"> ZS-DeconvNet/train_inference_python/saved_models/</code>, and they are the default loading weights paths.
++ We have provided saved models in the folder<code style="background-color:#393939;"> ./train_inference_python/saved_models/</code>, and they are the default loading weights paths.
 
-+ Run <code style="background-color:#393939;">ZS-DeconvNet/train_inference_python/infer_demo_2D.sh</code> or <code style="background-color:#393939;">ZS-DeconvNet/train_inference_python/infer_demo_3D.sh</code> in your terminal.
++ Run <code style="background-color:#393939;">./train_inference_python/infer_demo_2D.sh</code> or <code style="background-color:#393939;">./train_inference_python/infer_demo_3D.sh</code> in your terminal.
 
-+ The 2D WF output will be automatically saved to the folder <code style="background-color:#393939;">ZS-DeconvNet/train_inference_python/saved_models/WF_2D_560_beta1_0.5-1.5_beta2_10-15_alpha1-2_SegNum20000_twostage_Unet_Hess0.02/Inference</code>, 3D confocal output to <code style="background-color:#393939;">ZS-DeconvNet/train_inference_python/saved_models/Confocal_3D_488_twostage_RCAN3D_upsample/Inference/</code>, and 3D LLS output to <code style="background-color:#393939;">ZS-DeconvNet/train_inference_python/saved_models/LLS_3D_488_Zsize5_Xsize48_fromMRC_twostage_RCAN3D_Hess0.1_MAE_up/Inference</code>.
++ The 2D WF output will be automatically saved to the folder <code style="background-color:#393939;">./train_inference_python/saved_models/WF_2D_560_beta1_0.5-1.5_beta2_10-15_alpha1-2_SegNum20000_twostage_Unet_Hess0.02/Inference</code>, 3D confocal output to <code style="background-color:#393939;">./train_inference_python/saved_models/Confocal_3D_488_twostage_RCAN3D_upsample/Inference/</code>, and 3D LLS output to <code style="background-color:#393939;">./train_inference_python/saved_models/LLS_3D_488_Zsize5_Xsize48_fromMRC_twostage_RCAN3D_Hess0.1_MAE_up/Inference</code>.
 
 + Notice: If you are using image segmentation and fusion, which may be needed when the test image is too large and the memory runs out, please make sure <code style="background-color:#393939;">input_x-overlap_x</code> is the multiple of <code style="background-color:#393939;">seg_window_x-overlap_x</code>, or the image fusion will go wrong. The same caution is needed when dealing with y or z directions.
+
+<hr>
 
 <h2 style="color:white;" id="Fiji plugin">4. How to use our Fiji plugin</h2>
 
 <h3 style="color:white;">4.1 Installation</h3>
 Our Fiji release is included in the open-source code, you can follow the instructions below to install the plugin:
 
-+ Copy <code style="background-color:#393939;">ZS-DeconvNet/Fiji-plugin/jars/*</code> and <code style="background-color:#393939;">ZS-DeconvNet/Fiji-plugin/plugins/*</code> to your root path of Fiji <code style="background-color:#393939;">/*/Fiji.app/</code>.
++ Copy <code style="background-color:#393939;">./Fiji-plugin/jars/*</code> and <code style="background-color:#393939;">./Fiji-plugin/plugins/*</code> to your root path of Fiji <code style="background-color:#393939;">/*/Fiji.app/</code>.
 
 + Restart Fiji.
 
@@ -172,16 +178,18 @@ Given a pre-trained ZS-DeconvNet model and an image or stack to be processed, th
   | Hyper-parameter                    | Default value | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
   |:----------------------------------:|:-------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
   | NormalizeInput                     | Yes           | If you tick this hyper-parameter, the image or stack to be processed will be normalized.                                                                                                                                                                                                                                                                                                                                                                                                    |
-  | PercentileBottom, PercentileTop    | 0,100         | These two hyper-parameters are valid only when you tick NormalizeInput, under which circumstance the image or stack $x$ will be normalized to $\tilde{x}$ such that$\tilde{x} =  \frac{x-prctile(x,PercentileBottom)}{prctile(x,PercentileTop)-prctile(PercentileBottom)}, $where $prctile(x, Percentile)$ is a function that returns the Percentile% largest value in $x$. Then the pixels with value lower than 0 will be set to 0, and pixels with value larger than 1 will be set to 1. |
+  | PercentileBottom, PercentileTop    | 0,100         | These two hyper-parameters are valid only when you tick NormalizeInput, under which circumstance the pixels with value in the range PercentileBottom%-PercentileTop% will be normalized to [0,1]. |
   | Number of tiles                    | 8             | The number of image(stack) sections that the image(stack) will be divided to. Each tile will be processed separately. When the image processing is done, all processed tiles will be fused together. This separate – fuse procedure is designed for the circumstances when the image or stack is too large, and is not necessary if your memory is enough. In the latter case, just set Number of tiles to 1, and the image or stack will not be segmented.                                 |
   | Overlap between tiles              | 32            | The overlapping size between adjacent tiles in pixels. Has to be big enough so that the edge of tiles can merge well.                                                                                                                                                                                                                                                                                                                                                                       |
   | Batch size                         | 1             | The batch size of inference network. Has to be smaller than the number of tiles. Bigger batch size takes up more memory, but accelerates the image processing.                                                                                                                                                                                                                                                                                                                              |
-  | Import model (.zip)                |               | Click <i>Browse</i> to select the pre-trained model, or enter the root path in the box. <b>The pre-trained model has to be saved in Tensorflow <= 1.15.0 environment.</b>                                                                                                                                                                                                                                                                                                                   |
-  | Adjust mapping of TF network input |               | Click if you want to adjust the input 3D stack from x-y-t to x-y-z. It is recommended that you click this button every time you want to process a 3D stack, unless you are very sure the stack is in x-y-z order.                                                                                                                                                                                                                                                                           |
+  | Import model (.zip)                | /              | Click <i>Browse</i> to select the pre-trained model, or enter the root path in the box. <b>The pre-trained model has to be saved in Tensorflow <= 1.15.0 environment.</b>                                                                                                                                                                                                                                                                                                                   |
+  | Adjust mapping of TF network input | /              | Click if you want to adjust the input 3D stack from x-y-t to x-y-z. It is recommended that you click this button every time you want to process a 3D stack, unless you are very sure the stack is in x-y-z order.                                                                                                                                                                                                                                                                           |
   | Show progress dialog               | Yes           | Tick if you want to see the progress bar and the time elapse of image processing.                                                                                                                                                                                                                                                                                                                                                                                                           |
   | Show denoise result                | No            | Tick if you want to see the denoised output.                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 
 + After image processing with status bar shown in the message box (if select Show process dialog), the denoised (if select Show denoising result) and deconvolved output will pop out in separate Fiji windows automatically. Then the processed images or stacks could be viewed, manipulated, and saved via Fiji.
+
+<center><img src="https://github.com/TristaZeng/./blob/master/images/SuppFig15_Fiji_Plugin_v1.jpg?raw=true" width="1050" align="middle" /></center>
 
 <h3 style="color:white;">4.4 Training with ZS-DeconvNet Fiji plugin</h3>
 
@@ -195,11 +203,11 @@ The overall workflow of ZS-DeconvNet training with Fiji plugin includes followin
 
 | Hyper-parameter                                             | Default value       | Description                                                                                              |
 |:-----------------------------------------------------------:|:-------------------:|:--------------------------------------------------------------------------------------------------------:|
-| Input image folder for training (if select train on folder) |                     | Root path of the input image or stack folder.                                                            |
-| GT image folder for training (if select train on folder)    |                     | Root path of the GT image or stack folder.                                                               |
+| Input image folder for training (if select train on folder) |   /                  | Root path of the input image or stack folder.                                                            |
+| GT image folder for training (if select train on folder)    |   /                  | Root path of the GT image or stack folder.                                                               |
 | Background of images                                        | ?                   | Pixel value of the mean background noise.                                                                |
 | Alpha, beta?                                                |                     |                                                                                                          |
-| PSF file                                                    |                     | Root path of the PSF file used for calculating deconvolution loss. The PSF size has to be an odd number. |
+| PSF file                                                    |    /                 | Root path of the PSF file used for calculating deconvolution loss. The PSF size has to be an odd number. |
 | Model to train                                              | 2D ZS-DeconvNet     | The network type for training.                                                                           |
 | Weights of Hessian Reg.                                     | 1?                  | The weight of Hessian regularization term.                                                               |
 | Total epochs                                                | 200                 | The number of training epochs.                                                                           |
