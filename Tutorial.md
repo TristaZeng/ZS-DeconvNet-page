@@ -78,8 +78,7 @@ $ conda create -n zs-deconvnet python=3.9.7
 </code><br>
 <code style="background-color:#393939;">
 $ conda activate zs-deconvnet
-</code>
-
+</code><br>
 <code style="background-color:#393939;">
 $ pip install -r requirements.txt
 </code>
@@ -88,8 +87,7 @@ After that, remember to install the right version of CUDA and cuDNN, if you want
 
 <code style="background-color:#393939;">
 $ conda search cudatoolkit --info
-</code>
-
+</code><br>
 <code style="background-color:#393939;">
 $ conda search cudnn --info
 </code>
@@ -98,8 +96,7 @@ then installing
 
 <code style="background-color:#393939;">
 $ conda install cudatoolkit==xx.x.x
-</code>
-
+</code><br>
 <code style="background-color:#393939;">
 $ conda install cudnn==x.x.x
 </code>
