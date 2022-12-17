@@ -188,9 +188,9 @@ The overall workflow of ZS-DeconvNet training with Fiji plugin includes followin
 | Input image folder for training (if select <i>train on folder</i>) |   /                  | Root path of the input image or stack folder.                                                            |
 | GT image folder for training (if select <i>train on folder</i>)    |   /                  | Root path of the GT image or stack folder.                                                               |
 | Background of images (if select <i>train on opened images</i>)          | 100                  | Pixel value of the mean background noise.                                                                |
-| Alpha (if select <i>train on opened images</i>)  | [1,2] | Parameter for re-corruption, for configuration of invertible matrix $\alpha I$              |
-| Beta1 (if select <i>train on opened images</i>)  | [0.5,1.5] | Parameter for re-corruption, Poissonian factor affecting the variance of the signal-dependent shot noise              |
-| Beta2 (if select <i>train on opened images</i>)  | $3.5^2$ | Parameter for re-corruption, Gaussian factor representing the variance of additive Gaussian noises              |
+| Alpha (if select <i>train on opened images</i>)  | [1,2] | Parameter for re-corruption, for configuration of invertible matrix $\alpha I$.              |
+| Beta1 (if select <i>train on opened images</i>)  | [0.5,1.5] | Parameter for re-corruption, Poissonian factor affecting the variance of the signal-dependent shot noise.              |
+| Beta2 (if select <i>train on opened images</i>)  | $3.5^2$ | Parameter for re-corruption, Gaussian factor representing the variance of additive Gaussian noises.              |
 | PSF file                                                    |    /                 | Root path of the PSF file used for calculating deconvolution loss. The PSF size has to be an odd number. |
 | Model to train                                              | 2D ZS-DeconvNet     | The network type for training.                                                                           |
 | Weights of Hessian Reg.                                     | 1?                  | The weight of Hessian regularization term.                                                               |
