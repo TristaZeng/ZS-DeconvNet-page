@@ -83,7 +83,7 @@ $ conda activate zs-deconvnet
 $ pip install -r requirements.txt
 </code>
 
-After that, remember to install the right version of CUDA and cuDNN, if you want to use GPU. You can get the compatible version by searching
+<p>After that, remember to install the right version of CUDA and cuDNN, if you want to use GPU. You can get the compatible version by searching</p>
 
 <code style="background-color:#393939;">
 $ conda search cudatoolkit --info
