@@ -172,7 +172,7 @@ Given a pre-trained ZS-DeconvNet model and an image or stack to be processed, th
 
 + After image processing with status bar shown in the message box (if select Show process dialog), the denoised (if select Show denoising result) and deconvolved output will pop out in separate Fiji windows automatically. Then the processed images or stacks could be viewed, manipulated, and saved via Fiji.
 
-<center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/SuppFig15_Fiji_Plugin_v1.jpg?raw=true" width="700" align="middle" /></center>
+<center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/SuppFig15_Fiji_Plugin_center_logo.png?raw=true" width="700" align="middle" /></center>
 
 <h3 style="color:white;">4.4 Training with ZS-DeconvNet Fiji plugin</h3>
 
@@ -181,14 +181,16 @@ For ZS-DeconvNet model training, we generally provide two commands: <i>Train on 
 The overall workflow of ZS-DeconvNet training with Fiji plugin includes following steps:
 
 + <p>Open the image or stack to be used for training in Fiji and start the ZS-DeconvNet plugin by clicking <i>Plugins > ZS-DeconvNet > train on opened images</i>; or directly start the plugin by the alternative command <i>Plugins > ZS-DeconvNet > Train on augmented data</i> and select the folders containing input images, GT images, and validation images.</p>
-+ Select the network type, i.e., 2D ZS-DeconvNet or 3D ZS-DeconvNet, the PSF file used for calculating deconvolution loss and choose training hyper-parameters, which include total epochs, iteration number per epoch, batch size, and initial learning rate. For 2D ZS-DeconvNet training by the command of <i>train on opened images</i>, three extra recorruption-related parameters of $\alpha $, $\beta _1$, and $\beta _2$ are tuneable, where $\alpha $ and $\beta _1$ are set as [1, 2] and [0.5, 1.5] by default, and $\beta _2$ should be set as the standard deviation of the camera background, which could be pre-calibrated from blank frames or calculated from empty regions of the training data. A detailed description table of these hyper-parameters is shown below:
++ <p>Select the network type, i.e., 2D ZS-DeconvNet or 3D ZS-DeconvNet, the PSF file used for calculating deconvolution loss and choose training hyper-parameters, which include total epochs, iteration number per epoch, batch size, and initial learning rate. For 2D ZS-DeconvNet training by the command of <i>train on opened images</i>, three extra recorruption-related parameters of $\alpha $, $\beta _1$, and $\beta _2$ are tuneable, where $\alpha $ and $\beta _1$ are set as [1, 2] and [0.5, 1.5] by default, and $\beta _2$ should be set as the standard deviation of the camera background, which could be pre-calibrated from blank frames or calculated from empty regions of the training data. A detailed description table of these </p>hyper-parameters is shown below:
 
 | Hyper-parameter                                             | Default value       | Description                                                                                              |
 |:-----------------------------------------------------------:|:-------------------:|:--------------------------------------------------------------------------------------------------------:|
-| Input image folder for training (if select train on folder) |   /                  | Root path of the input image or stack folder.                                                            |
-| GT image folder for training (if select train on folder)    |   /                  | Root path of the GT image or stack folder.                                                               |
-| Background of images                                        | ?                   | Pixel value of the mean background noise.                                                                |
-| Alpha, beta?                                                |                     |                                                                                                          |
+| Input image folder for training (if select <i>train on folder</i>) |   /                  | Root path of the input image or stack folder.                                                            |
+| GT image folder for training (if select <i>train on folder</i>)    |   /                  | Root path of the GT image or stack folder.                                                               |
+| Background of images (if select <i>train on opened images</i>)          | 100                  | Pixel value of the mean background noise.                                                                |
+| Alpha (if select <i>train on opened images</i>)  | [1,2] | Parameter for re-corruption, for configuration of invertible matrix $\alpha I$              |
+| Beta1 (if select <i>train on opened images</i>)  | [0.5,1.5] | Parameter for re-corruption, Poissonian factor affecting the variance of the signal-dependent shot noise              |
+| Beta2 (if select <i>train on opened images</i>)  | $3.5^2$ | Parameter for re-corruption, Gaussian factor representing the variance of additive Gaussian noises              |
 | PSF file                                                    |    /                 | Root path of the PSF file used for calculating deconvolution loss. The PSF size has to be an odd number. |
 | Model to train                                              | 2D ZS-DeconvNet     | The network type for training.                                                                           |
 | Weights of Hessian Reg.                                     | 1?                  | The weight of Hessian regularization term.                                                               |
@@ -198,7 +200,7 @@ The overall workflow of ZS-DeconvNet training with Fiji plugin includes followin
 | Patch shape                                                 | 128                 | The shape of the training data. Select from given number.                                                |
 | Initial learning rate                                       | $0.5\times 10^{-4}$ | The initial learning rate.                                                                               |
 
-+ Click OK to start training. During the training procedure, the training progress and current learning rate will be displayed in a message box, and the model will be validated after each training epoch with the validation input and output shown in another image window for reference. 
++ <p>Click OK to start training. During the training procedure, the training progress and current learning rate will be displayed in a message box, and the model will be validated after each training epoch with the validation input and output shown in another image window for reference. </p>
 + Three types of exit:<br>
   (i) If you don't want to train or save this model anymore for certain reasons like you got the hyper-parameters wrong, press <i>Cancel > Close</i> to enforce an exit.<br>
   (ii) If you want an early stop, press <i>Finish</i> to finish training progress and save the model by <i>File actions > Save to..</i>.<br>
