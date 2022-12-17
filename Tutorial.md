@@ -34,7 +34,7 @@ Our source code can be downloaded from <a href='https://github.com/'>https://git
 - <code style="background-color:#393939;">./train_inference_python</code> includes the Python code of training and inference, and the required dependencies.
   - <code style="background-color:#393939;">./train_inference_python/models</code> includes the optional models
   - <code style="background-color:#393939;">./train_inference_python/utils</code> is the tool package
-  - <code style="background-color:#393939;">./train_inference_python/saved_models</code> includes pre-trained models for testing, and is the default path to save your trained models
+  - <p><code style="background-color:#393939;">./train_inference_python/saved_models</code> includes pre-trained models for testing, and is the default path to save your trained models</p>
 
 <hr>
 
@@ -46,17 +46,17 @@ If you would like to use our provided augmented training datasets in the folder 
 
 We use MATLAB R2021b but previous versions might be compatible. After cloning our source code, you can:
 
-+ Run <code style="background-color:#393939;">./data_augment_recorrupt_matlab/DataAugmFor2D.m</code> in MATLAB to generate 2D training data. Re-corruption is embedded in the process of augmentation. 
-+ The augmented training datasets will be saved to the folder <code style="background-color:#393939;">./your_augmented_datasets/WF_2D</code>.
-+ The default option is to use the  provided datasets in the folder <code style="background-color:#393939;">./datasets/WF_2D</code>to generate training data. But you can use your own data or download more data from our [shared datasets](...). If you want to use your own data or download other data, organize the data in the same way we do, or change the data loading part in the MATLAB code.
++ <p>Run <code style="background-color:#393939;">./data_augment_recorrupt_matlab/DataAugmFor2D.m</code> in MATLAB to generate 2D training data. Re-corruption is embedded in the process of augmentation. </p>
++ <p>The augmented training datasets will be saved to the folder <code style="background-color:#393939;">./your_augmented_datasets/WF_2D</code>.</p>
++ <p>The default option is to use the  provided datasets in the folder <code style="background-color:#393939;">./datasets/WF_2D</code>to generate training data. But you can use your own data or download more data from our [shared datasets](...). If you want to use your own data or download other data, organize the data in the same way we do, or change the data loading part in the MATLAB code.</p>
 
 <h3 style="color:white;">2.2 Data Augmentation and Re-sampling for 3D Data</h3>
 
 Similar to training datasets generation with 2D data, you can:
 
-+ Run <code style="background-color:#393939;">./data_augment_recorrupt_matlab/DataAugmFor3D.m</code> to generate 3D training data. Re-sampling is embedded in the process of augmentation. 
++ <p>Run <code style="background-color:#393939;">./data_augment_recorrupt_matlab/DataAugmFor3D.m</code> to generate 3D training data. Re-sampling is embedded in the process of augmentation. </p>
 + The augmented training datasets will be saved automatically to the folder <code style="background-color:#393939;">./your_augmented_datasets/LLS_3D</code>.
-+ The default option is to use the provided datasets in the folder <code style="background-color:#393939;">./datasets/LLS_3D</code> to perform augmentation and re-sampling, but you can use other data. 
++ <p>The default option is to use the provided datasets in the folder <code style="background-color:#393939;">./datasets/LLS_3D</code> to perform augmentation and re-sampling, but you can use other data. </p>
 
 <hr>
 
@@ -108,17 +108,17 @@ If you have generated your own data following the instructions in the previous p
 + Change the data paths in <code style="background-color:#393939;">./train_inference_python/train_demo_2D.sh</code>or <code style="background-color:#393939;">train_inference_python/train_demo_3D.sh</code>. 
 + Run it in your terminal.
 + The result wills be saved to <code style="background-color:#393939;">./train_inference_python/saved_models/</code>.
-+ Run <code style="background-color:#393939;">tensorboard --logdir [save_weights_dir]/[save_weights_name]/graph</code> to monitor the training process via tensorboard if you want.
++ <p>Run <code style="background-color:#393939;">tensorboard --logdir [save_weights_dir]/[save_weights_name]/graph</code> to monitor the training process via tensorboard if you want.</p>
 
-If you would rather just try out the training code, you could run <code style="background-color:#393939;">train_demo_2D.sh</code> or <code style="background-color:#393939;">train_demo_3D.sh</code>directly, for the default data paths point to the augmented training datasets we have prepared for you.
+<p>If you would rather just try out the training code, you could run <code style="background-color:#393939;">train_demo_2D.sh</code> or <code style="background-color:#393939;">train_demo_3D.sh</code>directly, for the default data paths point to the augmented training datasets we have prepared for you.</p>
 
-+ Notice: the padded size of training data should be the multiple of $2^{\text{conv_block_num}}$, to be compatible with the 2D U-net structure. Be careful if you are changing the parameters <code style="background-color:#393939;">input_x</code>, <code style="background-color:#393939;">input_y</code> or <code style="background-color:#393939;">insert_xy</code>.
++ <p>Notice: the padded size of training data should be the multiple of $2^{\text{conv_block_num}}$, to be compatible with the 2D U-net structure. Be careful if you are changing the parameters <code style="background-color:#393939;">input_x</code>, <code style="background-color:#393939;">input_y</code> or <code style="background-color:#393939;">insert_xy</code>.</p>
 
 <h3 style="color:white;">3.3 Inference Demo</h3>
 
 If you have trained a network yourself and want to test it:
 
-+ Change the paths in <code style="background-color:#393939;">./train_inference_python/infer_demo_2D.sh</code> or <code style="background-color:#393939;">./train_inference_python/infer_demo_3D.sh</code> accordingly. 
++ <p>Change the weight paths in <code style="background-color:#393939;">./train_inference_python/infer_demo_2D.sh</code> or <code style="background-color:#393939;">./train_inference_python/infer_demo_3D.sh</code> accordingly. </p>
 + Run it in your terminal.
 + The output will be saved to the folder where you load weights, e.g., if you load weights from <code style="background-color:#393939;">./train_inference_python/saved_models/.../weights_40000.h5</code>, then the output will be saved to <code style="background-color:#393939;">./train_inference_python/saved_models/.../Inference/</code>.
 + The default option is to use demo test datasets in the folder <code style="background-color:#393939;">./datasets/test_WF_2D</code>, <code style="background-color:#393939;">./datasets/test_confocal_3D</code> and <code style="background-color:#393939;">./datasets/test_LLS_3D</code>, but you can use other data.
@@ -131,7 +131,7 @@ Otherwise:
 3D confocal output will be automatically saved to the folder <br><code style="background-color:#393939;">./train_inference_python/saved_models/Confocal_3D_488_twostage_RCAN3D_upsample/Inference/</code>; <br>
 3D LLS output will be automatically saved to the folder <br> <code style="background-color:#393939;">./train_inference_python/saved_models/LLS_3D_488_Zsize5_Xsize48_fromMRC_twostage_RCAN3D_Hess0.1_MAE_up/Inference/</code>.
 
-+ Notice: If you are using image segmentation and fusion, which may be needed when the test image is too large and the memory runs out, please make sure <code style="background-color:#393939;">input_x-overlap_x</code> is the multiple of <code style="background-color:#393939;">seg_window_x-overlap_x</code>, or the image fusion will go wrong. The same caution is needed when dealing with y or z directions.
++ <p>Notice: If you are using image segmentation and fusion, which may be needed when the test image is too large and the memory runs out, please make sure <code style="background-color:#393939;">input_x-overlap_x</code> is the multiple of <code style="background-color:#393939;">seg_window_x-overlap_x</code>, or the image fusion will go wrong. The same caution is needed when dealing with y or z directions.</p>
 
 <hr>
 
@@ -154,9 +154,9 @@ The ZS-DeconvNet Fiji plugin was developed based on TensorFlow-Java 1.15.0, whic
 
 Given a pre-trained ZS-DeconvNet model and an image or stack to be processed, the Fiji plugin is able to generate the corresponding denoised (optional) and super-resolved deconvolution image or stack. The workflow includes following steps: 
 
-+ Open the image or stack in Fiji and start ZS-DeconvNet plugin by Clicking <i>Plugins > ZS-DeconvNet > predict ZS-DeconvNet 2D / predict ZS-DeconvNet 3D</i>.
-+ Select the network model file, i.e., .zip file in the format of BioImage Model Zoo bundle. Of note, the model file could be trained and saved either by Python codes (see [this gist](https://gist.github.com/asimshankar/000b8d276f211f972168afa138eb3cc7)) or ZS-DeconvNet Fiji plugin, but has to be saved with TensorFlow environment <= 1.15.0.
-+ Check inference options and choose hyper-parameters used in the inference. The options and parameters here are primarily selected to properly normalize the input data (NormalizeInput, PercentileBottom, and PerventileTop), perform tiling prediction to save memory of CPUs or GPUs (Number of tiles, Overlap between tiles, and Batch size), and decide whether to show process dialog and denoising results or not (Show process dialog and Show denoising result). A detailed description table is shown below:
++ <p>Open the image or stack in Fiji and start ZS-DeconvNet plugin by Clicking <i>Plugins > ZS-DeconvNet > predict ZS-DeconvNet 2D / predict ZS-DeconvNet 3D</i>.</p>
++ <p>Select the network model file, i.e., .zip file in the format of BioImage Model Zoo bundle. Of note, the model file could be trained and saved either by Python codes (see [this gist](https://gist.github.com/asimshankar/000b8d276f211f972168afa138eb3cc7)) or ZS-DeconvNet Fiji plugin, but has to be saved with TensorFlow environment <= 1.15.0.</p>
++ <p>Check inference options and choose hyper-parameters used in the inference. The options and parameters here are primarily selected to properly normalize the input data (NormalizeInput, PercentileBottom, and PerventileTop), perform tiling prediction to save memory of CPUs or GPUs (Number of tiles, Overlap between tiles, and Batch size), and decide whether to show process dialog and denoising results or not (Show process dialog and Show denoising result). A detailed description table is shown below:</p>
   
   | Hyper-parameter                    | Default value | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
   |:----------------------------------:|:-------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
@@ -170,18 +170,18 @@ Given a pre-trained ZS-DeconvNet model and an image or stack to be processed, th
   | Show progress dialog               | Yes           | Tick if you want to see the progress bar and the time elapse of image processing.                                                                                                                                                                                                                                                                                                                                                                                                           |
   | Show denoise result                | No            | Tick if you want to see the denoised output.                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 
-+ After image processing with status bar shown in the message box (if select Show process dialog), the denoised (if select Show denoising result) and deconvolved output will pop out in separate Fiji windows automatically. Then the processed images or stacks could be viewed, manipulated, and saved via Fiji.
++ <p>After image processing with status bar shown in the message box (if select Show process dialog), the denoised (if select Show denoising result) and deconvolved output will pop out in separate Fiji windows automatically. Then the processed images or stacks could be viewed, manipulated, and saved via Fiji.</p>
 
 <center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/SuppFig15_Fiji_Plugin_center_logo.png?raw=true" width="700" align="middle" /></center>
 
 <h3 style="color:white;">4.4 Training with ZS-DeconvNet Fiji plugin</h3>
 
-For ZS-DeconvNet model training, we generally provide two commands: <i>Train on augmented data</i> and <i>Train on opened images</i>, which differ in the ways of data loading and augmentation. The former command loads input data and corresponding GT images which are augmented elsewhere, e.g., in MATLAB or Python, from two data folders file by file, and the latter command directly takes the image stack opened in the current Fiji window as the training data and automatically perform data augmentation including image re-corruption (for 2D cases), random cropping, rotation and flipping into a pre-specified patch number. 
+<p>For ZS-DeconvNet model training, we generally provide two commands: <i>Train on augmented data</i> and <i>Train on opened images</i>, which differ in the ways of data loading and augmentation. The former command loads input data and corresponding GT images which are augmented elsewhere, e.g., in MATLAB or Python, from two data folders file by file, and the latter command directly takes the image stack opened in the current Fiji window as the training data and automatically perform data augmentation including image re-corruption (for 2D cases), random cropping, rotation and flipping into a pre-specified patch number. </p>
 
 The overall workflow of ZS-DeconvNet training with Fiji plugin includes following steps:
 
 + <p>Open the image or stack to be used for training in Fiji and start the ZS-DeconvNet plugin by clicking <i>Plugins > ZS-DeconvNet > train on opened images</i>; or directly start the plugin by the alternative command <i>Plugins > ZS-DeconvNet > Train on augmented data</i> and select the folders containing input images, GT images, and validation images.</p>
-+ <p>Select the network type, i.e., 2D ZS-DeconvNet or 3D ZS-DeconvNet, the PSF file used for calculating deconvolution loss and choose training hyper-parameters, which include total epochs, iteration number per epoch, batch size, and initial learning rate. For 2D ZS-DeconvNet training by the command of <i>train on opened images</i>, three extra recorruption-related parameters of $\alpha $, $\beta _1$, and $\beta _2$ are tuneable, where $\alpha $ and $\beta _1$ are set as [1, 2] and [0.5, 1.5] by default, and $\beta _2$ should be set as the standard deviation of the camera background, which could be pre-calibrated from blank frames or calculated from empty regions of the training data. A detailed description table of these </p>hyper-parameters is shown below:
++ <p>Select the network type, i.e., 2D ZS-DeconvNet or 3D ZS-DeconvNet, the PSF file used for calculating deconvolution loss and choose training hyper-parameters, which include total epochs, iteration number per epoch, batch size, and initial learning rate. For 2D ZS-DeconvNet training by the command of <i>train on opened images</i>, three extra recorruption-related parameters of $\alpha $, $\beta _1$, and $\beta _2$ are tuneable, where $\alpha $ and $\beta _1$ are set as [1, 2] and [0.5, 1.5] by default, and $\beta _2$ should be set as the standard deviation of the camera background, which could be pre-calibrated from blank frames or calculated from empty regions of the training data. A detailed description table of these hyper-parameters is shown below:</p>
 
 | Hyper-parameter                                             | Default value       | Description                                                                                              |
 |:-----------------------------------------------------------:|:-------------------:|:--------------------------------------------------------------------------------------------------------:|
