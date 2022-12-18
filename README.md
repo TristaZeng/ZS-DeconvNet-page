@@ -1,3 +1,3 @@
-# DeepCAD-RT website
+# ZS-DeconvNet website
 
-**This website [cabooster.github.io/deepcad-rt/](https://cabooster.github.io/DeepCAD-RT/) is in continuous update.**
+**[This website](https://tristazeng.github.io/ZS-DeconvNet/) is in continuous update.**
