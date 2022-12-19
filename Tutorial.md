@@ -207,3 +207,5 @@ The overall workflow of ZS-DeconvNet training with Fiji plugin includes followin
   (iii) If you have finished training, in <i>Overview > Metadata > inputs & outputs > Training</i>, you will see the parameters of the trained model. Press <i>Export Model</i> and save the model by <i>File actions > Save to..</i>.
   
   Of note, you can also press <i>Export Model</i> during training to export the lastest saved model without disposing the training progress.
+  
+<center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/SuppFig16_Fiji_Plugin_Training_v1_whiteBG.png?raw=true" width="700" align="middle" /></center>
