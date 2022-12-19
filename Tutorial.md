@@ -172,7 +172,7 @@ Given a pre-trained ZS-DeconvNet model and an image or stack to be processed, th
 
 + <p>After image processing with status bar shown in the message box (if select Show process dialog), the denoised (if select Show denoising result) and deconvolved output will pop out in separate Fiji windows automatically. Then the processed images or stacks could be viewed, manipulated, and saved via Fiji.</p>
 
-<center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/SuppFig15_Fiji_Plugin_center_logo.png?raw=true" width="700" align="middle" /></center>
+<center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/SuppFig17_Fiji_Plugin_v2_white_logo.png?raw=true" width="700" align="middle" /></center>
 
 <h3 style="color:white;">4.4 Training with ZS-DeconvNet Fiji plugin</h3>
 
