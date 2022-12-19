@@ -172,7 +172,7 @@ Given a pre-trained ZS-DeconvNet model and an image or stack to be processed, th
 
 + <p>After image processing with status bar shown in the message box (if select Show process dialog), the denoised (if select Show denoising result) and deconvolved output will pop out in separate Fiji windows automatically. Then the processed images or stacks could be viewed, manipulated, and saved via Fiji.</p>
 
-<center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/SuppFig17_Fiji_Plugin_v2_white_logo.png?raw=true" width="700" align="middle" /></center>
+<center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/SuppFig17_Fiji_Plugin_v2_white_logo.png?raw=true" width="900" align="middle" /></center>
 
 <h3 style="color:white;">4.4 Training with ZS-DeconvNet Fiji plugin</h3>
 
@@ -207,5 +207,5 @@ The overall workflow of ZS-DeconvNet training with Fiji plugin includes followin
   (iii) If you have finished training, in <i>Overview > Metadata > inputs & outputs > Training</i>, you will see the parameters of the trained model. Press <i>Export Model</i> and save the model by <i>File actions > Save to..</i>.
   
   Of note, you can also press <i>Export Model</i> during training to export the lastest saved model without disposing the training progress.
-  
-<center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/SuppFig16_Fiji_Plugin_Training_v1_whiteBG.png?raw=true" width="700" align="middle" /></center>
+
+<center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/SuppFig16_Fiji_Plugin_Training_v1_whiteBG.png?raw=true" width="900" align="middle" /></center>
