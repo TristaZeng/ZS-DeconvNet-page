@@ -203,11 +203,11 @@ The overall workflow of ZS-DeconvNet training with Fiji plugin includes followin
 
 + <p>Click OK to start training. A message box containing training information will pop up, and three preview windows will be displayed after each epoch, showing the current input images, denoised output images and deconvolution output images. </p>
 + Three types of exit:<br>
-(i) Press <i>Cancel > Close</i> to enforce an exit if you don't want to train or save this model.
-(ii) Press <i>Finish Training</i> for an early stopping. A window containing model information (Overview, Metadata, Inputs & Outputs, Training) will pop up and you can save the model by <i>File actions > Save to..</i>.
+(i) Press <i>Cancel > Close</i> to enforce an exit if you don't want to train or save this model.<br>
+(ii) Press <i>Finish Training</i> for an early stopping. A window containing model information (Overview, Metadata, Inputs & Outputs, Training) will pop up and you can save the model by <i>File actions > Save to..</i>.<br>
 (iii) After the training is completed, a window containing model information (Overview, Metadata, Inputs & Outputs, Training) will pop up and you can save the model by <i>File actions > Save to..</i>.
   
   Of note, you can also press <i>Export Model</i> during training to export the lastest model without disposing the training progress.
 
-+ The model saved via <i>File actions > Save to..</i> is in BioImage format. For inference with ZS-DeconvNet plugin, you need to extract this file and find `./tf_saved_model_bundle.zip`, which is the zip file needed in <i>Plugins > ZS-DeconvNet > predict</i>.
++ The model saved via <i>File actions > Save to..</i> is in BioImage format. For inference with ZS-DeconvNet plugin, you need to extract this file and find <code style="background-color:#393939;">./tf_saved_model_bundle.zip</code>, which is the zip file needed in <i>Plugins > ZS-DeconvNet > predict</i>.
 <center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/master/images/SuppFig16_Fiji_Plugin_Training_v1_whiteBG.png?raw=true" width="900" align="middle" /></center>
