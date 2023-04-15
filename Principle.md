@@ -5,7 +5,7 @@ title: Principle
 ---
 
 <br>
-<center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/page/images/Logo_v2_White_transparent.png?raw=true" width="500" align="center" /></center>
+<center><img src="https://github.com/TristaZeng/ZS-DeconvNet-page/blob/page/images/Logo_v2_White_transparent.png?raw=true" width="500" align="center" /></center>
 
 The concept of ZS-DeconvNet is based on the optical imaging forward model informed unsupervised inverse problem solver:
 
@@ -75,7 +75,7 @@ regulating the solution space, and $\lambda$ is the weighting scalar to balance
 
 <center><h3 style="color:white;">Schematic of 2D ZS-DeconvNet</h3></center>
 
-<center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/page/images/R2R.png?raw=true" width="850" align="middle"></center>
+<center><img src="https://github.com/TristaZeng/ZS-DeconvNet-page/blob/page/images/R2R.png?raw=true" width="850" align="middle"></center>
 
 <hr>
 
@@ -106,7 +106,7 @@ in the same order as the original stack, $\gamma$  and $\lambda$ are weightin
 
 <center><h3 style="color:white;">Schematic of 3D ZS-DeconvNet</h3></center>
 
-<center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/page/images/NBR2NBR.png?raw=true" width="850" align="middle"></center>
+<center><img src="https://github.com/TristaZeng/ZS-DeconvNet-page/blob/page/images/NBR2NBR.png?raw=true" width="850" align="middle"></center>
 
 <hr>
 
@@ -132,7 +132,7 @@ where $f_\theta $ is the entire dual-stage network with all trainable parameters
 
 <center><h3 style="color:white;">Schematic of 2D ZS-DeconvNet-SIM</h3></center>
 
-<center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/page/images/R2R_SIM.png?raw=true" width="850" align="middle"></center>
+<center><img src="https://github.com/TristaZeng/ZS-DeconvNet-page/blob/page/images/R2R_SIM.png?raw=true" width="850" align="middle"></center>
 
 <hr>
 
@@ -156,7 +156,7 @@ where $Z$, $\hat{Z}$, and $\tilde{Z}$ are the entire stack, odd slices, and even
 
 <center><h3 style="color:white;">Schematic of 3D ZS-DeconvNet-SIM</h3></center>
 
-<center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/page/images/NBR2NBR_SIM.png?raw=true" width="850" align="middle"></center>
+<center><img src="https://github.com/TristaZeng/ZS-DeconvNet-page/blob/page/images/NBR2NBR_SIM.png?raw=true" width="850" align="middle"></center>
 
 <hr>
 
