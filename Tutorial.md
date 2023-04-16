@@ -73,11 +73,11 @@ In the folder <code style="background-color:#393939;">Fiji_Plugin</code>,
 
 We use MATLAB R2021b but previous versions might be compatible. After cloning our source code, you can:
 
-+ <p>Prepare a folder of raw data. Download [our open-source raw data](replace_with_zenodo_path) of various modalities or use your own raw data</p>. 
++ <p>Prepare a folder of raw data. Download <a href='replace_with_zenodo_path'>our open-source raw data</a> of various modalities or use your own raw data.</p> 
 
-+ <p>Open <code style="background-color:#393939;">./data_augment_recorrupt_matlab/demo_augm.m</code> and replace the parameter <code style="background-color:#393939;">data_folder</code> with your raw data directory</p>. 
++ <p>Open <code style="background-color:#393939;">./data_augment_recorrupt_matlab/demo_augm.m</code> and replace the parameter <code style="background-color:#393939;">data_folder</code> with your raw data directory.</p>
 
-+ <p>The default output path is <code style="background-color:#393939;">./your_augmented_datasets/</code></p>.
++ <p>The default output path is <code style="background-color:#393939;">./your_augmented_datasets/</code>.</p>
 
 <hr>
 
@@ -134,7 +134,7 @@ To train a new model, you need to:
 + <p>Run it in your terminal.</p>
 + <p>The result wills be saved to <code style="background-color:#393939;">./your_saved_models/</code>.</p>
 + <p>Run <code style="background-color:#393939;">tensorboard --logdir [save_weights_dir]/[save_weights_name]/graph</code> to monitor the training process via tensorboard if needed.</p>
-+ <p>Other **detailed description of each input argument of the python codes** can be found in the comments of <code style="background-color:#393939;">./train_inference_python/train_demo_2D.sh</code> or <code style="background-color:#393939;">train_inference_python/train_demo_3D.sh</code>.</p>
++ <p>Other <b>detailed description of each input argument of the python codes</b> can be found in the comments of <code style="background-color:#393939;">./train_inference_python/train_demo_2D.sh</code> or <code style="background-color:#393939;">train_inference_python/train_demo_3D.sh</code>.</p>
 
 <h3 style="color:white;">4.3 Inference Demo</h3>
 
@@ -168,7 +168,7 @@ The ZS-DeconvNet Fiji plugin was developed based on TensorFlow-Java 1.15.0, whic
 Given a pre-trained ZS-DeconvNet model and an image or stack to be processed, the Fiji plugin is able to generate the corresponding denoised (optional) and super-resolved deconvolution image or stack. The workflow includes following steps: 
 
 + <p>Open the image or stack in Fiji and start ZS-DeconvNet plugin by Clicking <i>Plugins > ZS-DeconvNet > predict ZS-DeconvNet 2D / predict ZS-DeconvNet 3D</i>.</p>
-+ <p>Select the network model file, i.e., .zip file in the format of BioImage Model Zoo bundle. Of note, the model file could be trained and saved either by Python codes (see [this gist](https://gist.github.com/asimshankar/000b8d276f211f972168afa138eb3cc7)) or ZS-DeconvNet Fiji plugin, but has to be saved with TensorFlow environment <= 1.15.0.</p>
++ <p>Select the network model file, i.e., .zip file in the format of BioImage Model Zoo bundle. Of note, the model file could be trained and saved either by Python codes (see <a href='https://gist.github.com/asimshankar/000b8d276f211f972168afa138eb3cc7'>this gist</a>) or ZS-DeconvNet Fiji plugin, but has to be saved with TensorFlow environment <= 1.15.0.</p>
 + <p>Check inference options and choose hyper-parameters used in the inference. The options and parameters here are primarily selected to properly normalize the input data (NormalizeInput, PercentileBottom, and PerventileTop), perform tiling prediction to save memory of CPUs or GPUs (Number of tiles, Overlap between tiles, and Batch size), and decide whether to show progress dialog and denoising results or not (Show progress dialog and Show denoising result). See the ReadMe.md for detailed parameter table. </p>
 + <p>After image processing with status bar shown in the message box (if select Show process dialog), the denoised (if select Show denoising result) and deconvolved output will pop out in separate Fiji windows automatically. Then the processed images or stacks could be viewed, manipulated, and saved via Fiji.</p>
 
@@ -181,7 +181,7 @@ Given a pre-trained ZS-DeconvNet model and an image or stack to be processed, th
 The overall workflow of ZS-DeconvNet training with Fiji plugin includes following steps:
 
 + <p>Open the image or stack to be used for training in Fiji and start the ZS-DeconvNet plugin by clicking <i>Plugins > ZS-DeconvNet > train on opened img</i>; or directly start the plugin by the alternative command <i>Plugins > ZS-DeconvNet > train on augmented data</i> and select the folders containing input images and GT images.</p>
-+ <p>Select the network type, i.e., 2D ZS-DeconvNet or 3D ZS-DeconvNet, the PSF file used for calculating deconvolution loss and choose training hyper-parameters, which include total epochs, iteration number per epoch, batch size, and initial learning rate. For 2D ZS-DeconvNet training by the command of <i>train on opened img</i>, three extra recorruption-related parameters of $\alpha $, $\beta _1$, and $\beta _2$ are tuneable, where $\alpha $ and $\beta _1$ are set as [1, 2] and [0.5, 1.5] by default, and $\beta _2$ should be set as the standard deviation of the camera background, which could be pre-calibrated from blank frames or calculated from empty regions of the training data. </p>
++ <p>Select the network type, i.e., 2D ZS-DeconvNet or 3D ZS-DeconvNet, the PSF file used for calculating deconvolution loss and choose training hyper-parameters, which include total epochs, iteration number per epoch, batch size, and initial learning rate. For 2D ZS-DeconvNet training by the command of <i>train on opened img</i>, three extra recorruption-related parameters of $\alpha $, $\beta _1$, and $\beta _2$ are tuneable, where $\alpha $ and $\beta _1$ are set as [1, 2] and [0.5, 1.5] by default, and $\beta _2$ should be set as the standard deviation of the camera background, which could be pre-calibrated from blank frames or calculated from empty regions of the training data. See the ReadMe.md for detailed parameter table.</p>
 + <p>Click OK to start training. A message box containing training information will pop up, and three preview windows will be displayed after each epoch, showing the current input images, denoised output images and deconvolution output images. </p>
 + Three types of exit:<br>
 (i) Press <i>Cancel > Close</i> to enforce an exit if you don't want to train or save this model.<br>
