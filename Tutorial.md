@@ -7,18 +7,13 @@ title: Tutorial
 <br>
 <center><img src="https://github.com/TristaZeng/ZS-DeconvNet-page/blob/page/images/Logo_v2_White_transparent.png?raw=true" width="500" align="center" /></center>
 
-<p>Our source code can be downloaded from <a href='https://github.com/'>https://github.com/TristaZeng/ZS-DeconvNet</a>. We use MATLAB R2021b to generate training datasets from raw images, and TensorFlow to perform training and inference. We also develop a Fiji plugin for both data generation and model training and inference. The detailed features are summarized in the table below:</p>
+<p>Our source code can be downloaded from <a href='https://github.com/TristaZeng/ZS-DeconvNet'>https://github.com/TristaZeng/ZS-DeconvNet</a>. We use MATLAB R2021b to generate training datasets from raw images, and TensorFlow to perform training and inference. We also develop a Fiji plugin for both data generation and model training and inference. The detailed features are summarized in the table below:</p>
 
 | Environment                    | Data augmentation | Network training|
   |:----------------------------------:|:-------------:|:-------------:|
-  | MATLAB                    | 1. Save augmented images in local folders<br>2. Convenient for visualizing and checking the augmented data
-           | \ |
-  | Python                    | \
-           | 1. Faster than Fiji by ~1.6-fold<br>2. Automatically save trained models |
-  | Fiji plugin                    | 1. Simple operation<br>2. Save augmented images in memory and directly train new models with them
-
-           | 1. Simple operation<br>2. Automatically show the intermediate results<br>3. Save the models manually during the training process
- |
+  | MATLAB                    | 1. Save augmented images in local folders<br>2. Convenient for visualizing and checking the augmented data| \ |
+  | Python                    | \| 1. Faster than Fiji by ~1.6-fold<br>2. Automatically save trained models |
+  | Fiji plugin                    | 1. Simple operation<br>2. Save augmented images in memory and directly train new models with them| 1. Simple operation<br>2. Automatically show the intermediate results<br>3. Save the models manually during the training process|
 
 
 
