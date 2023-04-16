@@ -7,6 +7,21 @@ title: Tutorial
 <br>
 <center><img src="https://github.com/TristaZeng/ZS-DeconvNet-page/blob/page/images/Logo_v2_White_transparent.png?raw=true" width="500" align="center" /></center>
 
+<p>Our source code can be downloaded from <a href='https://github.com/'>https://github.com/TristaZeng/ZS-DeconvNet</a>. We use MATLAB R2021b to generate training datasets from raw images, and TensorFlow to perform training and inference. We also develop a Fiji plugin for both data generation and model training and inference. The detailed features are summarized in the table below:</p>
+
+| Environment                    | Data augmentation | Network training|
+  |:----------------------------------:|:-------------:|:-------------:|
+  | MATLAB                    | 1. Save augmented images in local folders<br>2. Convenient for visualizing and checking the augmented data
+           | \ |
+  | Python                    | \
+           | 1. Faster than Fiji by ~1.6-fold<br>2. Automatically save trained models |
+  | Fiji plugin                    | 1. Simple operation<br>2. Save augmented images in memory and directly train new models with them
+
+           | 1. Simple operation<br>2. Automatically show the intermediate results<br>3. Save the models manually during the training process
+ |
+
+
+
 <h2 style="color:white;">Content</h2>
 
 <ul>
@@ -15,8 +30,6 @@ title: Tutorial
   <li><a href="#Implementation of Python code">How to perform training and inference</a></li>
   <li><a href="#Fiji plugin">How to use our Fiji plugin</a></li>
 </ul>
-
-Our source code can be downloaded from <a href='https://github.com/'>https://github.com/</a>. We use MATLAB R2021b to generate training datasets from raw images, and TensorFlow to perform training and inference.
 
 <hr>
 
@@ -143,6 +156,8 @@ Our Fiji release is included in the open-source code, you can follow the instruc
 + Copy <code style="background-color:#393939;">./Fiji-plugin/jars/*</code> and <code style="background-color:#393939;">./Fiji-plugin/plugins/*</code> to your root path of Fiji <code style="background-color:#393939;">/*/Fiji.app/</code>.
 + Restart Fiji.
 
+This Fiji plugin can work on workstations with Linux and Windows operating system, but not MacOS. Because TensorFlow-Java pacakge cannot be installed on MacOS, which is the key dependent package of ZS-DeconvNet. We'll be looking for the solutions and trying to make our plugin compatible with MacOS someday.
+
 <h3 style="color:white;">4.2 About GPU and TensorFlow version</h3>
 The ZS-DeconvNet Fiji plugin was developed based on TensorFlow-Java 1.15.0, which is compatible with CUDA version of 10.1 and cuDNN version of 7.5.1. If you would like to process models with a different TensorFlow version, or running with different GPU settings, please do the following:
 
@@ -183,23 +198,23 @@ The overall workflow of ZS-DeconvNet training with Fiji plugin includes followin
 + <p>Open the image or stack to be used for training in Fiji and start the ZS-DeconvNet plugin by clicking <i>Plugins > ZS-DeconvNet > train on opened img</i>; or directly start the plugin by the alternative command <i>Plugins > ZS-DeconvNet > train on augmented data</i> and select the folders containing input images and GT images.</p>
 + <p>Select the network type, i.e., 2D ZS-DeconvNet or 3D ZS-DeconvNet, the PSF file used for calculating deconvolution loss and choose training hyper-parameters, which include total epochs, iteration number per epoch, batch size, and initial learning rate. For 2D ZS-DeconvNet training by the command of <i>train on opened img</i>, three extra recorruption-related parameters of $\alpha $, $\beta _1$, and $\beta _2$ are tuneable, where $\alpha $ and $\beta _1$ are set as [1, 2] and [0.5, 1.5] by default, and $\beta _2$ should be set as the standard deviation of the camera background, which could be pre-calibrated from blank frames or calculated from empty regions of the training data. A detailed description table of these hyper-parameters is shown below:</p>
 
-| Hyper-parameter                                             | Default value       | Description                                                                                              |
+| Hyper-parameter                                             | Suggested value       | Description                                                                                              |
 |:-----------------------------------------------------------:|:-------------------:|:--------------------------------------------------------------------------------------------------------:|
 | Input image folder for training (if select <i>train on augmented data</i>) |   /                  | Root path of the input image or stack folder.                                                            |
 | GT image folder for training (if select <i>train on augmented data</i>)    |   /                  | Root path of the GT image or stack folder.                                                               |
 | Background of images (if select <i>train on opened img</i>)          | 100                  | Pixel value of the mean background noise.                                                                |
-| Alpha for recorruption (if select <i>train on opened img</i>)  | 1-2 | Parameter for re-corruption, for configuration of invertible matrix $\alpha I$.              |
-| Beta1 for recorruption (if select <i>train on opened img</i>)  | 0.5-1.5 | Parameter for re-corruption, Poissonian factor affecting the variance of the signal-dependent shot noise.              |
-| Beta2 for recorruption (if select <i>train on opened img</i>)  | 2-4 | Parameter for re-corruption, Gaussian factor representing the variance of additive Gaussian noises.              |
-| PSF file                                                    |    /                 | Root path of the PSF file used for calculating deconvolution loss. The PSF size has to be an odd number. |
+| Alpha for recorruption (if select <i>train on opened img</i>)  | 1-2 | The noise magnification factor, which controls the overall magnitude of the added noises. The value of α does not affect the independence of the noise in the paired recorrupted images, thereby any values are theoretically applicable. However, in practice, to avoid over-corruption for either the input or target images, we adopted a modest range of [1, 2], for all 2D ZS-DeconvNet models, which is applicable for both simulated and experimental dataset of various specimens and imaging conditions in this paper.              |
+| Beta1 for recorruption (if select <i>train on opened img</i>)  | 0.5-1.5 | The Poissonian factor that affects the variance of the signal-dependent shot noise in the image recorruption process for 2D ZS-DeconvNet. The theoretically optimal value is 1. Nevertheless, we found that for experimental data, a random value within a small range, e.g., [0.5, 1.5], for each training patch pairs in the recorruption process achieves a stronger robustness and is applicable for various biological specimens and imaging conditions.              |
+| Beta2 for recorruption (if select <i>train on opened img</i>)  | estimated from data | The Gaussian factor that represents the variance of the additive Gaussian noises, i.e., the readout noise of the camera, which can be estimated from the sample-free region of the images in training dataset or pre-calibrated from the camera following standard protocols.               |
+| PSF file                                                    |    /                 | Root path of the point spread function file used for calculating deconvolution loss. The PSF size has to be an odd number. The best option of the PSF is the measured beads because the experimentally acquired beads describe the actual imaging process best. But if the imaging system is well calibrated, i.e., with the least optical aberrations and its PSF is very close to theoretical one, the simulated PSF (e.g., generated via PSF Generator plugin) can be applied as well. Of note, the PSF is normalized before the calculation by dividing the summation of its intensity in the software to ensure the output deconvolved image is conservative in terms of intensity.|
 | Total number of augmentation                                                    |    10,000                 | The desired number of training patches after augmentation. |
 | Model to train                                              | 2D ZS-DeconvNet     | The network type for training.                                                                           |
-| Weights of Hessian Reg.                                     | 0.02                  | The weight of Hessian regularization term.                                                               |
+| Weights of Hessian Reg.                                     | 0.02                  | The scalar weight to balance the Hessian regularization in the loss function. The Hessian regularization used in the training process of ZS-DeconvNet is mainly to mitigate the slight pixelized artifact, therefore does not need to be tuned.                                                               |
 | Total epochs                                                | 200                 | The number of training epochs.                                                                           |
 | iteration number per epoch                                  | 200                 | The number of training iterations per epoch.                                                             |
-| Batch size                                                  | 4                   | Batch size in training.                                                                                  |
-| Patch shape                                                 | 128                 | The shape of the training data. Select from given number.                                                |
-| Initial learning rate                                       | $0.5\times 10^{-4}$ | The initial learning rate.                                                                               |
+| Batch size                                                  | 4                   | The batch size is defined as the number of samples used for each training iteration, which mainly affects the convergence speed and generalization of the network models. Generally, a batch size that is either too large or too small may raise difficulties in the training procedure, e.g., out of memory error or unstable convergence.                                                                                 |
+| Patch shape                                                 | 128                 | The patch size determines the image shape after data augmentation, which may affect the total training time and final performance of the trained network models.                                                |
+| Initial learning rate                                       | $0.5\times 10^{-4}$ | A higher initial learning rate typically leads to faster convergence of the model, while destabilizes the training process.                                                                               |
 
 + <p>Click OK to start training. A message box containing training information will pop up, and three preview windows will be displayed after each epoch, showing the current input images, denoised output images and deconvolution output images. </p>
 + Three types of exit:<br>
