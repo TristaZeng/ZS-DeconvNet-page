@@ -154,7 +154,7 @@ Our Fiji release is included in the open-source code, you can follow the instruc
 + Copy <code style="background-color:#393939;">./Fiji-plugin/jars/*</code> and <code style="background-color:#393939;">./Fiji-plugin/plugins/*</code> to your root path of Fiji <code style="background-color:#393939;">/*/Fiji.app/</code>.
 + Restart Fiji.
 
-This Fiji plugin can work on workstations with Linux and Windows operating system, but not MacOS. Because TensorFlow-Java pacakge cannot be installed on MacOS, which is the key dependent package of ZS-DeconvNet. We'll be looking for the solutions and trying to make our plugin compatible with MacOS someday.
+This Fiji plugin can work on workstations with Linux and Windows operating system, but not MacOS. Because TensorFlow-Java package cannot be installed on MacOS, which is the key dependent package of ZS-DeconvNet. We'll be looking for the solutions and trying to make our plugin compatible with MacOS someday.
 
 <h3 style="color:white;">5.2 About GPU and TensorFlow version</h3>
 The ZS-DeconvNet Fiji plugin was developed based on TensorFlow-Java 1.15.0, which is compatible with CUDA version of 10.1 and cuDNN version of 7.5.1. If you would like to process models with a different TensorFlow version, or running with different GPU settings, please do the following:
