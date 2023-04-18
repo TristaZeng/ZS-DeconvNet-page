@@ -47,6 +47,8 @@ It is recommended to download the demo test data and pre-trained models <code st
 
 In the folder <code style="background-color:#393939;">Fiji_Plugin</code>,
 
+
+
 <hr>
 
 <h2 style="color:white;" id="params">2. Detailed description of parameters</h2>
@@ -148,13 +150,15 @@ To test a well-trained ZS-DeconvNet model, you should:
 
 <h2 style="color:white;" id="Fiji plugin">5. How to use our Fiji plugin</h2>
 
+We provide a simple instruction for our plugin here. For latest updates, detailed parameter table and snapshots of usage, see the ReadMe.md in https://github.com/TristaZeng/ZS-DeconvNet/tree/main/Fiji_Plugin.
+
 <h3 style="color:white;">5.1 Installation</h3>
 Our Fiji release is included in the open-source code, you can follow the instructions below to install the plugin:
 
 + Copy <code style="background-color:#393939;">./Fiji-plugin/jars/*</code> and <code style="background-color:#393939;">./Fiji-plugin/plugins/*</code> to your root path of Fiji <code style="background-color:#393939;">/*/Fiji.app/</code>.
 + Restart Fiji.
 
-This Fiji plugin can work on workstations with Linux and Windows operating system, but not MacOS. Because TensorFlow-Java package cannot be installed on MacOS, which is the key dependent package of ZS-DeconvNet. We'll be looking for the solutions and trying to make our plugin compatible with MacOS someday.
+We mainly developed and tested the ZS-DeconvNet Fiji plugin on workstations of Linux and Windows operating system equipped with Nvidia graphics cards. Because TensorFlow-GPU package is currently incompatible with MacOS, we are sorry that MacBook users can only use the TensorFlow-CPU to run our ZS-DeconvNet Fiji plugin at present, which is relatively inefficient compared to Nvidia GPU-based computation. We’ll be looking for the solutions and trying to make our plugin compatible with MacBook for higher efficiency in the future.
 
 <h3 style="color:white;">5.2 About GPU and TensorFlow version</h3>
 The ZS-DeconvNet Fiji plugin was developed based on TensorFlow-Java 1.15.0, which is compatible with CUDA version of 10.1 and cuDNN version of 7.5.1. If you would like to process models with a different TensorFlow version, or running with different GPU settings, please do the following:
@@ -185,10 +189,9 @@ The overall workflow of ZS-DeconvNet training with Fiji plugin includes followin
 + <p>Click OK to start training. A message box containing training information will pop up, and three preview windows will be displayed after each epoch, showing the current input images, denoised output images and deconvolution output images. </p>
 + Three types of exit:<br>
 (i) Press <i>Cancel > Close</i> to enforce an exit if you don't want to train or save this model.<br>
-(ii) Press <i>Finish Training</i> for an early stopping. A window containing model information (Overview, Metadata, Inputs & Outputs, Training) will pop up and you can save the model by <i>File actions > Save to..</i>.<br>
-(iii) After the training is completed, a window containing model information (Overview, Metadata, Inputs & Outputs, Training) will pop up and you can save the model by <i>File actions > Save to..</i>.
+(ii) Press <i>Finish Training</i> for an early stopping. A window will pop up and you can save the model by <i>File actions > Save to..</i>.<br>
+(iii) After the training is completed, a window will pop up and you can save the model by <i>File actions > Save to..</i>.
   
   Of note, you can also press <i>Export Model</i> during training to export the lastest model without disposing the training progress.
 
-+ The model saved via <i>File actions > Save to..</i> is in BioImage format. For inference with ZS-DeconvNet plugin, you need to extract this file and find <code style="background-color:#393939;">./tf_saved_model_bundle.zip</code>, which is the zip file needed in <i>Plugins > ZS-DeconvNet > predict</i>.
 <center><img src="https://github.com/TristaZeng/ZS-DeconvNet-page/blob/page/images/SuppFig16_Fiji_Plugin_Training_v1_whiteBG.png?raw=true" width="900" align="middle" /></center>
