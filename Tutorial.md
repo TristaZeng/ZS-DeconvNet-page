@@ -47,7 +47,10 @@ It is recommended to download the demo test data and pre-trained models <code st
 
 In the folder <code style="background-color:#393939;">Fiji_Plugin</code>,
 
-
+- <code style="background-color:#393939;">./jars</code> includes the dependent packages of our plugin
+- <code style="background-color:#393939;">./plugins</code> includes our proposed plugin
+- <code style="background-color:#393939;">./pre-trained_models</code> includes the link to some test data and pre-trained models for users to test the plugin
+- <code style="background-color:#393939;">./readme_imgs</code> includes the images used in ReadMe.md.
 
 <hr>
 
