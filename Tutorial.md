@@ -38,7 +38,7 @@ In the folder <code style="background-color:#393939;">Python_MATLAB_Codes</code>
   - <code style="background-color:#393939;">./train_inference_python/models</code> includes the optional models
   - <code style="background-color:#393939;">./train_inference_python/utils</code> is the tool package
 
-It is recommended to download the demo test data and pre-trained models <code style="background-color:#393939;">saved_models</code> from [our open-source datasets](replace_with_zenodo_path), and place it under the same folder so that:
+It is recommended to download the demo test data and pre-trained models <code style="background-color:#393939;">saved_models</code> from [our open-source datasets](https://www.zenodo.org/record/7261163#.ZD9kZHZBx3g), and place it under the same folder so that:
 
 - <code style="background-color:#393939;">./saved_models</code> includes pre-trained models for testing, and for each modality and structure <code style="background-color:#393939;">xx</code>:
   
@@ -62,7 +62,7 @@ In the folder <code style="background-color:#393939;">Fiji_Plugin</code>,
 | Alpha for recorruption   | 1-2 | The noise magnification factor, which controls the overall magnitude of the added noises. The value of α does not affect the independence of the noise in the paired recorrupted images, thereby any values are theoretically applicable. However, in practice, to avoid over-corruption for either the input or target images, we adopted a modest range of [1, 2], for all 2D ZS-DeconvNet models, which is applicable for both simulated and experimental dataset of various specimens and imaging conditions in this paper.              |
 | Beta1 for recorruption  | 0.5-1.5 | The Poissonian factor that affects the variance of the signal-dependent shot noise in the image recorruption process for 2D ZS-DeconvNet. The theoretically optimal value is 1. Nevertheless, we found that for experimental data, a random value within a small range, e.g., [0.5, 1.5], for each training patch pairs in the recorruption process achieves a stronger robustness and is applicable for various biological specimens and imaging conditions.              |
 | Beta2 for recorruption   | estimated from data | The Gaussian factor that represents the variance of the additive Gaussian noises, i.e., the readout noise of the camera, which can be estimated from the sample-free region of the images in training dataset or pre-calibrated from the camera following standard protocols.               |
-| PSF file                                                    |    /                 | Root path of the point spread function file used for calculating deconvolution loss. The PSF size has to be an odd number. The best option of the PSF is the measured beads because the experimentally acquired beads describe the actual imaging process best. But if the imaging system is well calibrated, i.e., with the least optical aberrations and its PSF is very close to theoretical one, the simulated PSF (e.g., generated via PSF Generator plugin) can be applied as well. We included the corresponding PSF for each type of data in our [open-source datasets](replace_with_zenodo_path). Of note, the PSF is normalized before the calculation by dividing the summation of its intensity in the software to ensure the output deconvolved image is conservative in terms of intensity.|
+| PSF file                                                    |    /                 | Root path of the point spread function file used for calculating deconvolution loss. The PSF size has to be an odd number. The best option of the PSF is the measured beads because the experimentally acquired beads describe the actual imaging process best. But if the imaging system is well calibrated, i.e., with the least optical aberrations and its PSF is very close to theoretical one, the simulated PSF (e.g., generated via PSF Generator plugin) can be applied as well. We included the corresponding PSF for each type of data in our [open-source datasets](https://www.zenodo.org/record/7261163#.ZD9kZHZBx3g). Of note, the PSF is normalized before the calculation by dividing the summation of its intensity in the software to ensure the output deconvolved image is conservative in terms of intensity.|
 | Total number of augmentation                                                    |    20,000 (2D) / 10,000 (3D)                | The desired number of training patches after augmentation. |
 | Model to train                                              | 2D ZS-DeconvNet/3D ZS-DeconvNet     | The network type for training.                                                                           |
 | Weights of Hessian Reg.                                     | 0.02 (2D) / 0.1 (3D)                 | The scalar weight to balance the Hessian regularization in the loss function. The Hessian regularization used in the training process of ZS-DeconvNet is mainly to mitigate the slight pixelized artifact, therefore does not need to be tuned.                                                               |
@@ -78,7 +78,7 @@ In the folder <code style="background-color:#393939;">Fiji_Plugin</code>,
 
 We use MATLAB R2021b but previous versions might be compatible. After cloning our source code, you can:
 
-+ <p>Prepare a folder of raw data. Download <a href='replace_with_zenodo_path'>our open-source raw data</a> of various modalities or use your own raw data.</p> 
++ <p>Prepare a folder of raw data. Download <a href='https://www.zenodo.org/record/7261163#.ZD9kZHZBx3g'>our open-source raw data</a> of various modalities or use your own raw data.</p> 
 
 + <p>Open <code style="background-color:#393939;">./data_augment_recorrupt_matlab/demo_augm.m</code> and replace the parameter <code style="background-color:#393939;">data_folder</code> with your raw data directory.</p>
 
@@ -153,7 +153,7 @@ To test a well-trained ZS-DeconvNet model, you should:
 
 <h2 style="color:white;" id="Fiji plugin">5. How to use our Fiji plugin</h2>
 
-We provide a simple instruction for our plugin here. For latest updates, detailed parameter table and snapshots of usage, see the ReadMe.md in https://github.com/TristaZeng/ZS-DeconvNet/tree/main/Fiji_Plugin.
+We provide a simple instruction for our plugin here. For latest updates, detailed parameter table and snapshots of usage, see the ReadMe.md in <a href='https://github.com/TristaZeng/ZS-DeconvNet/tree/main/Fiji_Plugin'>our Github repository</a>.
 
 <h3 style="color:white;">5.1 Installation</h3>
 Our Fiji release is included in the open-source code, you can follow the instructions below to install the plugin:
