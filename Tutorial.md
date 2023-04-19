@@ -38,7 +38,7 @@ In the folder <code style="background-color:#393939;">Python_MATLAB_Codes</code>
   - <code style="background-color:#393939;">./train_inference_python/models</code> includes the optional models
   - <code style="background-color:#393939;">./train_inference_python/utils</code> is the tool package
 
-It is recommended to download the demo test data and pre-trained models <code style="background-color:#393939;">saved_models</code> from [our open-source datasets](https://www.zenodo.org/record/7261163#.ZD9kZHZBx3g), and place it under the same folder so that:
+It is recommended to download the demo test data and pre-trained models <code style="background-color:#393939;">saved_models</code> from [our open-source datasets](https://drive.google.com/drive/folders/1XAOuLYXYFCxlElRwvik_fs7TqZlRixGv), and place it under the same folder so that:
 
 - <code style="background-color:#393939;">./saved_models</code> includes pre-trained models for testing, and for each modality and structure <code style="background-color:#393939;">xx</code>:
   
