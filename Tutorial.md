@@ -46,7 +46,7 @@ title: Tutorial
 
 We use MATLAB R2021b but other versions might be compatible. 
 
-1.1 To generate training dataset, you can:
+<b>1.1</b> To generate training dataset, you can:
 
 + <p>Prepare a folder of raw data. Download <a href='https://www.zenodo.org/record/7261163#.ZD9kZHZBx3g'>our open-source raw data</a> of various modalities or use your own raw data.</p> 
 
@@ -54,7 +54,7 @@ We use MATLAB R2021b but other versions might be compatible.
 
 + <p>The default output path is <code style="background-color:#393939;">./Python_MATLAB_Codes/data_augment_recorrupt_matlab/your_augmented_datasets/</code>.</p>
 
-1.2 To generate training dataset for ZS-DeconvNet-SIM, you can:
+<b>1.2</b> To generate training dataset for ZS-DeconvNet-SIM, you can:
 
 + <p>Prepare a folder of raw data.</p> 
 
@@ -62,9 +62,9 @@ We use MATLAB R2021b but other versions might be compatible.
 
 + <p>Perform SIM reconstructions on the corrupted dataset to generate the input and targets for ZS-DeconvNet-SIM.</p>
 
-2.1 To simulate PSF for (3D) ZS-DeconvNet, run <code style="background-color:#393939;">./Python_MATLAB_Codes/data_augment_recorrupt_matlab/GenData4ZS-DeconvNet/create_PSF.m</code> and the simulated PSF will be saved to your designated file path.
+<b>2.1</b> To simulate PSF for (3D) ZS-DeconvNet, run <code style="background-color:#393939;">./Python_MATLAB_Codes/data_augment_recorrupt_matlab/GenData4ZS-DeconvNet/create_PSF.m</code> and the simulated PSF will be saved to your designated file path.
 
-2.2 To simulate PSF for ZS-DeconvNet-SIM, run <code style="background-color:#393939;">./Python_MATLAB_Codes/data_augment_recorrupt_matlab/GenData4ZS-DeconvNet-SIM/main_create_simu_beads.m</code> and the generated raw 3D-SIM images of a simulated bead <code style="background-color:#393939;">img_sim</code> will be saved to your MATLAB workspace.
+<b>2.2</b> To simulate PSF for ZS-DeconvNet-SIM, run <code style="background-color:#393939;">./Python_MATLAB_Codes/data_augment_recorrupt_matlab/GenData4ZS-DeconvNet-SIM/main_create_simu_beads.m</code> and the generated raw 3D-SIM images of a simulated bead <code style="background-color:#393939;">img_sim</code> will be saved to your MATLAB workspace.
 
 <hr>
 
@@ -148,12 +148,12 @@ Here is a demo video of screen captures of the training and inference procedures
 <center><video src="https://github.com/TristaZeng/ZS-DeconvNet-page/blob/page/video/SuppVideo9_Demo_Plugin.mp4?raw=true" controls="controls" width="100%" height="auto"/></center>
 
 <h3 style="color:white;">5.1 Installation and Pre-trained Models</h3>
-<p>You can follow the instructions below to install the plugin:
+<p>You can follow the instructions below to install the plugin:</p>
 
-+ Download from <a href='https://drive.google.com/drive/folders/1nJoj9Ljx2MNXa-lCOGIzVj_1BT-xrp2F'>here</a>.
-+ Copy <code style="background-color:#393939;">./jars/*</code> and <code style="background-color:#393939;">./plugins/*</code> to your root path of Fiji <code style="background-color:#393939;">/*/Fiji.app/</code>.
-+ Restart Fiji.
-+ We provide pre-trained models in BioImage Model Zoo bundle and one corresponding test image or test stack for each model in the folder <code style="background-color:#393939;">./pre-trained_models</code>. See the list below:</p>
++ <p>Download from <a href='https://drive.google.com/drive/folders/1nJoj9Ljx2MNXa-lCOGIzVj_1BT-xrp2F'>here</a>.</p>
++ <p>Copy <code style="background-color:#393939;">./jars/*</code> and <code style="background-color:#393939;">./plugins/*</code> to your root path of Fiji <code style="background-color:#393939;">/*/Fiji.app/</code>.</p>
++ <p>Restart Fiji.</p>
++ <p>We provide pre-trained models in BioImage Model Zoo bundle and one corresponding test image or test stack for each model in the folder <code style="background-color:#393939;">./pre-trained_models</code>. See the list below:</p>
 
 | Model Name     |    Model Type |        Test Data Name | Test Data Type |
   |:---------------------------:|:-------------:|:-------------:|:-------------:|
