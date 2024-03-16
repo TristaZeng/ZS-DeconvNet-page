@@ -10,11 +10,11 @@ title: Tutorial
 <p>Our source code and Fiji plugin can be downloaded from <a href='https://github.com/TristaZeng/ZS-DeconvNet'>https://github.com/TristaZeng/ZS-DeconvNet</a>. We use MATLAB R2021b to generate training datasets from raw images, and TensorFlow to perform training and inference. We also develop a Fiji plugin for both data generation and model training and inference.</p>
 <p>This page provides <b>quick-start tutorials</b> for MATLAB, Python and Fiji. For more detailed instructions see the ReadMe.md in our <a href='https://github.com/TristaZeng/ZS-DeconvNet'>Github repository</a>. An overlook of their respective functions are summarized in the table below:</p>
 
-| Environment                    | Data augmentation | Network training| PSF Simulation |
-  |:----------------------------------:|:-------------:|:-------------:|:-------------:|
-  | MATLAB                    | 1. Save augmented images in local folders<br>2. Convenient for visualizing and checking the augmented data| / | Provide MATLAB script to simulate PSFs. |
-  | Python                    | / | 1. Faster than Fiji by ~1.6-fold<br>2. Automatically save trained models | / |
-  | Fiji plugin                    | 1. Simple operation<br>2. Save augmented images in memory and directly train new models with them| 1. Simple operation<br>2. Automatically show the intermediate results<br>3. Save the models manually during the training process| You can use another Fiji plugin to simulate PSFs. |
+| Environment                    | Data augmentation | Network training| 
+  |:----------------------------------:|:-------------:|:-------------:|
+  | MATLAB                    | 1. Save augmented images in local folders<br>2. Convenient for visualizing and checking the augmented data| / | 
+  | Python                    | / | 1. Faster than Fiji by ~1.6-fold<br>2. Automatically save trained models | 
+  | Fiji plugin                    | 1. Simple operation<br>2. Save augmented images in memory and directly train new models with them| 1. Simple operation<br>2. Automatically show the intermediate results<br>3. Save the models manually during the training process| 
 
 
 
@@ -128,9 +128,9 @@ To train a new model, you need to:
 
 We have provided a <a href='https://drive.google.com/drive/folders/1XAOuLYXYFCxlElRwvik_fs7TqZlRixGv'>download link</a> in the folder <code style="background-color:#393939;">./Python_MATLAB_Codes/saved_models/</code>, which contains six different data samples, their corresponding well-trained ZS-DeconvNet models, and their ZS-DeconvNet outputs, organized in the format of:
 
-+ <code style="background-color:#393939;">./Python_MATLAB_Codes/saved_models/\<sample type>/test_data</code> contains the test data of this sample type.
-+ <code style="background-color:#393939;">./Python_MATLAB_Codes/saved_models/\<sample type>/saved_model</code> contains the pre-trained model (a .h5 file) of this sample type.
-+ <code style="background-color:#393939;">./Python_MATLAB_Codes/saved_models/\<sample type>/saved_model/Inference_demo</code> contains the ZS-DeconvNet output of this sample type. You should be able to get the same result if you use the pre-trained model to process the test data in <code style="background-color:#393939;">./Python_MATLAB_Codes/saved_models/\<sample type>/test_data</code>.
++ <code style="background-color:#393939;">./Python_MATLAB_Codes/saved_models/xx/test_data</code> contains the test data of this sample type.
++ <code style="background-color:#393939;">./Python_MATLAB_Codes/saved_models/xx/saved_model</code> contains the pre-trained model (a .h5 file) of this sample type.
++ <code style="background-color:#393939;">./Python_MATLAB_Codes/saved_models/xx/saved_model/Inference_demo</code> contains the ZS-DeconvNet output of this sample type. You should be able to get the same result if you use the pre-trained model to process the test data in <code style="background-color:#393939;">./Python_MATLAB_Codes/saved_models/xx/test_data</code>.
 
 Now to test a well-trained ZS-DeconvNet model, you should:
 
