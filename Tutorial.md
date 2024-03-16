@@ -31,7 +31,7 @@ title: Tutorial
 
 <h2 style="color:white;" id="params">Brief description of parameters</h2>
 
-<p>ZS-DeconvNet is a deep-learning method for denoising and super-resolution with no need for users to traverse through hyper-parameters so you can skip this part if you are not interested in the principle and eager to give a try. Apart from the typical hyper-parameters such as learning rate, total epoch, batch size and patch size, there are a few important inputs:</p>
+<p>ZS-DeconvNet is a deep-learning method for denoising and super-resolution with no need for users to traverse through hyper-parameters so you can skip this part without inhibiting the using of ZS-DeconvNet. Apart from the typical hyper-parameters such as learning rate, total epoch, batch size and patch size, there are a few important inputs:</p>
 
 | Name                                             | Suggested value       | Description                                                                                              |
 |:-----------------------------------------------------------:|:-------------------:|:--------------------------------------------------------------------------------------------------------:|
