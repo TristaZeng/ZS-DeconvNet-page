@@ -10,7 +10,7 @@ title: Tutorial
 <p>Our source code and Fiji plugin can be downloaded from <a href='https://github.com/TristaZeng/ZS-DeconvNet'>https://github.com/TristaZeng/ZS-DeconvNet</a>. We use MATLAB R2021b to generate training datasets from raw images, and TensorFlow to perform training and inference. We also develop a Fiji plugin for both data generation and model training and inference. This page provides <b>quick-start tutorials</b> for MATLAB, Python and Fiji. For more detailed instructions see the ReadMe.md in our <a href='https://github.com/TristaZeng/ZS-DeconvNet'>Github repository</a>. An overlook of their respective functions are summarized in the table below:</p>
 
 | Environment                    | Data augmentation | Network training| PSF Simulation |
-  |:----------------------------------:|:-------------:|:-------------:|
+  |:----------------------------------:|:-------------:|:-------------:|:-------------:|
   | MATLAB                    | 1. Save augmented images in local folders<br>2. Convenient for visualizing and checking the augmented data| / | Provide MATLAB script to simulate PSFs. |
   | Python                    | / | 1. Faster than Fiji by ~1.6-fold<br>2. Automatically save trained models | / |
   | Fiji plugin                    | 1. Simple operation<br>2. Save augmented images in memory and directly train new models with them| 1. Simple operation<br>2. Automatically show the intermediate results<br>3. Save the models manually during the training process| You can use another Fiji plugin to simulate PSFs. |
@@ -30,7 +30,7 @@ title: Tutorial
 
 <h2 style="color:white;" id="params">Brief description of parameters</h2>
 
-ZS-DeconvNet is a deep-learning method for denoising and super-resolution with no need for users to traverse through hyper-parameters so you can skip this part if you are not interested in the principle and eager to give a try. Apart from the typical hyper-parameters such as learning rate, total epoch, batch size and patch size, there are a few important inputs:
+<p>ZS-DeconvNet is a deep-learning method for denoising and super-resolution with no need for users to traverse through hyper-parameters so you can skip this part if you are not interested in the principle and eager to give a try. Apart from the typical hyper-parameters such as learning rate, total epoch, batch size and patch size, there are a few important inputs:</p>
 
 | Name                                             | Suggested value       | Description                                                                                              |
 |:-----------------------------------------------------------:|:-------------------:|:--------------------------------------------------------------------------------------------------------:|
@@ -45,7 +45,7 @@ ZS-DeconvNet is a deep-learning method for denoising and super-resolution with n
 
 We use MATLAB R2021b but other versions might be compatible. 
 
-To generate training dataset, you can:
+1.1 To generate training dataset, you can:
 
 + <p>Prepare a folder of raw data. Download <a href='https://www.zenodo.org/record/7261163#.ZD9kZHZBx3g'>our open-source raw data</a> of various modalities or use your own raw data.</p> 
 
@@ -53,7 +53,7 @@ To generate training dataset, you can:
 
 + <p>The default output path is <code style="background-color:#393939;">./Python_MATLAB_Codes/data_augment_recorrupt_matlab/your_augmented_datasets/</code>.</p>
 
-To generate training dataset for ZS-DeconvNet-SIM, you can:
+1.2 To generate training dataset for ZS-DeconvNet-SIM, you can:
 
 + <p>Prepare a folder of raw data.</p> 
 
@@ -61,9 +61,9 @@ To generate training dataset for ZS-DeconvNet-SIM, you can:
 
 + <p>Perform SIM reconstructions on the corrupted dataset to generate the input and targets for ZS-DeconvNet-SIM.</p>
 
-To simulate PSF for (3D) ZS-DeconvNet, run `./Python_MATLAB_Codes/data_augment_recorrupt_matlab/GenData4ZS-DeconvNet/create_PSF.m` and the simulated PSF will be saved to your designated file path.
+2.1 To simulate PSF for (3D) ZS-DeconvNet, run <code style="background-color:#393939;">./Python_MATLAB_Codes/data_augment_recorrupt_matlab/GenData4ZS-DeconvNet/create_PSF.m</code> and the simulated PSF will be saved to your designated file path.
 
-To simulate PSF for ZS-DeconvNet-SIM, run `./Python_MATLAB_Codes/data_augment_recorrupt_matlab/GenData4ZS-DeconvNet-SIM/main_create_simu_beads.m` and the generated raw 3D-SIM images of a simulated bead `img_sim` will be saved to your MATLAB workspace
+2.2 To simulate PSF for ZS-DeconvNet-SIM, run <code style="background-color:#393939;">./Python_MATLAB_Codes/data_augment_recorrupt_matlab/GenData4ZS-DeconvNet-SIM/main_create_simu_beads.m</code> and the generated raw 3D-SIM images of a simulated bead <code style="background-color:#393939;">img_sim</code> will be saved to your MATLAB workspace.
 
 <hr>
 
@@ -114,17 +114,23 @@ Skip this part if you do not wish to train a new model. You can just test <a hre
 
 To train a new model, you need to:
 
-+ <p>Generate the training dataset following the instructions in the previous part.</p>
-+ <p>Choose a test image/volume and obtain the path to the corresponding PSF.</p>
-+ <p>Change <code style="background-color:#393939;">otf_or_psf_path</code> (or <code style="background-color:#393939;">psf_path</code> in the case of 3D), <code style="background-color:#393939;">data_dir</code>, <code style="background-color:#393939;">folder</code> and <code style="background-color:#393939;">test_images_path</code> in <code style="background-color:#393939;">./Python_MATLAB_Codes/train_inference_python/train_demo_2D.sh</code> or <code style="background-color:#393939;">train_demo_3D.sh</code>.</p>
-+ <p>Run it in your terminal.</p>
-+ <p>The result wills be saved to <code style="background-color:#393939;">./Python_MATLAB_Codes/your_saved_models/</code>.</p>
-+ <p>Run <code style="background-color:#393939;">tensorboard --logdir [save_weights_dir]/[save_weights_name]/graph</code> to monitor the training process via tensorboard if needed.</p>
-+ <p>Other <b>detailed description of each input argument of the python codes</b> can be found in the comments of <code style="background-color:#393939;">./Python_MATLAB_Codes/train_inference_python/train_demo_2D.sh</code> or <code style="background-color:#393939;">train_demo_3D.sh</code>.</p>
++ Generate the training dataset following the instructions in the previous part.
++ Choose a test image/volume and obtain the path to the corresponding PSF.
++ Change <code style="background-color:#393939;">otf_or_psf_path</code> (or <code style="background-color:#393939;">psf_path</code> in the case of 3D), <code style="background-color:#393939;">data_dir</code>, <code style="background-color:#393939;">folder</code> and <code style="background-color:#393939;">test_images_path</code> in <code style="background-color:#393939;">./Python_MATLAB_Codes/train_inference_python/train_demo_2D.sh</code> or <code style="background-color:#393939;">train_demo_3D.sh</code>.
++ Run it in your terminal.
++ The result wills be saved to <code style="background-color:#393939;">./Python_MATLAB_Codes/your_saved_models/</code>.
++ Run <code style="background-color:#393939;">tensorboard --logdir [save_weights_dir]/[save_weights_name]/graph</code> to monitor the training process via tensorboard if needed.
++ Other <b>detailed description of each input argument of the python codes</b> can be found in the comments of <code style="background-color:#393939;">./Python_MATLAB_Codes/train_inference_python/train_demo_2D.sh</code> or <code style="background-color:#393939;">train_demo_3D.sh</code>.
 
 <h3 style="color:white;">4.3 Inference Demo</h3>
 
-To test a well-trained ZS-DeconvNet model, you should:
+We have provided a <a href='https://drive.google.com/drive/folders/1XAOuLYXYFCxlElRwvik_fs7TqZlRixGv'>download link</a> in the folder <code style="background-color:#393939;">./Python_MATLAB_Codes/saved_models/</code>, which contains six different data samples, their corresponding well-trained ZS-DeconvNet models, and their ZS-DeconvNet outputs, organized in the format of:
+
++ <code style="background-color:#393939;">./Python_MATLAB_Codes/saved_models/\<sample type\>/test_data</code> contains the test data of this sample type.
++ <code style="background-color:#393939;">./Python_MATLAB_Codes/saved_models/\<sample type\>/saved_model</code> contains the pre-trained model (a .h5 file) of this sample type.
++ <code style="background-color:#393939;">./Python_MATLAB_Codes/saved_models/\<sample type\>/saved_model/Inference_demo</code> contains the ZS-DeconvNet output of this sample type. You should be able to get the same result if you use the pre-trained model to process the test data in <code style="background-color:#393939;">./Python_MATLAB_Codes/saved_models/\<sample type\>/test_data</code>.
+
+Now to test a well-trained ZS-DeconvNet model, you should:
 
 + Change the weight paths in <code style="background-color:#393939;">./Python_MATLAB_Codes/train_inference_python/infer_demo_2D.sh</code> or <code style="background-color:#393939;">infer_demo_3D.sh</code> accordingly, or just use the default options given by us. 
 + Run it in your terminal.
@@ -142,11 +148,11 @@ Here is a demo video of screen captures of the training and inference procedures
 
 <h3 style="color:white;">5.1 Installation and Pre-trained Models</h3>
 You can follow the instructions below to install the plugin:
-
+<p>
 + Download from <a href='https://drive.google.com/drive/folders/1nJoj9Ljx2MNXa-lCOGIzVj_1BT-xrp2F'>here</a>.
 + Copy <code style="background-color:#393939;">./jars/*</code> and <code style="background-color:#393939;">./plugins/*</code> to your root path of Fiji <code style="background-color:#393939;">/*/Fiji.app/</code>.
 + Restart Fiji.
-+ We provide pre-trained models in BioImage Model Zoo bundle and one corresponding test image or test stack for each model in the folder <code style="background-color:#393939;">./pre-trained_models</code>. See the list below:
++ We provide pre-trained models in BioImage Model Zoo bundle and one corresponding test image or test stack for each model in the folder <code style="background-color:#393939;">./pre-trained_models</code>. See the list below:</p>
 | Model Name     |    Model Type |        Test Data Name | Test Data Type |
   |:---------------------------:|:-------------:|:-------------:|:-------------:|
   | ZS-DeconvNet-2D-WF-lamp1.zip | ZS-DeconvNet | ZS-DeconvNet-2D-WF-lamp1-input.tif | 2D WF |
