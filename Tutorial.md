@@ -39,6 +39,7 @@ title: Tutorial
 | Beta2 for recorruption   | estimated from data | The variance of the readout noise of the camera, which can be estimated from the sample-free region of the images in training dataset or pre-calibrated from the camera following standard protocols.               |
 | PSF file                                                    |    /                 | Root path of the point spread function file used for calculating deconvolution loss. The PSF size has to be an odd number. We included the corresponding PSF for each type of data in our [open-source datasets](https://www.zenodo.org/record/7261163#.ZD9kZHZBx3g). |
 | Weights of Hessian Reg.                                     | 0.02 (2D) / 0.1 (3D)                 | The scalar weight to balance the Hessian regularization in the loss function. Default values are used for all simulated and experimental dataset of various specimens and imaging conditions in this paper.                                                               |
+
 <hr>
 
 <h2 style="color:white;" id="Data pre-processing">MATLAB: How to generate training dataset and PSFs</h2>
@@ -126,9 +127,9 @@ To train a new model, you need to:
 
 We have provided a <a href='https://drive.google.com/drive/folders/1XAOuLYXYFCxlElRwvik_fs7TqZlRixGv'>download link</a> in the folder <code style="background-color:#393939;">./Python_MATLAB_Codes/saved_models/</code>, which contains six different data samples, their corresponding well-trained ZS-DeconvNet models, and their ZS-DeconvNet outputs, organized in the format of:
 
-+ <code style="background-color:#393939;">./Python_MATLAB_Codes/saved_models/\<sample type\>/test_data</code> contains the test data of this sample type.
-+ <code style="background-color:#393939;">./Python_MATLAB_Codes/saved_models/\<sample type\>/saved_model</code> contains the pre-trained model (a .h5 file) of this sample type.
-+ <code style="background-color:#393939;">./Python_MATLAB_Codes/saved_models/\<sample type\>/saved_model/Inference_demo</code> contains the ZS-DeconvNet output of this sample type. You should be able to get the same result if you use the pre-trained model to process the test data in <code style="background-color:#393939;">./Python_MATLAB_Codes/saved_models/\<sample type\>/test_data</code>.
++ <code style="background-color:#393939;">./Python_MATLAB_Codes/saved_models/<sample type>/test_data</code> contains the test data of this sample type.
++ <code style="background-color:#393939;">./Python_MATLAB_Codes/saved_models/<sample type>/saved_model</code> contains the pre-trained model (a .h5 file) of this sample type.
++ <code style="background-color:#393939;">./Python_MATLAB_Codes/saved_models/<sample type>/saved_model/Inference_demo</code> contains the ZS-DeconvNet output of this sample type. You should be able to get the same result if you use the pre-trained model to process the test data in <code style="background-color:#393939;">./Python_MATLAB_Codes/saved_models/<sample type>/test_data</code>.
 
 Now to test a well-trained ZS-DeconvNet model, you should:
 
@@ -147,12 +148,13 @@ Here is a demo video of screen captures of the training and inference procedures
 <center><video src="https://github.com/TristaZeng/ZS-DeconvNet-page/blob/page/video/SuppVideo9_Demo_Plugin.mp4?raw=true" controls="controls" width="100%" height="auto"/></center>
 
 <h3 style="color:white;">5.1 Installation and Pre-trained Models</h3>
-You can follow the instructions below to install the plugin:
-<p>
+<p>You can follow the instructions below to install the plugin:
+
 + Download from <a href='https://drive.google.com/drive/folders/1nJoj9Ljx2MNXa-lCOGIzVj_1BT-xrp2F'>here</a>.
 + Copy <code style="background-color:#393939;">./jars/*</code> and <code style="background-color:#393939;">./plugins/*</code> to your root path of Fiji <code style="background-color:#393939;">/*/Fiji.app/</code>.
 + Restart Fiji.
 + We provide pre-trained models in BioImage Model Zoo bundle and one corresponding test image or test stack for each model in the folder <code style="background-color:#393939;">./pre-trained_models</code>. See the list below:</p>
+
 | Model Name     |    Model Type |        Test Data Name | Test Data Type |
   |:---------------------------:|:-------------:|:-------------:|:-------------:|
   | ZS-DeconvNet-2D-WF-lamp1.zip | ZS-DeconvNet | ZS-DeconvNet-2D-WF-lamp1-input.tif | 2D WF |
