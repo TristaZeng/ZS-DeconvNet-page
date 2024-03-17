@@ -14,32 +14,34 @@ title: Home
     <center><img src="https://github.com/TristaZeng/ZS-DeconvNet-page/blob/page/images/SIM_deconv.png?raw=true" width="1050" align="middle" /></center>
     <p style="font-style:italic;font-size: smaller;margin:0 20px">Representative raw images (left), conventional SIM (right), and ZS-DeconvNet-SIM images (middle) of clathrin coated pits (CCPs) and microtubules (MTs) in COS-7 cells.</p>
     <br>
-<p>ZS-DeconvNet is versatilely compatible with multiple imaging modalities, including total internal reflection fluorescence microscopy, three-dimensional (3D) wide-field microscopy, confocal microscopy, lattice light-sheet microscopy, and multimodal structured illumination microscopy, which enables multi-color, long-term, super-resolution 2D/3D imaging of subcellular bioprocesses from mitotic single cells to multicellular embryos of mouse and C. elegans.
-This homepage includes a general introduction and some typical applications of ZS-DeconvNet (this page), theoretical illustrations on the basic principle (see <a href='https://tristazeng.github.io/ZS-DeconvNet-page/Principle/'>Principle</a>), and tutorials for the implementation of the open-source python codes and ZS-DeconvNet Fiji plugin (see <a href='https://tristazeng.github.io/ZS-DeconvNet-page/Tutorial/'>Tutorial</a>), intended to give more informative instructions for potential users of our methods.
+<p>ZS-DeconvNet is versatilely compatible with multiple imaging modalities, including total internal reflection fluorescence microscopy, three-dimensional (3D) wide-field microscopy, confocal microscopy, lattice light-sheet microscopy, and multimodal structured illumination microscopy, which enables multi-color, long-term, super-resolution 2D/3D imaging of subcellular bioprocesses from mitotic single cells to multicellular embryos of mouse and C. elegans.</p>
+<p>This homepage includes a general introduction and some typical applications of ZS-DeconvNet (this page), theoretical illustrations on the basic principle (see <a href='https://tristazeng.github.io/ZS-DeconvNet-page/Principle/'>Principle</a>), and tutorials for the implementation of the open-source python codes and ZS-DeconvNet Fiji plugin (see <a href='https://tristazeng.github.io/ZS-DeconvNet-page/Tutorial/'>Tutorial</a>), intended to give more informative instructions for potential users of our methods.</p>
 <br>
 <br>
-<i>* Get our open-source codes and Fiji plugin from <a href='https://github.com/TristaZeng/ZS-DeconvNet'>https://github.com/TristaZeng/ZS-DeconvNet</a>!</i><br>
+<p><i>* Get our open-source codes and Fiji plugin from <a href='https://github.com/TristaZeng/ZS-DeconvNet'>https://github.com/TristaZeng/ZS-DeconvNet</a>!</i><br>
 <i>* Get our open-source raw data from <a href='https://zenodo.org/record/7261163#.ZD-ReXbP2Uk'>Datasets for Zero-Shot DeconvNet</a>!</i></p>
   
-<p>Feeling curious about our work? Here is a 5-step hands-on guide to get you quickly started on our Fiji plugin:
+  <hr>
 
-1. Copy <code style="background-color:#393939;">./jars/*</code> and <code style="background-color:#393939;">./plugins/*</code> to your root path of Fiji <code style="background-color:#393939;">[your root path of Fiji]/Fiji.app/</code> from this <a href='https://drive.google.com/drive/folders/1nJoj9Ljx2MNXa-lCOGIzVj_1BT-xrp2F'>link</a>, then restart Fiji.
+<p>Feeling curious about our work? Here is a 5-step hands-on guide to get you quickly started on our Fiji plugin:</p>
 
-2. Open <b>Edit > Options > Tensorflow</b>, and choose the version matching your model or setting. After a message pops up telling you that the library was installed, restart Fiji.
+<p>1. Copy <code style="background-color:#393939;">./jars/*</code> and <code style="background-color:#393939;">./plugins/*</code> to your root path of Fiji <code style="background-color:#393939;">[your root path of Fiji]/Fiji.app/</code> from this <a href='https://drive.google.com/drive/folders/1nJoj9Ljx2MNXa-lCOGIzVj_1BT-xrp2F'>link</a>, then restart Fiji.</p>
+
+<p>2. Open <b>Edit > Options > Tensorflow</b>, and choose the version matching your model or setting. After a message pops up telling you that the library was installed, restart Fiji.</p>
   
-  <center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/main/Fiji_Plugin/readme_imgs/tensorflow.png?raw=true" width="1050" align="middle" /></center>
+  <center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/main/Fiji_Plugin/readme_imgs/tensorflow.png?raw=true" width="750" align="middle" /></center>
     <br>
 
-3. Download one of our <a href='https://drive.google.com/drive/folders/14Fh2IDcFykoNf7JvbXJIARi-FukW2rqC'>pre-trained_models</a> and its test data. The corresponding test data, model type and test data type are listed in <code style="background-color:#393939;">Fiji_pretrained_models_list.xlsx</code> in the same folder. Open the test data in Fiji and start ZS-DeconvNet plugin by Clicking <b>Plugins > ZS-DeconvNet > predict</b>.
+<p>3. Download one of our <a href='https://drive.google.com/drive/folders/14Fh2IDcFykoNf7JvbXJIARi-FukW2rqC'>pre-trained_models</a> and its test data. The corresponding test data, model type and test data type are listed in <code style="background-color:#393939;">Fiji_pretrained_models_list.xlsx</code> in the same folder. Open the test data in Fiji and start ZS-DeconvNet plugin by Clicking <b>Plugins > ZS-DeconvNet > predict</b>.</p>
   
-  <center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/main/Fiji_Plugin/readme_imgs/predict.png?raw=true" width="1050" align="middle" /></center>
+  <center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/main/Fiji_Plugin/readme_imgs/predict.png?raw=true" width="750" align="middle" /></center>
     <br>
 
-4. Import the chosen model by entering the downloaded path or clicking <code style="background-color:#393939;">Browse</code>. Click <code style="background-color:#393939;">Adjust mapping of TF network input</code> and then <code style="background-color:#393939;">OK</code>.
+<p>4. Import the chosen model by entering the downloaded path or clicking <code style="background-color:#393939;">Browse</code>. Click <code style="background-color:#393939;">Adjust mapping of TF network input</code> and then <code style="background-color:#393939;">OK</code>.</p>
 
-5. After image processing with status bar shown in the message box (if select <code style="background-color:#393939;">Show progress dialog</code>), the denoised (if select <code style="background-color:#393939;">Show denoising result</code>) and deconvolved output will pop out in separate Fiji windows automatically.
+<p>5. After image processing with status bar shown in the message box (if select <code style="background-color:#393939;">Show progress dialog</code>), the denoised (if select <code style="background-color:#393939;">Show denoising result</code>) and deconvolved output will pop out in separate Fiji windows automatically.</p>
 
-<center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/main/Fiji_Plugin/readme_imgs/predict_progress.png?raw=true" width="1050" align="middle" /></center>
+<center><img src="https://github.com/TristaZeng/ZS-DeconvNet/blob/main/Fiji_Plugin/readme_imgs/predict_progress.png?raw=true" width="750" align="middle" /></center>
     <br>
 
 </p>

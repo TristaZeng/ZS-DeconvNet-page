@@ -31,7 +31,7 @@ title: Tutorial
 
 <h2 style="color:white;" id="params">Brief description of parameters</h2>
 
-<p>ZS-DeconvNet is a deep-learning method for denoising and super-resolution with no need for users to traverse through hyper-parameters so you can <b>skip this part</b> without inhibiting the using of ZS-DeconvNet. Apart from the typical hyper-parameters such as learning rate, total epoch, batch size and patch size, there are a few important inputs:</p>
+<p>ZS-DeconvNet is a deep-learning method for denoising and super-resolution with no need for users to traverse through hyper-parameters. Basically you just make sure that ZS-DeconvNet models are trained using matched PSFs (otherwise the improper training with mismatched PSFs might result in lack of resolution improvement or periodically artifacts), then you can <b>skip this part</b> without inhibiting the using of ZS-DeconvNet. Apart from the typical hyper-parameters such as learning rate, total epoch, batch size and patch size, there are a few important inputs during <b>training</b> stage:</p>
 
 | Name                                             | Suggested value       | Description                                                                                              |
 |:-----------------------------------------------------------:|:-------------------:|:--------------------------------------------------------------------------------------------------------:|
@@ -206,4 +206,4 @@ The overall workflow of ZS-DeconvNet training with Fiji plugin includes followin
 
 <h3 style="color:white;">5.5 PSF Generation</h3>
 
-<p>You can generate PSF via the Fiji plugin PSF Generator.</p>
+<p>You can generate PSF via the Fiji plugin <a href='https://bigwww.epfl.ch/algorithms/psfgenerator/'>PSF Generator</a>.</p>
